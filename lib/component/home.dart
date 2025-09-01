@@ -62,12 +62,13 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: h * 0.2,
+                      height: h * 0.22,
                       decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.all(Radius.circular(25)),
                         image: DecorationImage(
                           image: AssetImage("assets/images/maa.jpg"),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
