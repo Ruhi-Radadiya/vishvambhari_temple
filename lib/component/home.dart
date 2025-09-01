@@ -51,13 +51,16 @@ class _HomeState extends State<Home> {
                 begin: AlignmentGeometry.topCenter,
               ),
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-                topRight: Radius.circular(50),
+                topLeft: Radius.circular(45),
+                topRight: Radius.circular(45),
               ),
             ),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 14,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -65,10 +68,162 @@ class _HomeState extends State<Home> {
                       height: h * 0.22,
                       decoration: BoxDecoration(
                         color: Colors.blue,
-                        borderRadius: BorderRadius.all(Radius.circular(25)),
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
                         image: DecorationImage(
                           image: AssetImage("assets/images/maa.jpg"),
                           fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 11,
+                              ),
+                              child: Text(
+                                "Photos",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 11,
+                              ),
+                              child: Text(
+                                "Video",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 11,
+                              ),
+                              child: Text(
+                                "Audio",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 11,
+                              ),
+                              child: Text(
+                                "Event",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 11,
+                              ),
+                              child: Text(
+                                "Books",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      height: h * 0.17,
+                      width: w * 0.85,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/maa.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "GLIMPSE OF THE DIVINE MOTHER",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.white,
                         ),
                       ),
                     ),
