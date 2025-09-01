@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
                       height: h * 0.22,
                       decoration: BoxDecoration(
                         color: Colors.blue,
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         image: DecorationImage(
                           image: AssetImage("assets/images/maa.jpg"),
                           fit: BoxFit.cover,
