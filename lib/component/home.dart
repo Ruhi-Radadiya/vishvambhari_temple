@@ -210,7 +210,9 @@ class _HomeState extends State<Home> {
                         color: Colors.blue,
                         borderRadius: BorderRadius.all(Radius.circular(16)),
                         image: DecorationImage(
-                          image: AssetImage("assets/images/maa.jpg"),
+                          image: AssetImage(
+                            "assets/images/78ff582b5f9e2f857e04975ec945caef377a0fe5.jpg",
+                          ),
                           fit: BoxFit.cover,
                         ),
                       ),
