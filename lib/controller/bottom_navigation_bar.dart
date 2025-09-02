@@ -12,7 +12,7 @@ class NavigationController extends GetxController {
   void changePageView({required int index}) {
     pageController.animateToPage(
       index,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOut,
     );
   }
