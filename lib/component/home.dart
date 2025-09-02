@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../routes/routes.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -198,7 +201,16 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    Icon(CupertinoIcons.bell, color: Colors.white, size: 25),
+                    IconButton(
+                      icon: const Icon(
+                        CupertinoIcons.bell,
+                        color: Colors.white,
+                        size: 25,
+                      ),
+                      onPressed: () {
+                        Get.toNamed(Routes.notificationScreen);
+                      },
+                    ),
                   ],
                 ),
               ),
