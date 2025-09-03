@@ -58,14 +58,14 @@ class _AboutState extends State<About> {
                           decoration: InputDecoration(
                             hintText: "Search here...",
                             hintStyle: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withValues(alpha: 0.7),
                             ),
                             prefixIcon: const Icon(
                               Icons.search,
                               color: Colors.white,
                             ),
                             filled: true,
-                            fillColor: Colors.white.withOpacity(0.2),
+                            fillColor: Colors.white.withValues(alpha: 0.2),
                             contentPadding: const EdgeInsets.symmetric(
                               vertical: 0,
                               horizontal: 15,
@@ -140,8 +140,45 @@ class _AboutState extends State<About> {
                                       begin: Alignment.centerLeft,
                                       end: Alignment.centerRight,
                                       colors: [
-                                        Colors.black.withOpacity(0.5),
+                                        Colors.black.withValues(alpha: 0.5),
                                         Colors.transparent,
+                                      ],
+                                    ),
+                                  ),
+                                  alignment: Alignment.topLeft,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                      top: 20.0,
+                                      left: 25,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "MAA\nVISHVAMBHARI",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                        ),
+                                        Text(
+                                          "Glimpse Of Mother\nVishvambhari",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                        Text(
+                                          "•••",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 29,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -181,10 +218,8 @@ class _AboutState extends State<About> {
                                         begin: Alignment.bottomCenter,
                                         end: Alignment.topCenter,
                                         colors: [
-                                          Colors.black.withOpacity(0.5),
-                                          // dark bottom
+                                          Colors.black.withValues(alpha: 0.6),
                                           Colors.transparent,
-                                          // fade upwards
                                         ],
                                       ),
                                     ),
@@ -366,8 +401,8 @@ class _AboutState extends State<About> {
                                           child: Text(
                                             "Maa Vishvambhari TirthYatra Dham,\nAt Rabda, Gujarat 396055",
                                             style: TextStyle(
-                                              color: Colors.white.withOpacity(
-                                                0.8,
+                                              color: Colors.white.withValues(
+                                                alpha: 0.8,
                                               ),
                                               fontSize: 12,
                                             ),
@@ -387,8 +422,8 @@ class _AboutState extends State<About> {
                                         Text(
                                           "+91 72030 25755",
                                           style: TextStyle(
-                                            color: Colors.white.withOpacity(
-                                              0.8,
+                                            color: Colors.white.withValues(
+                                              alpha: 0.8,
                                             ),
                                             fontSize: 12,
                                           ),
@@ -407,8 +442,8 @@ class _AboutState extends State<About> {
                                         Text(
                                           "maavishvambhari@gmail.com",
                                           style: TextStyle(
-                                            color: Colors.white.withOpacity(
-                                              0.8,
+                                            color: Colors.white.withValues(
+                                              alpha: 0.8,
                                             ),
                                             fontSize: 12,
                                           ),
@@ -417,8 +452,8 @@ class _AboutState extends State<About> {
                                         Container(
                                           padding: const EdgeInsets.all(6),
                                           decoration: BoxDecoration(
-                                            color: Colors.white.withOpacity(
-                                              0.2,
+                                            color: Colors.white.withValues(
+                                              alpha: 0.2,
                                             ),
                                             shape: BoxShape.circle,
                                           ),
@@ -452,13 +487,13 @@ class _AboutState extends State<About> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: h * 0.17,
-                                width: w * 0.17,
+                                height: h * 0.16,
+                                width: w * 0.16,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: const DecorationImage(
@@ -469,8 +504,8 @@ class _AboutState extends State<About> {
                                 ),
                               ),
                               Container(
-                                height: h * 0.17,
-                                width: w * 0.17,
+                                height: h * 0.16,
+                                width: w * 0.16,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: const DecorationImage(
@@ -481,8 +516,8 @@ class _AboutState extends State<About> {
                                 ),
                               ),
                               Container(
-                                height: h * 0.17,
-                                width: w * 0.17,
+                                height: h * 0.16,
+                                width: w * 0.16,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: const DecorationImage(
@@ -493,8 +528,8 @@ class _AboutState extends State<About> {
                                 ),
                               ),
                               Container(
-                                height: h * 0.17,
-                                width: w * 0.17,
+                                height: h * 0.16,
+                                width: w * 0.16,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: const DecorationImage(
@@ -505,8 +540,8 @@ class _AboutState extends State<About> {
                                 ),
                               ),
                               Container(
-                                height: h * 0.17,
-                                width: w * 0.17,
+                                height: h * 0.16,
+                                width: w * 0.16,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: const DecorationImage(

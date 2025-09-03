@@ -34,7 +34,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           backgroundColor: const Color(0xff0c2e49),
           currentIndex: controller.bottomNavigationIndex.value,
           selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white.withOpacity(0.6),
+          unselectedItemColor: Colors.white.withValues(alpha: 0.6),
           selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 13,

@@ -23,7 +23,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               padding: const EdgeInsets.only(
                 left: 16.0,
                 right: 16,
-                top: 22,
+                top: 45,
                 bottom: 10,
               ),
               child: Row(

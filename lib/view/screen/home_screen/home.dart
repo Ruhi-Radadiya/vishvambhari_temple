@@ -181,14 +181,14 @@ class _HomeState extends State<Home> {
                           decoration: InputDecoration(
                             hintText: "Search here...",
                             hintStyle: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withValues(alpha: 0.7),
                             ),
                             prefixIcon: const Icon(
                               Icons.search,
                               color: Colors.white,
                             ),
                             filled: true,
-                            fillColor: Colors.white.withOpacity(0.2),
+                            fillColor: Colors.white.withValues(alpha: 0.2),
                             contentPadding: const EdgeInsets.symmetric(
                               vertical: 0,
                               horizontal: 15,
@@ -258,7 +258,7 @@ class _HomeState extends State<Home> {
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
                                     colors: [
-                                      Colors.black.withOpacity(0.6),
+                                      Colors.black.withValues(alpha: 0.6),
                                       Colors.transparent,
                                     ],
                                   ),
@@ -366,14 +366,47 @@ class _HomeState extends State<Home> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(
-                          Radius.circular(16),
+                          Radius.circular(30),
                         ),
                         gradient: LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                           colors: [
-                            Colors.black.withOpacity(0.5),
+                            Colors.black.withValues(alpha: 0.5),
                             Colors.transparent,
+                          ],
+                        ),
+                      ),
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0, left: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "MAA\nVISHVAMBHARI",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            Text(
+                              "Glimpse Of Mother\nVishvambhari",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Text(
+                              "•••",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 29,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -423,8 +456,10 @@ class _HomeState extends State<Home> {
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter,
                               colors: [
-                                Colors.black.withOpacity(0.5), // dark bottom
-                                Colors.transparent, // fade upwards
+                                Colors.black.withValues(alpha: 0.5),
+                                // dark bottom
+                                Colors.transparent,
+                                // fade upwards
                               ],
                             ),
                           ),
@@ -482,7 +517,7 @@ class _HomeState extends State<Home> {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         colors: [
-                          Colors.black.withOpacity(0.5), // Dark bottom
+                          Colors.black.withValues(alpha: 0.5), // Dark bottom
                           Colors.transparent, // Fade to top
                         ],
                       ),
@@ -552,7 +587,7 @@ class _HomeState extends State<Home> {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [
-                              Colors.black.withOpacity(0.5),
+                              Colors.black.withValues(alpha: 0.5),
                               Colors.transparent,
                             ],
                           ),
@@ -620,7 +655,7 @@ class _HomeState extends State<Home> {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [
-                              Colors.black.withOpacity(0.5),
+                              Colors.black.withValues(alpha: 0.5),
                               Colors.transparent,
                             ],
                           ),
@@ -685,7 +720,7 @@ class _HomeState extends State<Home> {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [
-                              Colors.black.withOpacity(0.5),
+                              Colors.black.withValues(alpha: 0.5),
                               Colors.transparent,
                             ],
                           ),
@@ -927,7 +962,7 @@ class _HomeState extends State<Home> {
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withValues(alpha: 0.2),
                           spreadRadius: 2,
                           blurRadius: 8,
                           offset: const Offset(0, 4), // shadow position
@@ -958,7 +993,7 @@ class _HomeState extends State<Home> {
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
                                     colors: [
-                                      Colors.black.withOpacity(0.5),
+                                      Colors.black.withValues(alpha: 0.5),
                                       Colors.transparent,
                                     ],
                                   ),
@@ -985,7 +1020,9 @@ class _HomeState extends State<Home> {
                                   Text(
                                     event["date"]!,
                                     style: TextStyle(
-                                      color: Colors.white.withOpacity(0.7),
+                                      color: Colors.white.withValues(
+                                        alpha: 0.7,
+                                      ),
                                       fontSize: 12,
                                     ),
                                   ),
@@ -1053,7 +1090,7 @@ class _HomeState extends State<Home> {
                         Text(
                           book["author"]!,
                           style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
+                            color: Colors.white.withValues(alpha: 0.7),
                             fontSize: 12,
                           ),
                           textAlign: TextAlign.center,
