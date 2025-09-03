@@ -60,7 +60,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               ),
             ),
             Container(
-              height: h * 0.735,
+              height: h * 0.9,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xff071e30), Color(0xff000617)],

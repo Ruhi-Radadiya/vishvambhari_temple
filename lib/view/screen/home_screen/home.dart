@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../routes/routes.dart';
+import '../../../../routes/routes.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,45 +16,44 @@ class _HomeState extends State<Home> {
   int selectedTab = 0;
   int selectedAudioTab = 0;
   int activeIndex = 0;
-
-  List<Map<String, String>> aartiImageList = [
+  final List<Map<String, String>> aartiImageList = [
     {
-      "thumbnail": "assets/images/aarti_1.png",
+      "thumbnail": "assets/images/home_images/aarti_1.png",
       "duration": "09:17",
       "title": "Aarti",
       "subtitle": " | Maa Vishvambhari TirthYatra Dham",
       "type": "aarti",
     },
     {
-      "thumbnail": "assets/images/aarti_2.png",
+      "thumbnail": "assets/images/home_images/aarti_2.png",
       "duration": "17:32",
       "title": "Jyeshtha Purnima",
       "subtitle": " | 2025 | Maa Vishvambhari",
       "type": "aarti",
     },
     {
-      "thumbnail": "assets/images/aarti_3.png",
+      "thumbnail": "assets/images/home_images/aarti_3.png",
       "duration": "06:02",
       "title": "કોણ તરે કોણ ડુબે",
       "subtitle": " | Anmol Vichar",
       "type": "aarti",
     },
     {
-      "thumbnail": "assets/images/aarti_4.png",
+      "thumbnail": "assets/images/home_images/aarti_4.png",
       "duration": "32:09",
       "title": "આપણે કોના સૈનીક છીએ?",
       "subtitle": " | Anmol Vichar",
       "type": "aarti",
     },
     {
-      "thumbnail": "assets/images/aarti_5.png",
+      "thumbnail": "assets/images/home_images/aarti_5.png",
       "duration": "25:12",
       "title": "માઁ વિશ્વંભરીનુ પૃથ્વી ઉપર અવતરણ",
       "subtitle": " | चैत्र नवरात्रि महोत्सव",
       "type": "aarti",
     },
     {
-      "thumbnail": "assets/images/aarti_6.png",
+      "thumbnail": "assets/images/home_images/aarti_6.png",
       "duration": "10:32",
       "title": "श्रावण पूर्णिमा",
       "subtitle": " | 2025 | Maa Vishvambhari Tirth Dham",
@@ -65,37 +64,37 @@ class _HomeState extends State<Home> {
     {
       "title": "Day - 09 || Sanskrutik Ras-Garba",
       "date": "07-04-2025, Monday",
-      "image": "assets/images/event_1.png",
+      "image": "assets/images/home_images/event_1.png",
     },
     {
       "title": "Day - 08 || Cultural Program",
       "date": "06-04-2025, Sunday",
-      "image": "assets/images/event_2.png",
+      "image": "assets/images/home_images/event_2.png",
     },
   ];
   final List<String> tabs = ["Photos", "Video", "Audio", "Event", "Books"];
   final List<String> defaultPageImages = [
-    "assets/images/live_darshan.jpg",
-    "assets/images/offline_darshan.jpg",
+    "assets/images/home_images/live_darshan.jpg",
+    "assets/images/home_images/offline_darshan.jpg",
   ];
   final List<Map<String, String>> booksImage = [
     {
-      "image": "assets/images/book_1.png",
+      "image": "assets/images/home_images/book_1.png",
       "title": "Vishvambhari Stuti",
       "author": "- by Sangita Studio",
     },
     {
-      "image": "assets/images/book_2.png",
+      "image": "assets/images/home_images/book_2.png",
       "title": "Shree Ambamani Aarti",
       "author": "- with vishvambhari Stuti",
     },
     {
-      "image": "assets/images/book_3.png",
+      "image": "assets/images/home_images/book_3.png",
       "title": "Vishvambhari Stuti",
       "author": "- by Sangita Studio",
     },
     {
-      "image": "assets/images/book_4.png",
+      "image": "assets/images/home_images/book_4.png",
       "title": "Shree Ambamani Aarti",
       "author": "- with vishvambhari Stuti",
     },
@@ -108,38 +107,38 @@ class _HomeState extends State<Home> {
     "Dham Photo",
   ];
   final List<String> photoImages = [
-    "assets/images/maa19_1.png",
-    "assets/images/shree_mahapatra.png",
-    "assets/images/gaushala.png",
-    "assets/images/dham13_1.png",
+    "assets/images/home_images/maa19_1.png",
+    "assets/images/home_images/shree_mahapatra.png",
+    "assets/images/home_images/gaushala.png",
+    "assets/images/home_images/dham13_1.png",
   ];
   final List<String> mediaImages = [
-    "assets/images/image_1.png",
-    "assets/images/image_2.png",
+    "assets/images/home_images/image_1.png",
+    "assets/images/home_images/image_2.png",
   ];
   final List<String> mediaText = [
     "CHAITRA NAVRATRI 2025",
     "Teaser | Chaitri Navratri",
   ];
   final List<String> popularImages = [
-    "assets/images/image_3.png",
-    "assets/images/image_4.png",
+    "assets/images/home_images/image_3.png",
+    "assets/images/home_images/image_4.png",
   ];
   final List<String> popularText = [
     "Aarti | Maa Vishvambhari TirthYatra Dham",
-    "Aarti (Gujrati) | Maa Vishvambhari TirthYatra Dham",
+    "Aarti (Gujarati) | Maa Vishvambhari TirthYatra Dham",
   ];
   final List<String> liveImages = [
-    "assets/images/image_5.png",
-    "assets/images/image_6.png",
+    "assets/images/home_images/image_5.png",
+    "assets/images/home_images/image_6.png",
   ];
   final List<String> liveText = [
     "🔴 LIVE Telecast From:Maa Vishvambhari TirthYatra Dham",
     "🔴 LIVE | सांस्कृतिक रास",
   ];
   final List<String> images = [
-    "assets/images/maa_1.jpg",
-    "assets/images/maa_2.png",
+    "assets/images/home_images/maa_1.jpg",
+    "assets/images/home_images/maa_2.png",
   ];
 
   @override
@@ -169,7 +168,9 @@ class _HomeState extends State<Home> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: AssetImage("assets/images/logo.png"),
+                          image: AssetImage(
+                            "assets/images/home_images/logo.png",
+                          ),
                         ),
                       ),
                     ),
@@ -215,7 +216,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Container(
-                height: h * 0.735,
+                height: h * 0.7359,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xff071e30), Color(0xff000617)],
@@ -355,7 +356,9 @@ class _HomeState extends State<Home> {
                           Radius.circular(16),
                         ),
                         image: const DecorationImage(
-                          image: AssetImage("assets/images/maa2.jpg"),
+                          image: AssetImage(
+                            "assets/images/home_images/maa2.jpg",
+                          ),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -740,7 +743,7 @@ class _HomeState extends State<Home> {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: Image.asset(
-                                "assets/images/aarti.png",
+                                "assets/images/home_images/aarti.png",
                                 height: 40,
                                 width: 40,
                                 fit: BoxFit.cover,
@@ -796,7 +799,7 @@ class _HomeState extends State<Home> {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: Image.asset(
-                                "assets/images/satsang.png",
+                                "assets/images/home_images/satsang.png",
                                 height: 40,
                                 width: 40,
                                 fit: BoxFit.cover,
@@ -964,8 +967,6 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                         ),
-
-                        // Event Info Row
                         Row(
                           children: [
                             Padding(

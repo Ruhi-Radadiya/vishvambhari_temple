@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vishvambhari_temple/component/about.dart';
-import 'package:vishvambhari_temple/component/download.dart';
-import 'package:vishvambhari_temple/component/profile.dart';
-import 'package:vishvambhari_temple/component/setting.dart';
-import '../../component/home.dart';
+import 'package:vishvambhari_temple/view/screen/about_screen/about.dart';
+import 'package:vishvambhari_temple/view/screen/download_screen/download.dart';
+import 'package:vishvambhari_temple/view/screen/profile_screen/profile.dart';
+import 'package:vishvambhari_temple/view/screen/setting_screen/setting.dart';
+
 import '../../controller/bottom_navigation_bar.dart';
+import 'home_screen/home.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
