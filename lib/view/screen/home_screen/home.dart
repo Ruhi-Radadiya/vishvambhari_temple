@@ -173,14 +173,13 @@ class _HomeState extends State<Home> {
                       itemCount: images.length,
                       itemBuilder: (context, index, realIndex) {
                         return Container(
-                          height: h * 0.22, // keep same height
+                          height: h * 0.22,
                           margin: const EdgeInsets.symmetric(
                             horizontal: 16,
                             vertical: 14,
                           ),
                           child: Stack(
                             children: [
-                              // Background image
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
@@ -396,9 +395,7 @@ class _HomeState extends State<Home> {
                               end: Alignment.topCenter,
                               colors: [
                                 Colors.black.withValues(alpha: 0.5),
-                                // dark bottom
                                 Colors.transparent,
-                                // fade upwards
                               ],
                             ),
                           ),
@@ -456,8 +453,8 @@ class _HomeState extends State<Home> {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         colors: [
-                          Colors.black.withValues(alpha: 0.5), // Dark bottom
-                          Colors.transparent, // Fade to top
+                          Colors.black.withValues(alpha: 0.5),
+                          Colors.transparent,
                         ],
                       ),
                     ),
@@ -904,14 +901,13 @@ class _HomeState extends State<Home> {
                           color: Colors.black.withValues(alpha: 0.2),
                           spreadRadius: 2,
                           blurRadius: 8,
-                          offset: const Offset(0, 4), // shadow position
+                          offset: const Offset(0, 4),
                         ),
                       ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Event Image
                         ClipRRect(
                           borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(15),
@@ -924,7 +920,6 @@ class _HomeState extends State<Home> {
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                               ),
-                              // Optional gradient overlay
                               Container(
                                 height: 200,
                                 decoration: BoxDecoration(
