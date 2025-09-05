@@ -163,8 +163,11 @@ class _DownloadState extends State<Download> {
                                   context: context,
                                   builder: (context) => AlertDialog(
                                     backgroundColor: Color(0xff0a2538),
+
                                     content: Text(
                                       "are you sure you want to delete this List ?",
+                                      textAlign: TextAlign.center,
+
                                       style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.white,
@@ -176,10 +179,17 @@ class _DownloadState extends State<Download> {
                                       color: Colors.white,
                                       size: 80,
                                     ),
+                                    actionsAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     actions: [
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Color(0xff134369),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                          ),
                                         ),
                                         onPressed: () {
                                           myDownloads.removeAt(index);
@@ -188,25 +198,27 @@ class _DownloadState extends State<Download> {
                                         },
                                         child: Text(
                                           "Yes , Delete",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 11,
-                                          ),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                       ),
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Color(0xff142e40),
+                                      OutlinedButton(
+                                        style: OutlinedButton.styleFrom(
+                                          foregroundColor: Color(0xff142e40),
+                                          side: const BorderSide(
+                                            color: Colors.white,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                          ),
                                         ),
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
                                         child: Text(
                                           "Keep , Please",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 11,
-                                          ),
+                                          style: TextStyle(color: Colors.white),
                                         ),
                                       ),
                                     ],

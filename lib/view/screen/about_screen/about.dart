@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/routes.dart';
+import '../../components/header.dart';
 
 class About extends StatefulWidget {
   const About({super.key});
@@ -32,66 +32,7 @@ class _AboutState extends State<About> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Logo
-                    Container(
-                      height: h * 0.14,
-                      width: w * 0.14,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/images/home_images/logo.png",
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Search here...",
-                            hintStyle: TextStyle(
-                              color: Colors.white.withValues(alpha: 0.7),
-                            ),
-                            prefixIcon: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            ),
-                            filled: true,
-                            fillColor: Colors.white.withValues(alpha: 0.2),
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: 15,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        CupertinoIcons.bell,
-                        color: Colors.white,
-                        size: 25,
-                      ),
-                      onPressed: () {
-                        Get.toNamed(Routes.notificationScreen);
-                      },
-                    ),
-                  ],
-                ),
-              ),
+              Header(),
               Container(
                 height: h * 0.7359,
                 decoration: const BoxDecoration(
@@ -116,74 +57,79 @@ class _AboutState extends State<About> {
                           child: Container(
                             height: h * 0.17,
                             margin: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Stack(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(30),
-                                    ),
-                                    image: const DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/home_images/maa2.jpg",
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(Routes.maaVishvambhariDetailPage);
+                              },
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(30),
                                       ),
-                                      fit: BoxFit.cover,
+                                      image: const DecorationImage(
+                                        image: AssetImage(
+                                          "assets/images/home_images/maa2.jpg",
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(30),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(30),
+                                      ),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                          Colors.black.withValues(alpha: 0.5),
+                                          Colors.transparent,
+                                        ],
+                                      ),
                                     ),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                      colors: [
-                                        Colors.black.withValues(alpha: 0.5),
-                                        Colors.transparent,
-                                      ],
+                                    alignment: Alignment.topLeft,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 20.0,
+                                        left: 25,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "MAA\nVISHVAMBHARI",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w900,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Glimpse Of Mother\nVishvambhari",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          Text(
+                                            "•••",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 29,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                  alignment: Alignment.topLeft,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 20.0,
-                                      left: 25,
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "MAA\nVISHVAMBHARI",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w900,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Glimpse Of Mother\nVishvambhari",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                        Text(
-                                          "•••",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 29,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -201,44 +147,53 @@ class _AboutState extends State<About> {
                               ),
                           itemCount: gridImages.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                image: DecorationImage(
-                                  image: AssetImage(gridImages[index]),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.bottomCenter,
-                                        end: Alignment.topCenter,
-                                        colors: [
-                                          Colors.black.withValues(alpha: 0.6),
-                                          Colors.transparent,
-                                        ],
-                                      ),
-                                    ),
+                            return GestureDetector(
+                              onTap: () {
+                                if (index == 0) {
+                                  Get.toNamed(Routes.shreeMahapatraDetailPage);
+                                } else {
+                                  Get.toNamed(Routes.mvtyDhamDetailPage);
+                                }
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  image: DecorationImage(
+                                    image: AssetImage(gridImages[index]),
+                                    fit: BoxFit.cover,
                                   ),
-                                  Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        gridText[index],
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 13,
+                                ),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        gradient: LinearGradient(
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter,
+                                          colors: [
+                                            Colors.black.withValues(alpha: 0.6),
+                                            Colors.transparent,
+                                          ],
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          gridText[index],
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },
@@ -262,80 +217,100 @@ class _AboutState extends State<About> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: h * 0.07,
-                              decoration: BoxDecoration(
-                                color: Color(0xff0a2538),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(
-                                vertical: 16,
-                                horizontal: 30,
-                              ),
-                              child: Text(
-                                "  OBJECTIVE  ",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 14,
-                                  color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(Routes.objectiveDetailPage);
+                              },
+                              child: Container(
+                                height: h * 0.07,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff0a2538),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 30,
+                                ),
+                                child: Text(
+                                  "  OBJECTIVE  ",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
                             SizedBox(width: w * 0.03),
-                            Container(
-                              height: h * 0.07,
-                              decoration: BoxDecoration(
-                                color: Color(0xff0a2538),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(
-                                vertical: 16,
-                                horizontal: 30,
-                              ),
-                              child: Text(
-                                "VEDIC VIRTUES",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 14,
-                                  color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(Routes.vedicVirtues);
+                              },
+                              child: Container(
+                                height: h * 0.07,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff0a2538),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 30,
+                                ),
+                                child: Text(
+                                  "VEDIC VIRTUES",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
                           ],
                         ),
                         SizedBox(height: h * 0.02),
-                        Container(
-                          height: h * 0.07,
-                          decoration: BoxDecoration(
-                            color: Color(0xff0a2538),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "DARSHAN TIME & RULES",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.darshanTimeAndRules);
+                          },
+                          child: Container(
+                            height: h * 0.07,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "DARSHAN TIME & RULES",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(height: h * 0.02),
-                        Container(
-                          height: h * 0.07,
-                          decoration: BoxDecoration(
-                            color: Color(0xff0a2538),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "DONATE",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                              color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.donateDetailScreen);
+                          },
+                          child: Container(
+                            height: h * 0.07,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0a2538),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "DONATE",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

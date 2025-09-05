@@ -12,20 +12,14 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16,
-                top: 80,
-                bottom: 10,
-              ),
-            ),
+            const SizedBox(height: 80),
             Container(
               height: h * 0.9,
               decoration: const BoxDecoration(
@@ -43,7 +37,6 @@ class _ProfileState extends State<Profile> {
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    // Profile Picture with Edit Icon
                     Stack(
                       alignment: Alignment.bottomRight,
                       children: [
@@ -119,6 +112,8 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                     ),
+
+                    // Profile tiles
                     _buildProfileTile(
                       icon: Icons.call,
                       title: "+91 7358443068",
@@ -132,7 +127,12 @@ class _ProfileState extends State<Profile> {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (_) => const ChangeMobileScreen()),
+                        // );
+                      },
                     ),
                     _buildProfileTile(
                       icon: Icons.logout,
@@ -142,11 +142,16 @@ class _ProfileState extends State<Profile> {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        _showLogoutDialog(context);
+                      },
                     ),
-                    const SizedBox(height: 20),
+
+                    const SizedBox(height: 30),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        _showDeleteAccountDialog(context);
+                      },
                       child: const Text(
                         "Delete Account",
                         style: TextStyle(
@@ -156,6 +161,7 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 50),
                   ],
                 ),
               ),
@@ -179,25 +185,120 @@ class _ProfileState extends State<Profile> {
         color: const Color(0xFF0E2A47),
         borderRadius: BorderRadius.circular(40),
       ),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 18,
-            backgroundColor: Colors.white.withValues(alpha: 0.1),
-            child: Icon(icon, color: Colors.white),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 18,
+              backgroundColor: Colors.white.withValues(alpha: 0.1),
+              child: Icon(icon, color: Colors.white),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
+            if (trailing != null) trailing,
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xff071e30),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Icon(Icons.logout_outlined, size: 50, color: Colors.white),
+        content: const Text(
+          "are you sure want to Logout ?",
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
+        ),
+        actionsAlignment: MainAxisAlignment.spaceEvenly,
+        actions: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xff134369),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: () {},
+            child: const Text(
+              "Yes, Logout",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
-          if (trailing != null) trailing,
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Color(0xff142e40),
+              side: const BorderSide(color: Colors.white),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: () => Navigator.pop(context),
+            child: const Text(
+              "No, Please",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showDeleteAccountDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xff071e30),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
+        content: const Text(
+          "are you sure want to Delete Account ?",
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
+        ),
+        actionsAlignment: MainAxisAlignment.spaceEvenly,
+        actions: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xff134369),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: () {},
+            child: const Text(
+              "Yes, Delete",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Color(0xff142e40),
+              side: const BorderSide(color: Colors.white),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: () => Navigator.pop(context),
+            child: const Text(
+              "No, Please",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ],
       ),
     );
