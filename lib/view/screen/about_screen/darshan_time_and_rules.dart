@@ -76,7 +76,6 @@ class DarshanTimeAndRules extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 📌 Darshan Time
                       const Text(
                         "DARSHAN TIME :",
                         style: TextStyle(
@@ -107,8 +106,6 @@ class DarshanTimeAndRules extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 20),
-
-                      // 📌 Darshan Rules
                       const Text(
                         "DARSHAN RULES :",
                         style: TextStyle(
@@ -154,8 +151,6 @@ class DarshanTimeAndRules extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 20),
-
-                      // 🚨 Warning Box
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(12),

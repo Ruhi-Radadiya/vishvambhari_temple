@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/drawer.dart';
 import '../../components/header.dart';
 
 class Home extends StatefulWidget {
@@ -138,6 +139,7 @@ class _HomeState extends State<Home> {
     "assets/images/home_images/maa_1.jpg",
     "assets/images/home_images/maa_2.png",
   ];
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -147,9 +149,12 @@ class _HomeState extends State<Home> {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
+
       child: Scaffold(
+        key: _scaffoldKey,
         resizeToAvoidBottomInset: true,
         backgroundColor: const Color(0xff020C15),
+        drawer: const CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [

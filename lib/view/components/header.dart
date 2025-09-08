@@ -4,27 +4,38 @@ import 'package:get/get.dart';
 
 import '../../routes/routes.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatefulWidget {
   const Header({super.key});
 
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            height: h * 0.14,
-            width: w * 0.14,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage("assets/images/home_images/logo.png"),
+          GestureDetector(
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+            child: Container(
+              height: h * 0.14,
+              width: w * 0.14,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage("assets/images/home_images/logo.png"),
+                ),
               ),
             ),
           ),

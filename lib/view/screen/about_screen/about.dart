@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/routes.dart';
+import '../../components/drawer.dart';
 import '../../components/header.dart';
 
 class About extends StatefulWidget {
@@ -10,6 +11,8 @@ class About extends StatefulWidget {
   @override
   State<About> createState() => _AboutState();
 }
+
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class _AboutState extends State<About> {
   final List<String> gridImages = [
@@ -27,8 +30,10 @@ class _AboutState extends State<About> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        key: _scaffoldKey,
         resizeToAvoidBottomInset: true,
         backgroundColor: const Color(0xff020C15),
+        drawer: const CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -292,28 +297,28 @@ class _AboutState extends State<About> {
                             ),
                           ),
                         ),
-                        SizedBox(height: h * 0.02),
-                        GestureDetector(
-                          onTap: () {
-                            Get.toNamed(Routes.donateDetailScreen);
-                          },
-                          child: Container(
-                            height: h * 0.07,
-                            decoration: BoxDecoration(
-                              color: Color(0xff0a2538),
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "DONATE",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
+                        // SizedBox(height: h * 0.02),
+                        // GestureDetector(
+                        //   onTap: () {
+                        //     Get.toNamed(Routes.donateDetailScreen);
+                        //   },
+                        //   child: Container(
+                        //     height: h * 0.07,
+                        //     decoration: BoxDecoration(
+                        //       color: Color(0xff0a2538),
+                        //       borderRadius: BorderRadius.circular(16),
+                        //     ),
+                        //     alignment: Alignment.center,
+                        //     child: Text(
+                        //       "DONATE",
+                        //       style: TextStyle(
+                        //         fontWeight: FontWeight.w700,
+                        //         fontSize: 14,
+                        //         color: Colors.white,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                         SizedBox(height: h * 0.02),
                         Align(
                           alignment: Alignment.centerLeft,
