@@ -48,7 +48,10 @@ class _HeaderState extends State<Header> {
                   hintStyle: TextStyle(
                     color: Colors.white.withValues(alpha: 0.7),
                   ),
-                  prefixIcon: const Icon(Icons.search, color: Colors.white),
+                  prefixIcon: const Icon(
+                    Icons.search_rounded,
+                    color: Colors.white54,
+                  ),
                   filled: true,
                   fillColor: Colors.white.withValues(alpha: 0.2),
                   contentPadding: const EdgeInsets.symmetric(
@@ -64,15 +67,14 @@ class _HeaderState extends State<Header> {
               ),
             ),
           ),
-          IconButton(
-            icon: const Icon(
-              CupertinoIcons.bell,
-              color: Colors.white,
-              size: 25,
-            ),
-            onPressed: () {
+          GestureDetector(
+            onTap: () {
               Get.toNamed(Routes.notificationScreen);
             },
+            child: Image(
+              image: AssetImage("assets/Icon/hader_1.png"),
+              width: Get.width / 22,
+            ),
           ),
         ],
       ),

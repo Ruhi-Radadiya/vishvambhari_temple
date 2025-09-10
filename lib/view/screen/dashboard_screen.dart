@@ -44,25 +44,55 @@ class _DashboardScreenState extends State<DashboardScreen> {
             controller.getIndex(index: value);
             controller.changePageView(index: value);
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.book_outlined),
+              icon: Image.asset(
+                "assets/Icon/bottomBarIcon/bottom_1.png",
+                height: Get.width / 22,
+                color: controller.bottomNavigationIndex.value == 0
+                    ? Colors.red
+                    : Colors.white,
+              ),
               label: "About",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.download_outlined),
+              icon: Image.asset(
+                "assets/Icon/bottomBarIcon/bottom_2.png",
+                height: Get.width / 22,
+                color: controller.bottomNavigationIndex.value == 1
+                    ? Colors.red
+                    : Colors.white,
+              ),
               label: "Download",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
+              icon: Image.asset(
+                "assets/Icon/bottomBarIcon/bottom_3.png",
+                height: Get.width / 22,
+                color: controller.bottomNavigationIndex.value == 2
+                    ? Colors.red
+                    : Colors.white,
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
+              icon: Image.asset(
+                "assets/Icon/bottomBarIcon/bottom_4.png",
+                height: Get.width / 22,
+                color: controller.bottomNavigationIndex.value == 3
+                    ? Colors.red
+                    : Colors.white,
+              ),
               label: "Profile",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
+              icon: Image.asset(
+                "assets/Icon/bottomBarIcon/bottom_5.png",
+                height: Get.width / 22,
+                color: controller.bottomNavigationIndex.value == 4
+                    ? Colors.red
+                    : Colors.white,
+              ),
               label: "Setting",
             ),
           ],

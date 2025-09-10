@@ -70,21 +70,31 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ],
                   ),
                 ),
-                const Icon(Icons.settings, color: Colors.white, size: 22),
+                Image(
+                  image: AssetImage("assets/Icon/Drawer/drawer_5.png"),
+                  width: Get.width / 20,
+                ),
               ],
             ),
           ),
           Divider(),
-          _drawerTile(Icons.home, "Dashboard"),
+          _drawerTile("assets/Icon/Drawer/drawer_1.png", "Dashboard"),
           Divider(),
-          _drawerTile(Icons.person, "Shree Mahapatra", trailing: true),
+          _drawerTile(
+            "assets/Icon/Drawer/drawer_2.png",
+            "Shree Mahapatra",
+            trailing: true,
+          ),
           Divider(),
           Theme(
             data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
             child: ExpansionTile(
               collapsedIconColor: Colors.white,
               iconColor: Colors.orange,
-              leading: const Icon(Icons.groups, color: Colors.white),
+              leading: Image(
+                image: AssetImage("assets/Icon/Drawer/drawer_3.png"),
+                width: Get.width / 20,
+              ),
               title: const Text(
                 "Maa Parivar",
                 style: TextStyle(color: Colors.white, fontSize: 15),
@@ -94,10 +104,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   tilePadding: const EdgeInsets.only(left: 40, right: 16),
                   collapsedIconColor: Colors.white,
                   iconColor: Colors.orange,
-                  leading: const Icon(
-                    Icons.group,
+                  leading: Image(
+                    image: AssetImage("assets/Icon/Drawer/drawer_3.png"),
                     color: Colors.orange,
-                    size: 22,
+                    width: Get.width / 20,
                   ),
                   title: const Text(
                     "Parivar",
@@ -128,10 +138,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   tilePadding: const EdgeInsets.only(left: 40, right: 16),
                   collapsedIconColor: Colors.white,
                   iconColor: Colors.orange,
-                  leading: const Icon(
-                    Icons.local_fire_department,
+                  leading: Image(
+                    image: AssetImage("assets/Icon/Drawer/drawer_6.png"),
                     color: Colors.orange,
-                    size: 22,
+                    width: Get.width / 20,
                   ),
                   title: const Text(
                     "Yagn",
@@ -171,10 +181,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   tilePadding: const EdgeInsets.only(left: 40, right: 16),
                   collapsedIconColor: Colors.white,
                   iconColor: Colors.orange,
-                  leading: const Icon(
-                    Icons.location_on,
+                  leading: Image(
+                    image: AssetImage("assets/Icon/Drawer/drawer_7.png"),
                     color: Colors.orange,
-                    size: 22,
+                    width: Get.width / 24,
                   ),
                   title: const Text(
                     "City Admin",
@@ -209,12 +219,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  Widget _drawerTile(IconData icon, String title, {bool trailing = false}) {
+  Widget _drawerTile(String image, String title, {bool trailing = false}) {
     return ListTile(
-      leading: Icon(icon, color: Colors.white),
+      leading: Image(image: AssetImage(image), width: Get.width / 22),
       title: Text(title, style: const TextStyle(color: Colors.white)),
       trailing: trailing
-          ? const Icon(Icons.chevron_right, color: Colors.white)
+          ? Image(
+              image: AssetImage("assets/Icon/Drawer/drawer_4.png"),
+              width: Get.width / 44,
+            )
           : null,
       onTap: () {},
     );
