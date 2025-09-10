@@ -371,7 +371,7 @@ class _HomeState extends State<Home> {
               ),
               const SizedBox(height: 15),
               GridView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

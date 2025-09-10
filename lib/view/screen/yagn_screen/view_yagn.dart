@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vishvambhari_temple/view/components/textfield.dart';
@@ -541,110 +543,9 @@ class _ViewYagnState extends State<ViewYagn> {
                                     flex: 6,
                                     child: GestureDetector(
                                       onTap: () {
-                                        showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return AlertDialog(
-                                              backgroundColor: const Color(
-                                                0xff01122a,
-                                              ),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                              ),
-                                              title: const Text(
-                                                "Add Member by Mobile No.",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                              content: TextField(
-                                                keyboardType:
-                                                    TextInputType.number,
-                                                controller: controller,
-                                                decoration: InputDecoration(
-                                                  hintText:
-                                                      "Enter mobile number",
-                                                  hintStyle: const TextStyle(
-                                                    color: Colors.white54,
-                                                    fontSize: 14,
-                                                  ),
-                                                  border: OutlineInputBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          30,
-                                                        ),
-                                                    borderSide:
-                                                        const BorderSide(
-                                                          color: Colors.white54,
-                                                        ),
-                                                  ),
-                                                  filled: true,
-                                                  fillColor: const Color(
-                                                    0xff051c37,
-                                                  ),
-                                                ),
-                                              ),
-                                              actions: [
-                                                ElevatedButton(
-                                                  style: ElevatedButton.styleFrom(
-                                                    backgroundColor:
-                                                        const Color(0xff051c37),
-                                                    shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                            30,
-                                                          ),
-                                                      side: const BorderSide(
-                                                        color: Colors.white54,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  onPressed: () {
-                                                    FocusScope.of(
-                                                      context,
-                                                    ).unfocus();
-                                                    Get.back();
-                                                  },
-                                                  child: const Text(
-                                                    "Cancel",
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  style: ElevatedButton.styleFrom(
-                                                    backgroundColor:
-                                                        const Color(0xff134369),
-                                                    shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                            30,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                      "User typed: ${controller.text}",
-                                                    );
-                                                    FocusScope.of(
-                                                      context,
-                                                    ).unfocus();
-                                                    Get.back();
-                                                  },
-                                                  child: const Text(
-                                                    "Submit",
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            );
-                                          },
+                                        showAddMemberDialog(
+                                          context,
+                                          controller,
                                         );
                                       },
                                       child: Container(
@@ -796,6 +697,112 @@ class _ViewYagnState extends State<ViewYagn> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  void showAddMemberDialog(
+    BuildContext context,
+    TextEditingController controller,
+  ) {
+    showDialog(
+      context: context,
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: AlertDialog(
+          backgroundColor: const Color(0xff01122A),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: const Text(
+            "Add Member by Mobile No.",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          content: TextField(
+            keyboardType: TextInputType.number,
+            cursorColor: Colors.white,
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: "Enter mobile number",
+              hintStyle: const TextStyle(
+                color: Color(0xff506073),
+                fontSize: 14,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: const BorderSide(
+                  color: Color(0xff536674),
+                  width: 1,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: const BorderSide(color: Color(0xff536674)),
+              ),
+              filled: true,
+              fillColor: const Color(0xff051C37),
+            ),
+            style: const TextStyle(color: Colors.white),
+          ),
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(
+                      color: Color(0xff536674),
+                      width: 0.5,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      side: const BorderSide(
+                        color: Color(0xff536674),
+                        width: 0.5,
+                      ),
+                    ),
+                    backgroundColor: const Color(0xff051C37),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 20,
+                    ),
+                  ),
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text(
+                    "Cancel",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff134369),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 20,
+                    ),
+                  ),
+                  onPressed: () {
+                    print("User typed: ${controller.text}");
+                    FocusScope.of(context).unfocus();
+                    Get.back();
+                  },
+                  child: const Text(
+                    "Add",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

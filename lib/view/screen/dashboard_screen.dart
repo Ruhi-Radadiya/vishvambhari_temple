@@ -19,6 +19,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     NavigationController controller = Get.put(NavigationController());
+    final h = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: PageView(
@@ -29,73 +30,76 @@ class _DashboardScreenState extends State<DashboardScreen> {
         children: const [About(), Download(), Home(), Profile(), Setting()],
       ),
       bottomNavigationBar: Obx(() {
-        return BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: const Color(0xff0c2e49),
-          currentIndex: controller.bottomNavigationIndex.value,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white.withValues(alpha: 0.6),
-          selectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 13,
+        return SizedBox(
+          height: h * 0.14,
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: const Color(0xff0c2e49),
+            currentIndex: controller.bottomNavigationIndex.value,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Color(0xff556D80),
+            selectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 13,
+            ),
+            unselectedLabelStyle: const TextStyle(fontSize: 12),
+            onTap: (value) {
+              controller.getIndex(index: value);
+              controller.changePageView(index: value);
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/Icon/bottomBarIcon/bottom_1.png",
+                  height: Get.width / 22,
+                  color: controller.bottomNavigationIndex.value == 0
+                      ? Colors.white
+                      : Color(0xff556D80),
+                ),
+                label: "About",
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/Icon/bottomBarIcon/bottom_2.png",
+                  height: Get.width / 22,
+                  color: controller.bottomNavigationIndex.value == 1
+                      ? Colors.white
+                      : Color(0xff556D80),
+                ),
+                label: "Download",
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/Icon/bottomBarIcon/bottom_3.png",
+                  height: Get.width / 22,
+                  color: controller.bottomNavigationIndex.value == 2
+                      ? Colors.white
+                      : Color(0xff556D80),
+                ),
+                label: "Home",
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/Icon/bottomBarIcon/bottom_4.png",
+                  height: Get.width / 22,
+                  color: controller.bottomNavigationIndex.value == 3
+                      ? Colors.white
+                      : Color(0xff556D80),
+                ),
+                label: "Profile",
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  "assets/Icon/bottomBarIcon/bottom_5.png",
+                  height: Get.width / 22,
+                  color: controller.bottomNavigationIndex.value == 4
+                      ? Colors.white
+                      : Color(0xff556D80),
+                ),
+                label: "Setting",
+              ),
+            ],
           ),
-          unselectedLabelStyle: const TextStyle(fontSize: 12),
-          onTap: (value) {
-            controller.getIndex(index: value);
-            controller.changePageView(index: value);
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/Icon/bottomBarIcon/bottom_1.png",
-                height: Get.width / 22,
-                color: controller.bottomNavigationIndex.value == 0
-                    ? Colors.red
-                    : Colors.white,
-              ),
-              label: "About",
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/Icon/bottomBarIcon/bottom_2.png",
-                height: Get.width / 22,
-                color: controller.bottomNavigationIndex.value == 1
-                    ? Colors.red
-                    : Colors.white,
-              ),
-              label: "Download",
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/Icon/bottomBarIcon/bottom_3.png",
-                height: Get.width / 22,
-                color: controller.bottomNavigationIndex.value == 2
-                    ? Colors.red
-                    : Colors.white,
-              ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/Icon/bottomBarIcon/bottom_4.png",
-                height: Get.width / 22,
-                color: controller.bottomNavigationIndex.value == 3
-                    ? Colors.red
-                    : Colors.white,
-              ),
-              label: "Profile",
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/Icon/bottomBarIcon/bottom_5.png",
-                height: Get.width / 22,
-                color: controller.bottomNavigationIndex.value == 4
-                    ? Colors.red
-                    : Colors.white,
-              ),
-              label: "Setting",
-            ),
-          ],
         );
       }),
     );

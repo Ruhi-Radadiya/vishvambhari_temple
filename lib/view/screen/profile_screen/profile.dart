@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -213,45 +215,73 @@ class _ProfileState extends State<Profile> {
   void showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xff071e30),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Icon(Icons.logout_outlined, size: 50, color: Colors.white),
-        content: const Text(
-          "are you sure want to Logout ?",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white),
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: AlertDialog(
+          backgroundColor: const Color(0xff0A2538),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: const Icon(
+            Icons.logout_outlined,
+            size: 50,
+            color: Colors.white,
+          ),
+          content: const Text(
+            "Are you sure you want to Logout?",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          actions: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 160,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff134369),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {
+                      // logout logic
+                    },
+                    child: const Text(
+                      "Yes, Logout",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 160,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(
+                        color: Color(0xff536674),
+                        width: 0.5,
+                      ),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      backgroundColor: const Color(0xff142E40),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(
+                      "No, Please",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+          actionsAlignment: MainAxisAlignment.center,
         ),
-        actionsAlignment: MainAxisAlignment.spaceEvenly,
-        actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff134369),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            onPressed: () {},
-            child: const Text(
-              "Yes, Logout",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Color(0xff142e40),
-              side: const BorderSide(color: Colors.white),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              "No, Please",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -259,45 +289,69 @@ class _ProfileState extends State<Profile> {
   void showDeleteAccountDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xff071e30),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
-        content: const Text(
-          "are you sure want to Delete Account ?",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white),
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: AlertDialog(
+          backgroundColor: const Color(0xff0A2538),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
+          content: const Text(
+            "Are you sure you want to Delete Account?",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          actions: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 160, // smaller width
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff134369),
+                      shape: const StadiumBorder(), // pill shape
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {
+                      // delete logic
+                    },
+                    child: const Text(
+                      "Yes, Delete",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 160,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(
+                        color: Color(0xff536674),
+                        width: 0.5,
+                      ),
+                      shape: const StadiumBorder(), // pill shape
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      backgroundColor: Color(0xff142E40),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(
+                      "No, Please",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+          actionsAlignment: MainAxisAlignment.center, // keep column centered
         ),
-        actionsAlignment: MainAxisAlignment.spaceEvenly,
-        actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff134369),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            onPressed: () {},
-            child: const Text(
-              "Yes, Delete",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Color(0xff142e40),
-              side: const BorderSide(color: Colors.white),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              "No, Please",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
       ),
     );
   }

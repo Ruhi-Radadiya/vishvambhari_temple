@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,7 +33,16 @@ class _HeaderState extends State<Header> {
               decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
-                image: DecorationImage(
+              ),
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 1,
+                  bottom: 4,
+                  left: 4,
+                  right: 4,
+                ),
+                child: Image(
                   image: AssetImage("assets/images/home_images/logo.png"),
                 ),
               ),
@@ -46,7 +54,6 @@ class _HeaderState extends State<Header> {
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search here...",
-
                   hintStyle: TextStyle(
                     color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 13,

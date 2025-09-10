@@ -66,379 +66,373 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
         //     ),
         //   ),
         // ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 16.0,
-                  right: 16.0,
-                  top: 10,
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      height: h * 0.14,
-                      width: w * 0.14,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/images/profile_images/profile.png",
-                          ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: h * 0.13,
+                    width: w * 0.13,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/profile_images/profile.png",
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 6),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Search here...",
-                            hintStyle: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
-                            ),
-                            prefixIcon: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            ),
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(0.12),
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: 16,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    IconButton(
-                      icon: const Icon(
-                        CupertinoIcons.bell,
-                        color: Colors.white,
-                        size: 25,
-                      ),
-                      onPressed: () => Get.toNamed(Routes.notificationScreen),
-                    ),
-                  ],
-                ),
-              ),
-
-              // Main content gradient area
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0xff071e30), Color(0xff020c1d)],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(45),
-                      topRight: Radius.circular(45),
                     ),
                   ),
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(18),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.only(right: w * 0.015),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xff00a424),
-                                    padding: EdgeInsets.symmetric(
-                                      vertical: h * 0.018,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                        12,
-                                      ), // normal rounded
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Export to Excel",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: w * 0.038,
-                                      // responsive font size
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.only(left: w * 0.015),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xff4f00a4),
-                                    padding: EdgeInsets.symmetric(
-                                      vertical: h * 0.018,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                        12,
-                                      ), // normal rounded
-                                    ),
-                                  ),
-                                  onPressed: () =>
-                                      Get.toNamed(Routes.addParivar),
-                                  child: Text(
-                                    "Add New Parivar",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: w * 0.038,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Search here...",
+                          hintStyle: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 13,
+                          ),
+                          prefixIcon: const Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          filled: true,
+                          fillColor: Color(0xff0A2538),
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 0,
+                            horizontal: 16,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
-                        SizedBox(height: h * 0.03),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0xff000617),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    icon: const Icon(
+                      CupertinoIcons.bell,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                    onPressed: () => Get.toNamed(Routes.notificationScreen),
+                  ),
+                ],
+              ),
+            ),
+
+            // Main content gradient area
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color(0xff071e30), Color(0xff020c1d)],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(45),
+                    topRight: Radius.circular(45),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(18),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 12,
-                                horizontal: 14,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Center(
-                                    child: Text(
-                                      "View All Parivar",
-                                      style: TextStyle(
-                                        color: Colors.orange,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
+                              padding: EdgeInsets.only(right: w * 0.015),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xff00a424),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: h * 0.018,
                                   ),
-                                  SizedBox(height: h * 0.02),
-                                  const Text(
-                                    "Search",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  CommonTextField(
-                                    hint:
-                                        "Search by name, mobile, code, state, city...",
-                                    textInputAction: TextInputAction.next,
-                                    keyboardType: TextInputType.name,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  const Text(
-                                    "Gender *",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  SelectField(
-                                    title: "Select Gender",
-                                    options: const ["Male", "Female", "Other"],
-                                    onSelected: (value) {
-                                      // handle
-                                    },
-                                  ),
-                                  const SizedBox(height: 8),
-                                  const Text(
-                                    "State",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  CommonTextField(
-                                    hint: "Enter Your State Name",
-                                    textInputAction: TextInputAction.next,
-                                    keyboardType: TextInputType.name,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  const Text(
-                                    "Per Page",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  CommonTextField(
-                                    hint: "Select Page Strength",
-                                    textInputAction: TextInputAction.next,
-                                    keyboardType: TextInputType.name,
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Center(
-                                    child: ElevatedButton(
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStateProperty.all(
-                                              const Color(0xff134369),
-                                            ),
-                                        padding: MaterialStateProperty.all(
-                                          const EdgeInsets.symmetric(
-                                            horizontal: 100.0,
-                                            vertical: 16,
-                                          ),
-                                        ),
-                                        shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              12,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      onPressed: () {},
-                                      child: const Text(
-                                        "Filter",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: h * 0.02),
-
-                        Text(
-                          "Showing ${_cards.length} of ${_cards.length} parivar(s)",
-                          style: const TextStyle(
-                            color: Colors.orange,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 8,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color(0xff071e30),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Row(
-                                children: [
-                                  const Text(
-                                    "Show ",
-                                    style: TextStyle(
-                                      color: Colors.white70,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                  DropdownButtonHideUnderline(
-                                    child: DropdownButton<int>(
-                                      value: 10,
-                                      dropdownColor: const Color(0xff071e30),
-                                      items: const [
-                                        DropdownMenuItem(
-                                          value: 5,
-                                          child: Text("5"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: 10,
-                                          child: Text("10"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: 25,
-                                          child: Text("25"),
-                                        ),
-                                      ],
-                                      onChanged: (v) {},
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: h * 0.02),
-                                  const Text(
-                                    " Entries",
-                                    style: TextStyle(
-                                      color: Colors.white70,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 12),
-                        Column(
-                          children: _cards
-                              .map(
-                                (m) => Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 3.0,
-                                  ),
-                                  child: UserCard(
-                                    name: m['name']!,
-                                    code: m['code']!,
-                                    phone: m['phone']!,
-                                    state: m['state']!,
-                                    district: m['district']!,
-                                    role: m['role']!,
-                                    peopleCount: m['people']!,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                      12,
+                                    ), // normal rounded
                                   ),
                                 ),
-                              )
-                              .toList(),
+                                onPressed: () {},
+                                child: Text(
+                                  "Export to Excel",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: w * 0.038,
+                                    // responsive font size
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: w * 0.015),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xff4f00a4),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: h * 0.018,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                      12,
+                                    ), // normal rounded
+                                  ),
+                                ),
+                                onPressed: () => Get.toNamed(Routes.addParivar),
+                                child: Text(
+                                  "Add New Parivar",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: w * 0.038,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: h * 0.03),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xff000617),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 12,
+                              horizontal: 14,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Center(
+                                  child: Text(
+                                    "View All Parivar",
+                                    style: TextStyle(
+                                      color: Colors.orange,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: h * 0.02),
+                                const Text(
+                                  "Search",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                CommonTextField(
+                                  hint:
+                                      "Search by name, mobile, code, state, city...",
+                                  textInputAction: TextInputAction.next,
+                                  keyboardType: TextInputType.name,
+                                ),
+                                const SizedBox(height: 8),
+                                const Text(
+                                  "Gender *",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                SelectField(
+                                  title: "Select Gender",
+                                  options: const ["Male", "Female", "Other"],
+                                  onSelected: (value) {
+                                    // handle
+                                  },
+                                ),
+                                const SizedBox(height: 8),
+                                const Text(
+                                  "State",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                CommonTextField(
+                                  hint: "Enter Your State Name",
+                                  textInputAction: TextInputAction.next,
+                                  keyboardType: TextInputType.name,
+                                ),
+                                const SizedBox(height: 8),
+                                const Text(
+                                  "Per Page",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                CommonTextField(
+                                  hint: "Select Page Strength",
+                                  textInputAction: TextInputAction.next,
+                                  keyboardType: TextInputType.name,
+                                ),
+                                const SizedBox(height: 12),
+                                Center(
+                                  child: ElevatedButton(
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                            const Color(0xff134369),
+                                          ),
+                                      padding: MaterialStateProperty.all(
+                                        const EdgeInsets.symmetric(
+                                          horizontal: 100.0,
+                                          vertical: 16,
+                                        ),
+                                      ),
+                                      shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: const Text(
+                                      "Filter",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
+                      ),
 
-                        const SizedBox(height: 24),
-                      ],
-                    ),
+                      SizedBox(height: h * 0.02),
+
+                      Text(
+                        "Showing ${_cards.length} of ${_cards.length} parivar(s)",
+                        style: const TextStyle(
+                          color: Colors.orange,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color(0xff071e30),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  "Show ",
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                                DropdownButtonHideUnderline(
+                                  child: DropdownButton<int>(
+                                    value: 10,
+                                    dropdownColor: const Color(0xff071e30),
+                                    items: const [
+                                      DropdownMenuItem(
+                                        value: 5,
+                                        child: Text("5"),
+                                      ),
+                                      DropdownMenuItem(
+                                        value: 10,
+                                        child: Text("10"),
+                                      ),
+                                      DropdownMenuItem(
+                                        value: 25,
+                                        child: Text("25"),
+                                      ),
+                                    ],
+                                    onChanged: (v) {},
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: h * 0.02),
+                                const Text(
+                                  " Entries",
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Column(
+                        children: _cards
+                            .map(
+                              (m) => Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 3.0,
+                                ),
+                                child: UserCard(
+                                  name: m['name']!,
+                                  code: m['code']!,
+                                  phone: m['phone']!,
+                                  state: m['state']!,
+                                  district: m['district']!,
+                                  role: m['role']!,
+                                  peopleCount: m['people']!,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+
+                      const SizedBox(height: 24),
+                    ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

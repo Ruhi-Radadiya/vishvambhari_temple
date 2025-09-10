@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Setting extends StatefulWidget {
@@ -12,68 +14,98 @@ class _SettingState extends State<Setting> {
   String selectedLanguage = "English";
   String appMode = "Dark";
 
-  void _showClearHistoryDialog() {
+  // ----------- Dialogs -----------
+
+  void showClearHistoryDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xff071e30),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
-        content: const Text(
-          "Are you sure you want to Clear Search History?",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white),
+      barrierColor: Colors.black.withOpacity(0.3),
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+        child: AlertDialog(
+          backgroundColor: const Color(0xff071e30),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
+          content: const Text(
+            "Are you sure you want to Clear Search History?",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          actions: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 160,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff134369),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Search history cleared!"),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Yes, Clear",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 160,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(
+                        color: Color(0xff536674),
+                        width: 0.5,
+                      ),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      backgroundColor: const Color(0xff142E40),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(
+                      "No, Please",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+          actionsAlignment: MainAxisAlignment.center,
         ),
-        actionsAlignment: MainAxisAlignment.spaceEvenly,
-        actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff134369),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Search history cleared!")),
-              );
-            },
-            child: const Text(
-              "Yes, Clear",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Color(0xff142e40),
-              side: const BorderSide(color: Colors.white),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              "No, Please",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
       ),
     );
   }
 
-  void _showLanguageBottomSheet() {
+  // ----------- Bottom Sheets -----------
+
+  void showLanguageBottomSheet() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xff071e30),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (context) {
-        return StatefulBuilder(
-          builder: (context, setStateSheet) {
-            return Padding(
+      barrierColor: Colors.black.withOpacity(0.3),
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+        child: Container(
+          decoration: const BoxDecoration(color: Color(0xff0C2E49)),
+          child: StatefulBuilder(
+            builder: (context, setStateSheet) => Padding(
               padding: const EdgeInsets.only(
                 top: 16,
                 left: 16,
@@ -83,79 +115,80 @@ class _SettingState extends State<Setting> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
-                    "LANGUAGE",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "LANGUAGE",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.close, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
-                  ListTile(
-                    title: const Text(
-                      "English",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "English",
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setStateSheet(() => selectedLanguage = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "ગુજરાતી",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Gujarati",
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setStateSheet(() => selectedLanguage = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "हिन्दी",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Hindi",
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setStateSheet(() => selectedLanguage = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
+                  buildLanguageToggle("English", setStateSheet),
+                  const Divider(color: Color(0xff536674)),
+                  buildLanguageToggle("Gujarati", setStateSheet),
+                  const Divider(color: Color(0xff536674)),
+                  buildLanguageToggle("Hindi", setStateSheet),
                 ],
               ),
-            );
-          },
-        );
-      },
+            ),
+          ),
+        ),
+      ),
     );
   }
 
-  void _showAppModeBottomSheet() {
+  Widget buildLanguageToggle(String language, StateSetter setStateSheet) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+      title: Text(
+        language == "Gujarati"
+            ? "ગુજરાતી"
+            : language == "Hindi"
+            ? "हिन्दी"
+            : "English",
+        style: const TextStyle(color: Colors.white),
+      ),
+      trailing: Transform.scale(
+        scale: 0.7, // Shrinks the switch to 70% of default size
+        child: Switch(
+          value: selectedLanguage == language,
+          onChanged: (value) {
+            if (value) {
+              setStateSheet(() => selectedLanguage = language);
+              setState(() {}); // update main state
+            }
+          },
+          activeThumbColor: const Color(0xff0A2538),
+          activeTrackColor: Colors.white,
+          inactiveThumbColor: const Color(0xff113D60),
+          inactiveTrackColor: const Color(0xff0A2538),
+        ),
+      ),
+    );
+  }
+
+  void showAppModeBottomSheet() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xff071e30),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (context) {
-        return StatefulBuilder(
-          builder: (context, setStateSheet) {
-            return Padding(
+      barrierColor: Colors.black.withOpacity(0.3),
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+        child: Container(
+          decoration: const BoxDecoration(color: Color(0xff0C2E49)),
+          child: StatefulBuilder(
+            builder: (context, setStateSheet) => Padding(
               padding: const EdgeInsets.only(
                 top: 16,
                 left: 16,
@@ -165,98 +198,85 @@ class _SettingState extends State<Setting> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
-                    "APP MODE",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "APP MODE",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.close, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
-                  ListTile(
-                    title: const Text(
-                      "Light",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Light",
-                      groupValue: appMode,
-                      onChanged: (value) {
-                        setStateSheet(() => appMode = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Dark",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Dark",
-                      groupValue: appMode,
-                      onChanged: (value) {
-                        setStateSheet(() => appMode = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Default",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Default",
-                      groupValue: appMode,
-                      onChanged: (value) {
-                        setStateSheet(() => appMode = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
+                  buildAppModeToggle("Light", setStateSheet),
+                  const Divider(color: Color(0xff536674)),
+                  buildAppModeToggle("Dark", setStateSheet),
+                  const Divider(color: Color(0xff536674)),
+                  buildAppModeToggle("Default", setStateSheet),
                 ],
               ),
-            );
-          },
-        );
-      },
+            ),
+          ),
+        ),
+      ),
     );
   }
+
+  Widget buildAppModeToggle(String mode, StateSetter setStateSheet) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+      title: Text(mode, style: const TextStyle(color: Colors.white)),
+      trailing: Transform.scale(
+        scale: 0.7, // Shrinks the switch to 70% of default size
+        child: Switch(
+          value: appMode == mode,
+          onChanged: (value) {
+            if (value) {
+              setStateSheet(() => appMode = mode);
+              setState(() {}); // update main state
+            }
+          },
+          activeThumbColor: const Color(0xff0A2538),
+          activeTrackColor: Colors.white,
+          inactiveThumbColor: const Color(0xff113D60),
+          inactiveTrackColor: const Color(0xff0A2538),
+        ),
+      ),
+    );
+  }
+
+  // ----------- Build -----------
 
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(
-                left: 16.0,
-                right: 16,
-                top: 45,
-                bottom: 10,
-              ),
-              child: Center(
-                child: Text(
-                  "SETTINGS",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                  ),
-                ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: h * 0.05, bottom: h * 0.01),
+            child: const Text(
+              "SETTINGS",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
               ),
             ),
-            Container(
-              height: h * 0.9,
+          ),
+          Expanded(
+            child: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xff071e30), Color(0xff000617)],
@@ -269,31 +289,34 @@ class _SettingState extends State<Setting> {
                 ),
               ),
               child: ListView(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: w * 0.04,
+                  vertical: h * 0.02,
+                ),
                 children: [
-                  _buildSettingsTile(
-                    icon: Icons.language,
-                    title: "Language",
+                  buildSettingsTile(
+                    Icons.language,
+                    "Language",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: _showLanguageBottomSheet,
+                    onTap: showLanguageBottomSheet,
                   ),
-                  _buildSettingsTile(
-                    icon: Icons.history,
-                    title: "Clear Search History",
+                  buildSettingsTile(
+                    Icons.history,
+                    "Clear Search History",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: _showClearHistoryDialog,
+                    onTap: () => showClearHistoryDialog(context),
                   ),
-                  _buildSettingsTile(
-                    icon: Icons.notifications,
-                    title: "Notifications",
+                  buildSettingsTile(
+                    Icons.notifications,
+                    "Notifications",
                     trailing: Switch(
                       value: notificationsEnabled,
                       onChanged: (value) {
@@ -307,85 +330,68 @@ class _SettingState extends State<Setting> {
                       inactiveTrackColor: const Color(0xff0a2538),
                     ),
                   ),
-                  _buildSettingsTile(
-                    icon: Icons.brightness_6,
-                    title: "App Mode",
+                  buildSettingsTile(
+                    Icons.brightness_6,
+                    "App Mode",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: _showAppModeBottomSheet,
+                    onTap: showAppModeBottomSheet,
                   ),
-                  _buildSettingsTile(
-                    icon: Icons.lock,
-                    title: "Privacy Policy",
+                  buildSettingsTile(
+                    Icons.lock,
+                    "Privacy Policy",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DummyPage(
-                            title: "Privacy Policy",
-                            content: "Here is your Privacy Policy details...",
-                          ),
-                        ),
-                      );
-                    },
+                    onTap: () {},
                   ),
-                  _buildSettingsTile(
-                    icon: Icons.description,
-                    title: "Terms & Conditions",
+                  buildSettingsTile(
+                    Icons.description,
+                    "Terms & Conditions",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DummyPage(
-                            title: "Terms & Conditions",
-                            content:
-                                "Here are your Terms & Conditions details...",
-                          ),
-                        ),
-                      );
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildSettingsTile({
-    required IconData icon,
-    required String title,
+  Widget buildSettingsTile(
+    IconData icon,
+    String title, {
     Widget? trailing,
     VoidCallback? onTap,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 22),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        height: 70,
+        // Fixed height for all tiles
+        margin: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: const Color(0xFF0E2A47),
+          color: const Color(0xFF09233A),
           borderRadius: BorderRadius.circular(40),
+          border: Border.all(color: const Color(0xff536674), width: 0.5),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 18,
+              radius: 20, // Keep same size
               backgroundColor: Colors.white,
               child: Icon(icon, color: const Color(0xFF0E2A47)),
             ),
@@ -393,41 +399,11 @@ class _SettingState extends State<Setting> {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: const TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
             if (trailing != null) trailing,
           ],
-        ),
-      ),
-    );
-  }
-}
-
-/// --- Dummy Page for Privacy Policy & Terms ---
-class DummyPage extends StatelessWidget {
-  final String title;
-  final String content;
-
-  const DummyPage({super.key, required this.title, required this.content});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff020C15),
-      appBar: AppBar(
-        backgroundColor: const Color(0xff071e30),
-        title: Text(title),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Text(
-          content,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
         ),
       ),
     );

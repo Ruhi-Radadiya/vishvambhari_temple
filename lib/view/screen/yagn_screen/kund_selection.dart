@@ -24,11 +24,11 @@ class _KundSelectionState extends State<KundSelection> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 16.0,
-                  right: 16,
-                  top: 45,
-                  bottom: 10,
+                padding: EdgeInsets.only(
+                  left: w * 0.04,
+                  right: w * 0.04,
+                  top: h * 0.06,
+                  bottom: h * 0.01,
                 ),
                 child: Center(
                   child: Text(
@@ -36,49 +36,49 @@ class _KundSelectionState extends State<KundSelection> {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                      fontSize: w * 0.045,
                     ),
                   ),
                 ),
               ),
               Container(
                 height: h * 2.7,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
                     colors: [Color(0xff071e30), Color(0xff000617)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(45),
-                    topRight: Radius.circular(45),
+                    topLeft: Radius.circular(w * 0.12),
+                    topRight: Radius.circular(w * 0.12),
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(24),
+                  padding: EdgeInsets.all(w * 0.06),
                   child: Column(
                     children: [
                       Container(
                         width: w,
-                        padding: const EdgeInsets.all(16),
+                        padding: EdgeInsets.all(w * 0.04),
                         decoration: BoxDecoration(
                           color: const Color(0xff051c37),
-                          borderRadius: BorderRadius.circular(25),
+                          borderRadius: BorderRadius.circular(w * 0.06),
                           border: Border.all(color: Colors.white54),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               "How to Select a Kund",
                               style: TextStyle(
                                 color: Colors.orange,
-                                fontSize: 18,
+                                fontSize: w * 0.045,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
-                            const SizedBox(height: 12),
-                            const Text.rich(
+                            SizedBox(height: h * 0.015),
+                            Text.rich(
                               TextSpan(
                                 children: [
                                   TextSpan(
@@ -86,7 +86,7 @@ class _KundSelectionState extends State<KundSelection> {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 14,
+                                      fontSize: w * 0.035,
                                     ),
                                   ),
                                   TextSpan(
@@ -94,14 +94,14 @@ class _KundSelectionState extends State<KundSelection> {
                                         "Click on available (green) kund positions below",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: w * 0.035,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 6),
-                            const Text.rich(
+                            SizedBox(height: h * 0.008),
+                            Text.rich(
                               TextSpan(
                                 children: [
                                   TextSpan(
@@ -109,7 +109,7 @@ class _KundSelectionState extends State<KundSelection> {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 14,
+                                      fontSize: w * 0.035,
                                     ),
                                   ),
                                   TextSpan(
@@ -117,28 +117,40 @@ class _KundSelectionState extends State<KundSelection> {
                                         "Your selection will be confirmed and you can proceed to payment",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 14,
+                                      fontSize: w * 0.035,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            SizedBox(height: h * 0.02),
                             Row(
                               children: [
                                 Row(
                                   children: [
-                                    const CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.green,
+                                    Container(
+                                      width: w * 0.06, // diameter = 2 * radius
+                                      height: w * 0.06,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors.white, // border color
+                                          width: 1, // border thickness
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius: w * 0.03,
+                                        backgroundColor: Colors.green,
+                                      ),
                                     ),
-                                    const SizedBox(width: 6),
-                                    const Text(
+
+                                    SizedBox(width: w * 0.015),
+                                    Text(
                                       "Available",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
+                                        fontSize: w * 0.045,
+                                        fontWeight: FontWeight.w900,
                                       ),
                                     ),
                                     SizedBox(width: w * 0.08),
@@ -146,136 +158,154 @@ class _KundSelectionState extends State<KundSelection> {
                                 ),
                                 Row(
                                   children: [
-                                    const CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.red,
+                                    Container(
+                                      width: w * 0.06, // diameter = 2 * radius
+                                      height: w * 0.06,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors.white, // border color
+                                          width: 1, // border thickness
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius: w * 0.03,
+                                        backgroundColor: Colors.red,
+                                      ),
                                     ),
-                                    const SizedBox(width: 6),
-                                    const Text(
+
+                                    SizedBox(width: w * 0.015),
+                                    Text(
                                       "Booked",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
+                                        fontSize: w * 0.045,
+                                        fontWeight: FontWeight.w900,
                                       ),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: h * 0.025),
                             Row(
                               children: [
                                 Icon(
                                   CupertinoIcons.lightbulb_fill,
                                   color: Colors.orange,
-                                  size: 20,
+                                  size: w * 0.05,
                                 ),
-                                SizedBox(width: 6),
+                                SizedBox(width: w * 0.015),
                                 Text(
                                   "Selection Rules",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 15,
+                                    fontSize: w * 0.038,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 12),
+                            SizedBox(height: h * 0.015),
                             Row(
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 4,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: w * 0.03,
+                                    vertical: h * 0.005,
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.orange.withAlpha(60),
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.05,
+                                    ),
                                     border: Border.all(color: Colors.orange),
                                   ),
-                                  child: const Text(
+                                  child: Text(
                                     "Single",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 13,
+                                      fontSize: w * 0.032,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(width: 10),
-                                const Expanded(
+                                SizedBox(width: w * 0.025),
+                                Expanded(
                                   child: Text(
                                     "- Select any 1 position",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 13,
+                                      fontSize: w * 0.032,
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: h * 0.008),
                             Row(
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 4,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: w * 0.03,
+                                    vertical: h * 0.005,
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.orange.withAlpha(60),
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.05,
+                                    ),
                                     border: Border.all(color: Colors.orange),
                                   ),
-                                  child: const Text(
+                                  child: Text(
                                     "Couple",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 13,
+                                      fontSize: w * 0.032,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(width: 10),
-                                const Expanded(
+                                SizedBox(width: w * 0.025),
+                                Expanded(
                                   child: Text(
                                     "- Automatically selects 2 consecutive positions in same",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 13,
+                                      fontSize: w * 0.032,
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
+                            SizedBox(height: h * 0.008),
                             Row(
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 4,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: w * 0.03,
+                                    vertical: h * 0.005,
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.orange.withAlpha(60),
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.05,
+                                    ),
                                     border: Border.all(color: Colors.orange),
                                   ),
-                                  child: const Text(
+                                  child: Text(
                                     "Family",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 13,
+                                      fontSize: w * 0.032,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(width: 10),
-                                const Expanded(
+                                SizedBox(width: w * 0.025),
+                                Expanded(
                                   child: Text(
                                     "- Can select any available positions across groups",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 13,
+                                      fontSize: w * 0.032,
                                     ),
                                   ),
                                 ),
@@ -289,29 +319,24 @@ class _KundSelectionState extends State<KundSelection> {
                         height: h * 0.06,
                         decoration: BoxDecoration(
                           color: Colors.orange,
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(w * 0.08),
                         ),
                         child: Center(
-                          child: Column(
-                            children: [
-                              SizedBox(height: h * 0.015),
-                              Text(
-                                "Select Your Kund",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            "Select Your Kund",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: w * 0.04,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),
+                      SizedBox(height: h * 0.02),
                       Column(
                         children: [
                           KundGroup(groupIndex: 0, startNumber: 1, seats: 6),
-                          const SizedBox(height: 30),
-
+                          SizedBox(height: h * 0.02),
                           Column(
                             children: List.generate(6, (rowIndex) {
                               int leftGroup = rowIndex * 2 + 1;
@@ -321,7 +346,7 @@ class _KundSelectionState extends State<KundSelection> {
                               int rightStart = leftStart + 8;
 
                               return Padding(
-                                padding: const EdgeInsets.only(bottom: 30),
+                                padding: EdgeInsets.only(bottom: h * 0.03),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -330,7 +355,7 @@ class _KundSelectionState extends State<KundSelection> {
                                       startNumber: leftStart,
                                       seats: 8,
                                     ),
-                                    const SizedBox(width: 30),
+                                    SizedBox(width: w * 0.04),
                                     KundGroup(
                                       groupIndex: rightGroup,
                                       startNumber: rightStart,
@@ -344,43 +369,41 @@ class _KundSelectionState extends State<KundSelection> {
                         ],
                       ),
                       SizedBox(height: h * 0.03),
-
                       Text(
-                        textAlign: TextAlign.left,
                         "Kund Position Selected !",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 14,
+                          fontSize: w * 0.035,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       SizedBox(height: h * 0.01),
                       Text(
-                        textAlign: TextAlign.left,
                         "Please select Yagn Type to see the total Amount",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 14,
+                          fontSize: w * 0.035,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       SizedBox(height: h * 0.02),
-
                       ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(
-                            Color(0xff134369),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff134369),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: w * 0.15,
+                            vertical: h * 0.025,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(w * 0.07),
                           ),
                         ),
                         onPressed: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 63,
-                            vertical: 18,
-                          ),
-                          child: Text(
-                            "Submit Registration",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
+                        child: Text(
+                          "Submit Registration",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: w * 0.038,
                           ),
                         ),
                       ),
