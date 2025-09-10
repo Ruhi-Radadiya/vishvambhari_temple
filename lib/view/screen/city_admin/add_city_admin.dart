@@ -284,27 +284,26 @@ class _AddCityAdminState extends State<AddCityAdmin> {
                           keyboardType: TextInputType.number,
                         ),
                         SizedBox(height: h * 0.02),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(
-                              Color(0xff4f00a4),
+                        SizedBox(
+                          width: w * 0.9,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff4f00a4),
+                              padding: EdgeInsets.symmetric(vertical: h * 0.02),
+                              shape: const StadiumBorder(),
                             ),
-                          ),
-                          onPressed: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 79,
-                              vertical: 18,
-                            ),
+                            onPressed: () {},
                             child: Text(
                               "Add City Admin",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 15,
+                                fontSize: w * 0.045,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
                         ),
+
                         SizedBox(height: h * 0.05),
                       ],
                     ),

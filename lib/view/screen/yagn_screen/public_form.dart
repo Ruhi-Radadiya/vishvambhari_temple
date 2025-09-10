@@ -259,28 +259,30 @@ class _PublicFormState extends State<PublicForm> {
                                           ),
                                         ),
                                         SizedBox(height: h * 0.025),
-                                        ElevatedButton(
-                                          style: ButtonStyle(
-                                            backgroundColor:
-                                                WidgetStatePropertyAll(
-                                                  Color(0xff134369),
-                                                ),
-                                          ),
-                                          onPressed: () {},
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 96,
-                                              vertical: 18,
+                                        SizedBox(
+                                          width: w * 0.9,
+                                          child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor: const Color(
+                                                0xff134369,
+                                              ),
+                                              padding: EdgeInsets.symmetric(
+                                                vertical: h * 0.02,
+                                              ),
+                                              shape: const StadiumBorder(),
                                             ),
+                                            onPressed: () {},
                                             child: Text(
                                               "Next",
                                               style: TextStyle(
                                                 color: Colors.white,
-                                                fontSize: 15,
+                                                fontSize: w * 0.045,
+                                                fontWeight: FontWeight.w600,
                                               ),
                                             ),
                                           ),
                                         ),
+
                                         SizedBox(height: h * 0.05),
                                       ],
                                     ),

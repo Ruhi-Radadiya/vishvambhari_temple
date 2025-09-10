@@ -261,6 +261,7 @@ class _ViewYagnState extends State<ViewYagn> {
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
+
                                           fontWeight: selectedYagnType == 1
                                               ? FontWeight.bold
                                               : FontWeight.normal,
@@ -511,145 +512,169 @@ class _ViewYagnState extends State<ViewYagn> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                    height: h * 0.06,
-                                    width: w * 0.28,
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange,
-                                      borderRadius: BorderRadius.circular(30),
-                                      border: Border.all(color: Colors.orange),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Add member",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
+                                  Flexible(
+                                    flex: 4,
+                                    child: Container(
+                                      height: h * 0.06,
+                                      decoration: BoxDecoration(
+                                        color: Colors.orange,
+                                        borderRadius: BorderRadius.circular(30),
+                                        border: Border.all(
+                                          color: Colors.orange,
+                                        ),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: const Text(
+                                          "Add member",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            backgroundColor: Color(0xff01122a),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                            ),
-                                            title: const Text(
-                                              "Add Member by Mobile No.",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500,
+                                  SizedBox(width: w * 0.04),
+                                  Flexible(
+                                    flex: 6,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return AlertDialog(
+                                              backgroundColor: const Color(
+                                                0xff01122a,
                                               ),
-                                            ),
-                                            content: TextField(
-                                              keyboardType:
-                                                  TextInputType.number,
-                                              controller: controller,
-
-                                              decoration: InputDecoration(
-                                                hintText: "Enter mobile number",
-                                                hintStyle: TextStyle(
-                                                  color: Colors.white54,
-                                                  fontSize: 14,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                              ),
+                                              title: const Text(
+                                                "Add Member by Mobile No.",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
                                                 ),
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                  borderSide: BorderSide(
+                                              ),
+                                              content: TextField(
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                controller: controller,
+                                                decoration: InputDecoration(
+                                                  hintText:
+                                                      "Enter mobile number",
+                                                  hintStyle: const TextStyle(
                                                     color: Colors.white54,
+                                                    fontSize: 14,
+                                                  ),
+                                                  border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          30,
+                                                        ),
+                                                    borderSide:
+                                                        const BorderSide(
+                                                          color: Colors.white54,
+                                                        ),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor: const Color(
+                                                    0xff051c37,
                                                   ),
                                                 ),
-                                                filled: true,
-                                                fillColor: Color(0xff051c37),
                                               ),
-                                            ),
-                                            actions: [
-                                              ElevatedButton(
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      WidgetStatePropertyAll(
-                                                        Color(0xff051c37),
-                                                      ),
-                                                  shape: WidgetStatePropertyAll(
-                                                    RoundedRectangleBorder(
+                                              actions: [
+                                                ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        const Color(0xff051c37),
+                                                    shape: RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                             30,
                                                           ),
-                                                      side: BorderSide(
+                                                      side: const BorderSide(
                                                         color: Colors.white54,
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                onPressed: () {
-                                                  FocusScope.of(
-                                                    context,
-                                                  ).unfocus();
-                                                  Get.back();
-                                                },
-                                                child: const Text(
-                                                  "Cancel",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
+                                                  onPressed: () {
+                                                    FocusScope.of(
+                                                      context,
+                                                    ).unfocus();
+                                                    Get.back();
+                                                  },
+                                                  child: const Text(
+                                                    "Cancel",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              ElevatedButton(
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      WidgetStatePropertyAll(
-                                                        Color(0xff134369),
-                                                      ),
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                    "User typed: ${controller.text}",
-                                                  );
-                                                  FocusScope.of(
-                                                    context,
-                                                  ).unfocus();
-
-                                                  Get.back();
-                                                },
-                                                child: const Text(
-                                                  "Submit",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
+                                                ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        const Color(0xff134369),
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            30,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                      "User typed: ${controller.text}",
+                                                    );
+                                                    FocusScope.of(
+                                                      context,
+                                                    ).unfocus();
+                                                    Get.back();
+                                                  },
+                                                  child: const Text(
+                                                    "Submit",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                    },
-                                    child: Container(
-                                      height: h * 0.06,
-                                      width: w * 0.45,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xff051c37),
-                                        borderRadius: BorderRadius.circular(30),
-                                        border: Border.all(color: Colors.grey),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Add member by mobile",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 13,
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      child: Container(
+                                        height: h * 0.06,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xff051c37),
+                                          borderRadius: BorderRadius.circular(
+                                            30,
+                                          ),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: const Text(
+                                            "Add member by mobile",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
+
                               SizedBox(height: h * 0.02),
                               Text(
                                 "Participant 1",
@@ -739,25 +764,25 @@ class _ViewYagnState extends State<ViewYagn> {
                                 ),
                               ),
                               SizedBox(height: h * 0.05),
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor: WidgetStatePropertyAll(
-                                    Color(0xff134369),
+                              SizedBox(
+                                width: w * 0.9,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xff134369),
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: h * 0.02,
+                                    ),
+                                    shape: const StadiumBorder(),
                                   ),
-                                ),
-                                onPressed: () {
-                                  Get.toNamed(Routes.kundSelection);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 96,
-                                    vertical: 18,
-                                  ),
+                                  onPressed: () {
+                                    Get.toNamed(Routes.kundSelection);
+                                  },
                                   child: Text(
                                     "Next",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 15,
+                                      fontSize: w * 0.045,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
