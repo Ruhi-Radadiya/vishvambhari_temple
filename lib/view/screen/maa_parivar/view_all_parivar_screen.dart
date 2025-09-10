@@ -415,7 +415,7 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                               .map(
                                 (m) => Padding(
                                   padding: const EdgeInsets.symmetric(
-                                    vertical: 8.0,
+                                    vertical: 3.0,
                                   ),
                                   child: UserCard(
                                     name: m['name']!,
@@ -468,16 +468,18 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const cardBg = Color(0xFF071829);
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
+
     const cardInner = Color(0xFF0B2030);
-    const phoneBg = Color(0xFF2357A8); // phone blue
-    const stateBg = Color(0xFF2FB45A); // green
-    const peopleBg = Color(0xFF263238); // grey pill
-    const districtBg = Color(0xFFDD8B33); // orange
-    const roleBg = Color(0xFFEA6C6C); // red
+    const phoneBg = Color(0xFF2357A8);
+    const stateBg = Color(0xFF2FB45A);
+    const peopleBg = Color(0xFF263238);
+    const districtBg = Color(0xFFDD8B33);
+    const roleBg = Color(0xFFEA6C6C);
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 6),
+      margin: EdgeInsets.symmetric(horizontal: w * 0.015, vertical: h * 0.01),
       decoration: BoxDecoration(
         color: cardInner,
         borderRadius: BorderRadius.circular(16),
@@ -489,7 +491,7 @@ class UserCard extends StatelessWidget {
           ),
         ],
       ),
-      padding: const EdgeInsets.all(14),
+      padding: EdgeInsets.all(w * 0.03),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -502,18 +504,18 @@ class UserCard extends StatelessWidget {
                   children: [
                     Text(
                       name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15.5,
+                        fontSize: w * 0.04,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    SizedBox(height: h * 0.005),
                     Text(
                       "Code : $code",
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.75),
-                        fontSize: 12,
+                        fontSize: w * 0.03,
                       ),
                     ),
                   ],
@@ -521,53 +523,66 @@ class UserCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  _smallIconButton(Icons.man, const Color(0xFF2B69C8)),
-                  const SizedBox(width: 8),
-                  _smallIconButton(Icons.woman, const Color(0xFF2B69C8)),
+                  _smallIconButton(Icons.man, const Color(0xFF2B69C8), w, h),
+                  SizedBox(width: w * 0.02),
+                  _smallIconButton(Icons.woman, const Color(0xFF2B69C8), w, h),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          Row(
+          SizedBox(height: h * 0.015),
+          Wrap(
+            spacing: w * 0.02,
+            runSpacing: h * 0.01,
             children: [
-              chip(phone, phoneBg, Colors.white),
-              const SizedBox(width: 8),
-              chip(state, stateBg, Colors.white),
-              const Spacer(),
-              chip("$peopleCount people", peopleBg, Colors.white, fontSize: 12),
+              chip(phone, phoneBg, Colors.white, w, h),
+              chip(state, stateBg, Colors.white, w, h),
+              chip(
+                "$peopleCount people",
+                peopleBg,
+                Colors.white,
+                w,
+                h,
+                fontSize: 0.03,
+              ),
             ],
           ),
-          const SizedBox(height: 10),
-          Row(
+          SizedBox(height: h * 0.012),
+          Wrap(
+            spacing: w * 0.02,
+            runSpacing: h * 0.01,
             children: [
-              chip(district, districtBg, Colors.white),
-              const SizedBox(width: 8),
-              chip(role, roleBg, Colors.white),
+              chip(district, districtBg, Colors.white, w, h),
+              chip(role, roleBg, Colors.white, w, h),
             ],
           ),
-          const SizedBox(height: 12),
-          Row(
+          SizedBox(height: h * 0.015),
+          Wrap(
+            spacing: w * 0.03,
             children: [
               _actionBoxButton(
                 Icons.remove_red_eye,
                 Colors.transparent,
                 Colors.white,
                 Colors.white,
+                w,
+                h,
               ),
-              const SizedBox(width: 10),
               _actionBoxButton(
                 Icons.edit,
                 Colors.transparent,
                 Colors.blueAccent,
                 Colors.blueAccent,
+                w,
+                h,
               ),
-              const SizedBox(width: 10),
               _actionBoxButton(
                 Icons.delete,
                 Colors.transparent,
                 Colors.redAccent,
                 Colors.redAccent,
+                w,
+                h,
               ),
             ],
           ),
@@ -576,9 +591,16 @@ class UserCard extends StatelessWidget {
     );
   }
 
-  Widget chip(String text, Color bg, Color textColor, {double fontSize = 11}) {
+  Widget chip(
+    String text,
+    Color bg,
+    Color textColor,
+    double w,
+    double h, {
+    double fontSize = 0.028,
+  }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: w * 0.03, vertical: h * 0.008),
       decoration: BoxDecoration(
         color: bg,
         borderRadius: BorderRadius.circular(20),
@@ -588,21 +610,21 @@ class UserCard extends StatelessWidget {
         style: TextStyle(
           color: textColor,
           fontWeight: FontWeight.w600,
-          fontSize: fontSize,
+          fontSize: w * fontSize,
         ),
       ),
     );
   }
 
-  Widget _smallIconButton(IconData icon, Color iconColor) {
+  Widget _smallIconButton(IconData icon, Color iconColor, double w, double h) {
     return Container(
-      width: 34,
-      height: 34,
+      width: w * 0.08,
+      height: w * 0.08,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Icon(icon, color: iconColor, size: 30),
+      child: Icon(icon, color: iconColor, size: w * 0.06),
     );
   }
 
@@ -611,16 +633,18 @@ class UserCard extends StatelessWidget {
     Color bg,
     Color iconColor,
     Color borderColor,
+    double w,
+    double h,
   ) {
     return Container(
-      width: 44,
-      height: 36,
+      width: w * 0.12,
+      height: h * 0.045,
       decoration: BoxDecoration(
         color: bg,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: borderColor),
       ),
-      child: Icon(icon, color: iconColor, size: 18),
+      child: Icon(icon, color: iconColor, size: w * 0.06),
     );
   }
 }
