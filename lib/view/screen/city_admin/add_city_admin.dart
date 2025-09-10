@@ -303,7 +303,6 @@ class _AddCityAdminState extends State<AddCityAdmin> {
                             ),
                           ),
                         ),
-
                         SizedBox(height: h * 0.05),
                       ],
                     ),

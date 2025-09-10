@@ -519,7 +519,6 @@ class UserCard extends StatelessWidget {
                   ],
                 ),
               ),
-
               Row(
                 children: [
                   _smallIconButton(Icons.man, const Color(0xFF2B69C8)),
@@ -529,9 +528,7 @@ class UserCard extends StatelessWidget {
               ),
             ],
           ),
-
           const SizedBox(height: 12),
-
           Row(
             children: [
               chip(phone, phoneBg, Colors.white),
@@ -541,9 +538,7 @@ class UserCard extends StatelessWidget {
               chip("$peopleCount people", peopleBg, Colors.white, fontSize: 12),
             ],
           ),
-
           const SizedBox(height: 10),
-
           Row(
             children: [
               chip(district, districtBg, Colors.white),
@@ -551,7 +546,6 @@ class UserCard extends StatelessWidget {
               chip(role, roleBg, Colors.white),
             ],
           ),
-
           const SizedBox(height: 12),
           Row(
             children: [

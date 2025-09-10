@@ -674,7 +674,6 @@ class _ViewYagnState extends State<ViewYagn> {
                                   ),
                                 ],
                               ),
-
                               SizedBox(height: h * 0.02),
                               Text(
                                 "Participant 1",
