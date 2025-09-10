@@ -151,65 +151,67 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                     padding: const EdgeInsets.all(18),
                     child: Column(
                       children: [
-                        // top action buttons row
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xff00a424),
-                                ),
-                                padding: MaterialStateProperty.all(
-                                  const EdgeInsets.symmetric(
-                                    vertical: 16,
-                                    horizontal: 18,
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: w * 0.015),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xff00a424),
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: h * 0.018,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                        12,
+                                      ), // normal rounded
+                                    ),
                                   ),
-                                ),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Export to Excel",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.038,
+                                      // responsive font size
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: const Text(
-                                "Export to Excel",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
                                 ),
                               ),
                             ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                  const Color(0xff4f00a4),
-                                ),
-                                padding: MaterialStateProperty.all(
-                                  const EdgeInsets.symmetric(
-                                    vertical: 16,
-                                    horizontal: 18,
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(left: w * 0.015),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xff4f00a4),
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: h * 0.018,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                        12,
+                                      ), // normal rounded
+                                    ),
                                   ),
-                                ),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
+                                  onPressed: () =>
+                                      Get.toNamed(Routes.addParivar),
+                                  child: Text(
+                                    "Add New Parivar",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.038,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                              ),
-                              onPressed: () => Get.toNamed(Routes.addParivar),
-                              child: const Text(
-                                "Add New Parivar",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
                                 ),
                               ),
                             ),
                           ],
                         ),
-
                         SizedBox(height: h * 0.03),
                         Padding(
                           padding: const EdgeInsets.all(5.0),

@@ -39,6 +39,8 @@ dependencies:
   flutter_slidable: ^4.0.1
   image_picker: any
   pin_code_fields: any
+  google_fonts: any
+  flutter_screenutil: any
 
 dev_dependencies:
   flutter_test:

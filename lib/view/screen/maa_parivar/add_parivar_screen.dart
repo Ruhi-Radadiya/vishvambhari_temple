@@ -629,49 +629,46 @@ class AddParivarScreen extends StatelessWidget {
                         SizedBox(height: h * 0.01),
                         UploadPhotoField(),
                         SizedBox(height: h * 0.03),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(
-                              Color(0xff4f00a4),
+                        SizedBox(
+                          width: w * 0.9, // 90% of screen width
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff4f00a4),
+                              padding: EdgeInsets.symmetric(vertical: h * 0.02),
+                              shape: const StadiumBorder(), // pill shape
                             ),
-                          ),
-                          onPressed: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 26.0,
-                              vertical: 18,
-                            ),
+                            onPressed: () {},
                             child: Text(
-                              "+ Add  Another Family Member",
+                              "+ Add Another Family Member",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 15,
+                                fontSize: w * 0.04,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
                         ),
                         SizedBox(height: h * 0.02),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(
-                              Color(0xff00a424),
+                        SizedBox(
+                          width: w * 0.9,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff00a424),
+                              padding: EdgeInsets.symmetric(vertical: h * 0.02),
+                              shape: const StadiumBorder(), // pill shape
                             ),
-                          ),
-                          onPressed: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 83.0,
-                              vertical: 18,
-                            ),
+                            onPressed: () {},
                             child: Text(
                               "Create Parivar",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 15,
+                                fontSize: w * 0.04,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
                         ),
+
                         SizedBox(height: h * 0.05),
                       ],
                     ),

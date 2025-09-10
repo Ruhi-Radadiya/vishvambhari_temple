@@ -220,61 +220,62 @@ class _AboutState extends State<About> {
                         ),
                         SizedBox(height: h * 0.02),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(Routes.objectiveDetailPage);
-                              },
-                              child: Container(
-                                height: h * 0.07,
-                                decoration: BoxDecoration(
-                                  color: Color(0xff0a2538),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 16,
-                                  horizontal: 30,
-                                ),
-                                child: Text(
-                                  "  OBJECTIVE  ",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                    color: Colors.white,
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(Routes.objectiveDetailPage);
+                                },
+                                child: Container(
+                                  height: h * 0.07,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff0a2538),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.04,
+                                    ),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "OBJECTIVE",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: w * 0.035,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(width: w * 0.03),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(Routes.vedicVirtues);
-                              },
-                              child: Container(
-                                height: h * 0.07,
-                                decoration: BoxDecoration(
-                                  color: Color(0xff0a2538),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 16,
-                                  horizontal: 30,
-                                ),
-                                child: Text(
-                                  "VEDIC VIRTUES",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                    color: Colors.white,
+                            SizedBox(width: w * 0.04),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(Routes.vedicVirtues);
+                                },
+                                child: Container(
+                                  height: h * 0.07,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff0a2538),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.04,
+                                    ),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "VEDIC VIRTUES",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: w * 0.035,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ],
                         ),
+
                         SizedBox(height: h * 0.02),
                         GestureDetector(
                           onTap: () {
