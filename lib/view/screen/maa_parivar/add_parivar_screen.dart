@@ -630,12 +630,12 @@ class AddParivarScreen extends StatelessWidget {
                         UploadPhotoField(),
                         SizedBox(height: h * 0.03),
                         SizedBox(
-                          width: w * 0.9, // 90% of screen width
+                          width: w * 0.9,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xff4f00a4),
                               padding: EdgeInsets.symmetric(vertical: h * 0.02),
-                              shape: const StadiumBorder(), // pill shape
+                              shape: const StadiumBorder(),
                             ),
                             onPressed: () {},
                             child: Text(
@@ -655,7 +655,7 @@ class AddParivarScreen extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xff00a424),
                               padding: EdgeInsets.symmetric(vertical: h * 0.02),
-                              shape: const StadiumBorder(), // pill shape
+                              shape: const StadiumBorder(),
                             ),
                             onPressed: () {},
                             child: Text(

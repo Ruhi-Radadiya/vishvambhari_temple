@@ -275,7 +275,6 @@ class _AboutState extends State<About> {
                             ),
                           ],
                         ),
-
                         SizedBox(height: h * 0.02),
                         GestureDetector(
                           onTap: () {

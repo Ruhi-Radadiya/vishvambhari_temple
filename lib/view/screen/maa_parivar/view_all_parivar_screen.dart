@@ -349,11 +349,10 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        // "Showing X of Y" + Show entries control (like screenshot)
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            // Show entries (left)
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 12,
@@ -469,7 +468,6 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // card colors tuned to screenshot
     const cardBg = Color(0xFF071829);
     const cardInner = Color(0xFF0B2030);
     const phoneBg = Color(0xFF2357A8); // phone blue
@@ -495,11 +493,9 @@ class UserCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header: name, code and two small icons on the right
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // left: name + code
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -524,7 +520,6 @@ class UserCard extends StatelessWidget {
                 ),
               ),
 
-              // right icons (two small person icons)
               Row(
                 children: [
                   _smallIconButton(Icons.man, const Color(0xFF2B69C8)),
@@ -537,30 +532,23 @@ class UserCard extends StatelessWidget {
 
           const SizedBox(height: 12),
 
-          // First row: phone, state and people count (people at far right)
           Row(
             children: [
-              _chip(phone, phoneBg, Colors.white),
+              chip(phone, phoneBg, Colors.white),
               const SizedBox(width: 8),
-              _chip(state, stateBg, Colors.white),
+              chip(state, stateBg, Colors.white),
               const Spacer(),
-              _chip(
-                "$peopleCount people",
-                peopleBg,
-                Colors.white,
-                fontSize: 12,
-              ),
+              chip("$peopleCount people", peopleBg, Colors.white, fontSize: 12),
             ],
           ),
 
           const SizedBox(height: 10),
 
-          // Second row: district and role
           Row(
             children: [
-              _chip(district, districtBg, Colors.white),
+              chip(district, districtBg, Colors.white),
               const SizedBox(width: 8),
-              _chip(role, roleBg, Colors.white),
+              chip(role, roleBg, Colors.white),
             ],
           ),
 
@@ -594,8 +582,7 @@ class UserCard extends StatelessWidget {
     );
   }
 
-  // colored pill chip
-  Widget _chip(String text, Color bg, Color textColor, {double fontSize = 11}) {
+  Widget chip(String text, Color bg, Color textColor, {double fontSize = 11}) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
@@ -613,7 +600,6 @@ class UserCard extends StatelessWidget {
     );
   }
 
-  // small icon circle used top-right
   Widget _smallIconButton(IconData icon, Color iconColor) {
     return Container(
       width: 34,
@@ -626,7 +612,6 @@ class UserCard extends StatelessWidget {
     );
   }
 
-  // action small rounded box (keeps same radius/size)
   Widget _actionBoxButton(
     IconData icon,
     Color bg,

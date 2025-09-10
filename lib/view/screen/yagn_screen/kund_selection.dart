@@ -309,21 +309,15 @@ class _KundSelectionState extends State<KundSelection> {
                       ),
                       Column(
                         children: [
-                          // First special Kund (single)
                           KundGroup(groupIndex: 0, startNumber: 1, seats: 6),
                           const SizedBox(height: 30),
 
-                          // From group 1 onward → arrange 2–2 in rows
                           Column(
                             children: List.generate(6, (rowIndex) {
-                              // each row has 2 kunds
-                              int leftGroup =
-                                  rowIndex * 2 + 1; // e.g. 1, 3, 5, ...
-                              int rightGroup =
-                                  leftGroup + 1; // e.g. 2, 4, 6, ...
+                              int leftGroup = rowIndex * 2 + 1;
+                              int rightGroup = leftGroup + 1;
 
-                              int leftStart =
-                                  7 + (rowIndex * 16); // continues numbering
+                              int leftStart = 7 + (rowIndex * 16);
                               int rightStart = leftStart + 8;
 
                               return Padding(
@@ -427,7 +421,6 @@ class KundGroup extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              // grey square
               Container(
                 width: 105,
                 height: 105,
@@ -437,10 +430,8 @@ class KundGroup extends StatelessWidget {
                 ),
               ),
 
-              // Seats
               ...List.generate(seats, (index) {
                 if (groupIndex == 0) {
-                  // First Kund: 6 seats (2 each side of square)
                   List<Offset> positions = [
                     const Offset(-37, 1), // left-top
                     const Offset(-37, 35), // left-bottom
@@ -456,7 +447,6 @@ class KundGroup extends StatelessWidget {
                     child: seatCircle(startNumber + index),
                   );
                 } else {
-                  // Other Kunds: 8 seats around square
                   List<Offset> positions = [
                     const Offset(1, -40), // top-left
                     const Offset(35, -40), // top-right
