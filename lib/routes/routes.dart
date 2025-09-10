@@ -17,6 +17,8 @@ import '../view/screen/maa_parivar/view_all_parivar_screen.dart';
 import '../view/screen/password_screen/forgot_screen.dart';
 import '../view/screen/password_screen/otp_screen.dart';
 import '../view/screen/password_screen/reset_password_screen.dart';
+import '../view/screen/profile_screen/change_mobile_number.dart';
+import '../view/screen/profile_screen/number_verification.dart';
 import '../view/screen/registration_screen/registration_screen.dart';
 import '../view/screen/splash_screen.dart';
 import '../view/screen/start_screen/start_screen.dart';
@@ -50,6 +52,8 @@ class Routes {
   static String otpScreen = '/otp-screen';
   static String forgotScreen = '/forgot-screen';
   static String resetPasswordScreen = '/reset-password-screen';
+  static String changeMobileNumber = '/change-mobile-number';
+  static String numberVerification = '/number-verification';
 
   static List<GetPage> myRoutes = [
     GetPage(name: splashPage, page: () => const SplashScreen()),
@@ -82,5 +86,7 @@ class Routes {
     GetPage(name: otpScreen, page: () => const OTPScreen()),
     GetPage(name: forgotScreen, page: () => const ForgotScreen()),
     GetPage(name: resetPasswordScreen, page: () => const ResetPasswordScreen()),
+    GetPage(name: changeMobileNumber, page: () => const ChangeMobileNumber()),
+    GetPage(name: numberVerification, page: () => const NumberVerification()),
   ];
 }

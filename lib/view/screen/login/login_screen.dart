@@ -169,7 +169,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(Routes.splashPage);
+                    },
                     child: const Text(
                       "Login",
                       style: TextStyle(fontSize: 16, color: Colors.white),
@@ -198,11 +200,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _socialButton("assets/images/login/Vector.png"),
+                    socialButton("assets/images/login/Vector.png"),
                     const SizedBox(width: 20),
-                    _socialButton("assets/images/login/google_1.png"),
+                    socialButton("assets/images/login/google_1.png"),
                     const SizedBox(width: 20),
-                    _socialButton("assets/images/login/Vector_2.png"),
+                    socialButton("assets/images/login/Vector_2.png"),
                   ],
                 ),
                 SizedBox(height: h * 0.03),
@@ -235,7 +237,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _socialButton(String assetPath) {
+  Widget socialButton(String assetPath) {
     return Container(
       width: 80,
       padding: const EdgeInsets.all(14),

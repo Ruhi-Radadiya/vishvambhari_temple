@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../routes/routes.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -112,14 +115,12 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                     ),
-
-                    // Profile tiles
-                    _buildProfileTile(
+                    buildProfileTile(
                       icon: Icons.call,
                       title: "+91 7358443068",
                       onTap: () {},
                     ),
-                    _buildProfileTile(
+                    buildProfileTile(
                       icon: Icons.phone_android,
                       title: "Change Mobile Number",
                       trailing: const Icon(
@@ -128,13 +129,10 @@ class _ProfileState extends State<Profile> {
                         size: 16,
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (_) => const ChangeMobileScreen()),
-                        // );
+                        Get.toNamed(Routes.changeMobileNumber);
                       },
                     ),
-                    _buildProfileTile(
+                    buildProfileTile(
                       icon: Icons.logout,
                       title: "Logout",
                       trailing: const Icon(
@@ -143,14 +141,14 @@ class _ProfileState extends State<Profile> {
                         size: 16,
                       ),
                       onTap: () {
-                        _showLogoutDialog(context);
+                        showLogoutDialog(context);
                       },
                     ),
 
                     const SizedBox(height: 30),
                     GestureDetector(
                       onTap: () {
-                        _showDeleteAccountDialog(context);
+                        showDeleteAccountDialog(context);
                       },
                       child: const Text(
                         "Delete Account",
@@ -172,7 +170,7 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget _buildProfileTile({
+  Widget buildProfileTile({
     required IconData icon,
     required String title,
     Widget? trailing,
@@ -212,7 +210,7 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  void _showLogoutDialog(BuildContext context) {
+  void showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -258,7 +256,7 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  void _showDeleteAccountDialog(BuildContext context) {
+  void showDeleteAccountDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
