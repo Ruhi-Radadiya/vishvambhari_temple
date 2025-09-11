@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Download extends StatefulWidget {
   const Download({super.key});
@@ -174,60 +175,78 @@ class _DownloadState extends State<Download> {
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
-                                    title: Icon(
-                                      CupertinoIcons.delete,
-                                      color: Colors.white,
-                                      size: 80,
+                                    title: Image.asset(
+                                      "assets/Icon/download/Delete Icon.png",
+                                      height: Get.width / 3,
                                     ),
                                     actionsAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     actions: [
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Color(0xff134369),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              20,
+                                      Column(
+                                        children: [
+                                          ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor: Color(
+                                                0xff134369,
+                                              ),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: Get.width / 12,
+                                                vertical: Get.width / 30,
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              myDownloads.removeAt(index);
+                                              setState(() {});
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "Yes , Delete",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        onPressed: () {
-                                          myDownloads.removeAt(index);
-                                          setState(() {});
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text(
-                                          "Yes , Delete",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                      OutlinedButton(
-                                        style: OutlinedButton.styleFrom(
-                                          foregroundColor: Color(0xff142e40),
-                                          side: const BorderSide(
-                                            color: Colors.white,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              20,
+                                          SizedBox(height: Get.width / 40),
+                                          OutlinedButton(
+                                            style: OutlinedButton.styleFrom(
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: Get.width / 12,
+                                                vertical: Get.width / 30,
+                                              ),
+                                              foregroundColor: Color(
+                                                0xff142e40,
+                                              ),
+                                              side: const BorderSide(
+                                                color: Colors.white,
+                                              ),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "Keep , Please",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text(
-                                          "Keep , Please",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
+                                        ],
                                       ),
                                     ],
                                   ),
                                 );
                               },
-                              icon: Icon(
-                                CupertinoIcons.delete,
-                                color: Colors.white,
+                              icon: Image.asset(
+                                "assets/Icon/download/dow_1.png",
+                                height: Get.width / 20,
                               ),
                             ),
                           );

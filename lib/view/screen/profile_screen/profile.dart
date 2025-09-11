@@ -55,10 +55,9 @@ class _ProfileState extends State<Profile> {
                             shape: BoxShape.circle,
                           ),
                           padding: const EdgeInsets.all(6),
-                          child: const Icon(
-                            Icons.edit,
-                            size: 18,
-                            color: Colors.black,
+                          child: Image.asset(
+                            "assets/Icon/profileIcon/pro_1.png",
+                            height: Get.width / 32,
                           ),
                         ),
                       ],
@@ -106,22 +105,22 @@ class _ProfileState extends State<Profile> {
                               shape: BoxShape.circle,
                             ),
                             padding: const EdgeInsets.all(6),
-                            child: const Icon(
-                              Icons.edit,
-                              size: 18,
-                              color: Colors.black,
+                            child: Image.asset(
+                              "assets/Icon/profileIcon/pro_1.png",
+                              height: Get.width / 32,
                             ),
                           ),
                         ],
                       ),
                     ),
+
                     buildProfileTile(
-                      icon: Icons.call,
+                      image: "assets/Icon/profileIcon/pro_2.png",
                       title: "+91 7358443068",
                       onTap: () {},
                     ),
                     buildProfileTile(
-                      icon: Icons.phone_android,
+                      image: "assets/Icon/profileIcon/pro_3.png",
                       title: "Change Mobile Number",
                       trailing: const Icon(
                         Icons.arrow_forward_ios,
@@ -133,7 +132,7 @@ class _ProfileState extends State<Profile> {
                       },
                     ),
                     buildProfileTile(
-                      icon: Icons.logout,
+                      image: "assets/Icon/profileIcon/pro_4.png",
                       title: "Logout",
                       trailing: const Icon(
                         Icons.arrow_forward_ios,
@@ -171,7 +170,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Widget buildProfileTile({
-    required IconData icon,
+    required String image,
     required String title,
     Widget? trailing,
     VoidCallback? onTap,
@@ -189,8 +188,8 @@ class _ProfileState extends State<Profile> {
           children: [
             CircleAvatar(
               radius: 18,
-              backgroundColor: Colors.white.withValues(alpha: 0.1),
-              child: Icon(icon, color: Colors.white),
+              backgroundColor: Colors.white,
+              child: Image.asset(image, height: Get.width / 22),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -216,7 +215,10 @@ class _ProfileState extends State<Profile> {
       builder: (context) => AlertDialog(
         backgroundColor: const Color(0xff071e30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Icon(Icons.logout_outlined, size: 50, color: Colors.white),
+        title: Image.asset(
+          "assets/Icon/profileIcon/Logout Icon.png",
+          height: Get.width / 4,
+        ),
         content: const Text(
           "are you sure want to Logout ?",
           textAlign: TextAlign.center,
@@ -224,32 +226,47 @@ class _ProfileState extends State<Profile> {
         ),
         actionsAlignment: MainAxisAlignment.spaceEvenly,
         actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff134369),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+          Column(
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff134369),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 12,
+                    vertical: Get.width / 30,
+                  ),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "Yes , Logout",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            onPressed: () {},
-            child: const Text(
-              "Yes, Logout",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Color(0xff142e40),
-              side: const BorderSide(color: Colors.white),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+              SizedBox(height: Get.width / 40),
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 12,
+                    vertical: Get.width / 30,
+                  ),
+                  foregroundColor: Color(0xff142e40),
+                  side: const BorderSide(color: Colors.white),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "No , Please",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              "No, Please",
-              style: TextStyle(color: Colors.white),
-            ),
+            ],
           ),
         ],
       ),
@@ -265,6 +282,7 @@ class _ProfileState extends State<Profile> {
         title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
         content: const Text(
           "are you sure want to Delete Account ?",
+
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white),
         ),
@@ -294,6 +312,7 @@ class _ProfileState extends State<Profile> {
             onPressed: () => Navigator.pop(context),
             child: const Text(
               "No, Please",
+
               style: TextStyle(color: Colors.white),
             ),
           ),

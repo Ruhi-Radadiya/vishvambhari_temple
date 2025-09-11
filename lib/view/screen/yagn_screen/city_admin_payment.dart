@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CityAdminPayment extends StatefulWidget {
   const CityAdminPayment({super.key});
@@ -45,8 +46,11 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: const Color(0xff0a263d),
                           borderRadius: BorderRadius.circular(30),
+                          border: Border.all(
+                            width: 2,
+                            color: const Color(0xff0a263d),
+                          ),
                         ),
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,144 +193,228 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: const Color(0xff0a263d),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Select Payment Method",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 12),
-                            Row(
-                              children: [
-                                Radio<String>(
-                                  value: "online",
-                                  groupValue: _paymentMethod,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      _paymentMethod = val!;
-                                    });
-                                  },
-                                  activeColor: Colors.blue,
-                                ),
-                                const Text(
-                                  "Pay Online (Razorpay)",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Radio<String>(
-                                  value: "cash",
-                                  groupValue: _paymentMethod,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      _paymentMethod = val!;
-                                    });
-                                  },
-                                  activeColor: Colors.blue,
-                                ),
-                                const Text(
-                                  "Pay Cash",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        height: 50,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            shape: RoundedRectangleBorder(
+
+                      Stack(
+                        children: [
+                          Container(
+                            height: h * 0.22,
+                            decoration: BoxDecoration(
+                              color: Color(0xff134369),
                               borderRadius: BorderRadius.circular(30),
                             ),
+                            child: Center(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: h * 0.01),
+                                  const Text(
+                                    "Select Payment Method",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                          onPressed: () {},
+                          Positioned(
+                            top: 50,
+                            left: 0,
+                            right: 0,
+                            child: Padding(
+                              padding: EdgeInsets.all(Get.width / 70),
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff0a263d),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Radio<String>(
+                                          value: "online",
+                                          groupValue: _paymentMethod,
+                                          onChanged: (val) {
+                                            setState(() {
+                                              _paymentMethod = val!;
+                                            });
+                                          },
+                                          activeColor: Colors.blue,
+                                        ),
+                                        const Text(
+                                          "Pay Online (Razorpay)",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Radio<String>(
+                                          value: "cash",
+                                          groupValue: _paymentMethod,
+                                          onChanged: (val) {
+                                            setState(() {
+                                              _paymentMethod = val!;
+                                            });
+                                          },
+                                          activeColor: Colors.blue,
+                                        ),
+                                        const Text(
+                                          "Pay Cash",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+
+                      InkWell(
+                        onTap: () {
+                          // Button tap action
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: Get.width / 30,
+                            horizontal: 60,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(40),
+                            // Full rounded
+                            border: Border.all(color: Colors.green, width: 1.5),
+                          ),
+                          alignment: Alignment.center,
                           child: const Text(
                             "Pay Now",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
                       const SizedBox(height: 12),
-                      SizedBox(
-                        height: 50,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+
+                      InkWell(
+                        onTap: () {
+                          // Button tap action
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: Get.width / 30,
+                            horizontal: 60,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFFC107).withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(40),
+                            // Full rounded
+                            border: Border.all(
+                              color: const Color(0xFFFFC107),
+                              width: 1.5,
                             ),
                           ),
-                          onPressed: () {},
+                          alignment: Alignment.center,
                           child: const Text(
                             "Pay Later",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(
+                              color: const Color(0xFFFFC107),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
                       const SizedBox(height: 16),
-                      Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: const Color(0xff0a263d),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Shareable Payment Link",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+
+                      Stack(
+                        children: [
+                          Container(
+                            height: h * 0.25,
+                            decoration: BoxDecoration(
+                              color: Color(0xff134369),
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                            const SizedBox(height: 8),
-                            const Text(
-                              "https://dhamadmin.cesihpl.com/process_files/yagn_submit.php ref=YAGN-20250904-279141 &token=a3b0cbb67c758544150d8b39a5cc5a8670d16ea07ba35df027360053280e8b99",
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 12,
-                              ),
-                              maxLines: 4,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const SizedBox(height: 12),
-                            SizedBox(
-                              height: 40,
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blueGrey.shade800,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                            child: Center(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: h * 0.01),
+                                  const Text(
+                                    "Shareable Payment Link",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18,
+                                    ),
                                   ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 50,
+                            left: 0,
+                            right: 0,
+                            child: Padding(
+                              padding: EdgeInsets.all(Get.width / 40),
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff0a263d),
+                                  borderRadius: BorderRadius.circular(30),
                                 ),
-                                onPressed: () {},
-                                child: const Text(
-                                  "Open Share Link",
-                                  style: TextStyle(color: Colors.white),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "https://dhamadmin.cesihpl.com/process_files/yagn_submit.php ref=YAGN-20250904-279141 &token=a3b0cbb67c758544150d8b39a5cc5a8670d16ea07ba35df027360053280e8b99",
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 12,
+                                      ),
+                                      maxLines: 4,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    const SizedBox(height: 12),
+                                    SizedBox(
+                                      height: 40,
+                                      width: double.infinity,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              Colors.blueGrey.shade800,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              30,
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () {},
+                                        child: const Text(
+                                          "Open Share Link",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
+
                       const SizedBox(height: 30),
                     ],
                   ),

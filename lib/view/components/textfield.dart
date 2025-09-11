@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 /// Colors matching your design
@@ -251,27 +252,65 @@ class _UploadPhotoFieldState extends State<UploadPhotoField> {
     return GestureDetector(
       onTap: pickImage,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        height: 55,
         decoration: BoxDecoration(
-          color: const Color(0xFF0A2538),
-          borderRadius: BorderRadius.circular(30), // pill shape
+          border: Border.all(color: Colors.white30, width: 1),
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.white24,
         ),
         child: Row(
           children: [
-            Icon(
-              selectedImage == null ? Icons.upload_file : Icons.check_circle,
-              color: Colors.white54,
-            ),
-            const SizedBox(width: 12),
+            // Right side "No File Chosen" or filename
             Expanded(
-              child: Text(
-                selectedImage == null ? 'Upload Photo' : 'Photo Selected',
-                style: const TextStyle(color: Colors.white54),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Text(
+                  "Choose File",
+                  style: const TextStyle(color: Colors.white54, fontSize: 14),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            // Left side "Choose File"
+            Container(
+              height: 55,
+              width: Get.width / 1.8,
+              decoration: BoxDecoration(
+                color: Color(0xff01122A),
+                borderRadius: BorderRadius.circular(40), // 🔴 Same pill radius
+              ),
+              alignment: Alignment.center,
+              child: const Text(
+                "No File Chosen",
+                style: TextStyle(color: Colors.white, fontSize: 14),
               ),
             ),
           ],
         ),
       ),
+
+      // Container(
+      //   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      //   decoration: BoxDecoration(
+      //     color: const Color(0xFF0A2538),
+      //     borderRadius: BorderRadius.circular(30), // pill shape
+      //   ),
+      //   child: Row(
+      //     children: [
+      //       Icon(
+      //         selectedImage == null ? Icons.upload_file : Icons.check_circle,
+      //         color: Colors.white54,
+      //       ),
+      //       const SizedBox(width: 12),
+      //       Expanded(
+      //         child: Text(
+      //           selectedImage == null ? 'Upload Photo' : 'Photo Selected',
+      //           style: const TextStyle(color: Colors.white54),
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

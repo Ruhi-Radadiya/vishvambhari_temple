@@ -77,15 +77,15 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                         ),
                       ),
                     ),
-                    IconButton(
-                      icon: const Icon(
-                        CupertinoIcons.bell,
-                        color: Colors.white,
-                        size: 25,
+
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.notificationScreen),
+                      child: Container(
+                        child: Image.asset(
+                          "assets/Icon/bell.png",
+                          height: Get.width / 20,
+                        ),
                       ),
-                      onPressed: () {
-                        Get.toNamed(Routes.notificationScreen);
-                      },
                     ),
                   ],
                 ),
@@ -141,6 +141,8 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                         code: "parivar0010",
                         phone: "+91 78653 21498",
                         state: "Gujarat",
+                        h: h,
+                        w: w,
                       ),
                       SizedBox(height: h * 0.02),
                       _buildParivarCard(
@@ -148,6 +150,8 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                         code: "parivar0006",
                         phone: "+91 98378 45198",
                         state: "Gujarat",
+                        h: h,
+                        w: w,
                       ),
                       SizedBox(height: h * 0.02),
                       _buildParivarCard(
@@ -155,6 +159,8 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                         code: "parivar0010",
                         phone: "+91 68557 78491",
                         state: "Rajasthan",
+                        h: h,
+                        w: w,
                       ),
                     ],
                   ),
@@ -173,6 +179,8 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
     required String code,
     required String phone,
     required String state,
+    required double w,
+    required double h,
   }) {
     return Container(
       padding: const EdgeInsets.all(14),
@@ -196,10 +204,20 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                 ),
               ),
               Row(
-                children: const [
-                  Icon(Icons.man, color: Colors.blueAccent, size: 30),
-                  SizedBox(width: 6),
-                  Icon(Icons.woman, color: Colors.blueAccent, size: 30),
+                children: [
+                  _smallIconButton(
+                    "assets/images/men.png",
+                    const Color(0xFF2B69C8),
+                    w,
+                    h,
+                  ),
+                  SizedBox(width: w * 0.02),
+                  _smallIconButton(
+                    "assets/images/women.png",
+                    const Color(0xFF2B69C8),
+                    w,
+                    h,
+                  ),
                 ],
               ),
             ],
@@ -224,13 +242,34 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
           const SizedBox(height: 12),
 
           // Action Buttons
-          Row(
+          Wrap(
+            spacing: w * 0.03,
             children: [
-              _actionButton(Icons.phone, Colors.white),
-              const SizedBox(width: 10),
-              _actionButton(Icons.edit, Colors.blue),
-              const SizedBox(width: 10),
-              _actionButton(Icons.delete, Colors.red),
+              _actionBoxButton(
+                "assets/Icon/Card/card_1.png",
+                Colors.transparent,
+                Colors.white,
+                Colors.white,
+                w,
+                h,
+              ),
+              _actionBoxButton(
+                "assets/Icon/Card/card_2.png",
+                Colors.transparent,
+                Colors.blueAccent,
+                Colors.blueAccent,
+                w,
+                h,
+              ),
+
+              _actionBoxButton(
+                "assets/Icon/Card/card_3.png",
+                Colors.transparent,
+                Colors.redAccent,
+                Colors.redAccent,
+                w,
+                h,
+              ),
             ],
           ),
         ],
@@ -253,17 +292,36 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
     );
   }
 
-  // 🔹 Action Button
-  Widget _actionButton(IconData icon, Color color) {
+  Widget _smallIconButton(String image, Color iconColor, double w, double h) {
     return Container(
-      height: 40,
-      width: 40,
+      width: w * 0.055,
+      height: w * 0.055,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: color),
       ),
-      child: Icon(icon, color: color),
+      child: Image.asset(image),
+    );
+  }
+
+  Widget _actionBoxButton(
+    String icon,
+    Color bg,
+    Color iconColor,
+    Color borderColor,
+    double w,
+    double h,
+  ) {
+    return Container(
+      width: w * 0.12,
+      height: h * 0.045,
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: borderColor),
+      ),
+      padding: EdgeInsets.all(Get.width / 46),
+      child: Image.asset(icon, height: Get.width / 60, color: iconColor),
     );
   }
 }

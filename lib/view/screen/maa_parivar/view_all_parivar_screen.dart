@@ -120,18 +120,19 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    IconButton(
-                      icon: const Icon(
-                        CupertinoIcons.bell,
-                        color: Colors.white,
-                        size: 25,
+
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.notificationScreen),
+                      child: Container(
+                        child: Image.asset(
+                          "assets/Icon/bell.png",
+                          height: Get.width / 20,
+                        ),
                       ),
-                      onPressed: () => Get.toNamed(Routes.notificationScreen),
                     ),
                   ],
                 ),
               ),
-
               // Main content gradient area
               Expanded(
                 child: Container(
@@ -523,9 +524,19 @@ class UserCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  _smallIconButton(Icons.man, const Color(0xFF2B69C8), w, h),
+                  _smallIconButton(
+                    "assets/images/men.png",
+                    const Color(0xFF2B69C8),
+                    w,
+                    h,
+                  ),
                   SizedBox(width: w * 0.02),
-                  _smallIconButton(Icons.woman, const Color(0xFF2B69C8), w, h),
+                  _smallIconButton(
+                    "assets/images/women.png",
+                    const Color(0xFF2B69C8),
+                    w,
+                    h,
+                  ),
                 ],
               ),
             ],
@@ -561,7 +572,7 @@ class UserCard extends StatelessWidget {
             spacing: w * 0.03,
             children: [
               _actionBoxButton(
-                Icons.remove_red_eye,
+                "assets/Icon/Card/card_1.png",
                 Colors.transparent,
                 Colors.white,
                 Colors.white,
@@ -569,7 +580,7 @@ class UserCard extends StatelessWidget {
                 h,
               ),
               _actionBoxButton(
-                Icons.edit,
+                "assets/Icon/Card/card_2.png",
                 Colors.transparent,
                 Colors.blueAccent,
                 Colors.blueAccent,
@@ -577,7 +588,7 @@ class UserCard extends StatelessWidget {
                 h,
               ),
               _actionBoxButton(
-                Icons.delete,
+                "assets/Icon/Card/card_3.png",
                 Colors.transparent,
                 Colors.redAccent,
                 Colors.redAccent,
@@ -616,20 +627,20 @@ class UserCard extends StatelessWidget {
     );
   }
 
-  Widget _smallIconButton(IconData icon, Color iconColor, double w, double h) {
+  Widget _smallIconButton(String image, Color iconColor, double w, double h) {
     return Container(
-      width: w * 0.08,
-      height: w * 0.08,
+      width: w * 0.055,
+      height: w * 0.055,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Icon(icon, color: iconColor, size: w * 0.06),
+      child: Image.asset(image),
     );
   }
 
   Widget _actionBoxButton(
-    IconData icon,
+    String icon,
     Color bg,
     Color iconColor,
     Color borderColor,
@@ -644,7 +655,8 @@ class UserCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: borderColor),
       ),
-      child: Icon(icon, color: iconColor, size: w * 0.06),
+      padding: EdgeInsets.all(Get.width / 46),
+      child: Image.asset(icon, height: Get.width / 60, color: iconColor),
     );
   }
 }

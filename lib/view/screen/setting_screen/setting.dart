@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -18,7 +19,10 @@ class _SettingState extends State<Setting> {
       builder: (context) => AlertDialog(
         backgroundColor: const Color(0xff071e30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
+        title: Image.asset(
+          "assets/Icon/settingIcon/sett_6.png",
+          height: Get.width / 3,
+        ),
         content: const Text(
           "Are you sure you want to Clear Search History?",
           textAlign: TextAlign.center,
@@ -26,37 +30,52 @@ class _SettingState extends State<Setting> {
         ),
         actionsAlignment: MainAxisAlignment.spaceEvenly,
         actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff134369),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+          Column(
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff134369),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 12,
+                    vertical: Get.width / 30,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Search history cleared!")),
+                  );
+                },
+                child: Text(
+                  "Yes , Clear",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Search history cleared!")),
-              );
-            },
-            child: const Text(
-              "Yes, Clear",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              foregroundColor: Color(0xff142e40),
-              side: const BorderSide(color: Colors.white),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+              SizedBox(height: Get.width / 40),
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 12,
+                    vertical: Get.width / 30,
+                  ),
+                  foregroundColor: Color(0xff142e40),
+                  side: const BorderSide(color: Colors.white),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "No , Please",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              "No, Please",
-              style: TextStyle(color: Colors.white),
-            ),
+            ],
           ),
         ],
       ),
@@ -272,7 +291,7 @@ class _SettingState extends State<Setting> {
                 padding: const EdgeInsets.all(20),
                 children: [
                   _buildSettingsTile(
-                    icon: Icons.language,
+                    image: "assets/Icon/settingIcon/sett_1.png",
                     title: "Language",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
@@ -282,7 +301,7 @@ class _SettingState extends State<Setting> {
                     onTap: _showLanguageBottomSheet,
                   ),
                   _buildSettingsTile(
-                    icon: Icons.history,
+                    image: "assets/Icon/profileIcon/pro_3.png",
                     title: "Clear Search History",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
@@ -292,7 +311,7 @@ class _SettingState extends State<Setting> {
                     onTap: _showClearHistoryDialog,
                   ),
                   _buildSettingsTile(
-                    icon: Icons.notifications,
+                    image: "assets/Icon/settingIcon/sett_2.png",
                     title: "Notifications",
                     trailing: Switch(
                       value: notificationsEnabled,
@@ -308,7 +327,7 @@ class _SettingState extends State<Setting> {
                     ),
                   ),
                   _buildSettingsTile(
-                    icon: Icons.brightness_6,
+                    image: "assets/Icon/settingIcon/sett_3.png",
                     title: "App Mode",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
@@ -318,7 +337,7 @@ class _SettingState extends State<Setting> {
                     onTap: _showAppModeBottomSheet,
                   ),
                   _buildSettingsTile(
-                    icon: Icons.lock,
+                    image: "assets/Icon/settingIcon/sett_4.png",
                     title: "Privacy Policy",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
@@ -338,7 +357,7 @@ class _SettingState extends State<Setting> {
                     },
                   ),
                   _buildSettingsTile(
-                    icon: Icons.description,
+                    image: "assets/Icon/settingIcon/sett_5.png",
                     title: "Terms & Conditions",
                     trailing: const Icon(
                       Icons.arrow_forward_ios,
@@ -368,7 +387,7 @@ class _SettingState extends State<Setting> {
   }
 
   Widget _buildSettingsTile({
-    required IconData icon,
+    required String image,
     required String title,
     Widget? trailing,
     VoidCallback? onTap,
@@ -387,7 +406,7 @@ class _SettingState extends State<Setting> {
             CircleAvatar(
               radius: 18,
               backgroundColor: Colors.white,
-              child: Icon(icon, color: const Color(0xFF0E2A47)),
+              child: Image.asset(image, height: Get.width / 22),
             ),
             const SizedBox(width: 16),
             Expanded(

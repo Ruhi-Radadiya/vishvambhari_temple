@@ -50,8 +50,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 "assets/Icon/bottomBarIcon/bottom_1.png",
                 height: Get.width / 22,
                 color: controller.bottomNavigationIndex.value == 0
-                    ? Colors.red
-                    : Colors.white,
+                    ? Colors.white
+                    : Colors.white54,
               ),
               label: "About",
             ),
@@ -60,8 +60,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 "assets/Icon/bottomBarIcon/bottom_2.png",
                 height: Get.width / 22,
                 color: controller.bottomNavigationIndex.value == 1
-                    ? Colors.red
-                    : Colors.white,
+                    ? Colors.white
+                    : Colors.white54,
               ),
               label: "Download",
             ),
@@ -70,8 +70,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 "assets/Icon/bottomBarIcon/bottom_3.png",
                 height: Get.width / 22,
                 color: controller.bottomNavigationIndex.value == 2
-                    ? Colors.red
-                    : Colors.white,
+                    ? Colors.white
+                    : Colors.white54,
               ),
               label: "Home",
             ),
@@ -80,18 +80,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 "assets/Icon/bottomBarIcon/bottom_4.png",
                 height: Get.width / 22,
                 color: controller.bottomNavigationIndex.value == 3
-                    ? Colors.red
-                    : Colors.white,
+                    ? Colors.white
+                    : Colors.white54,
               ),
               label: "Profile",
             ),
+
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/Icon/bottomBarIcon/bottom_5.png",
                 height: Get.width / 22,
                 color: controller.bottomNavigationIndex.value == 4
-                    ? Colors.red
-                    : Colors.white,
+                    ? Colors.white
+                    : Colors.white54,
               ),
               label: "Setting",
             ),

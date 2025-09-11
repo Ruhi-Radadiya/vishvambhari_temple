@@ -22,6 +22,7 @@ class _HeaderState extends State<Header> {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
         children: [
           GestureDetector(
             onTap: () {

@@ -82,10 +82,9 @@ class _ChangeMobileNumberState extends State<ChangeMobileNumber> {
                               child: CircleAvatar(
                                 backgroundColor: Colors.white,
                                 radius: 50,
-                                child: Icon(
-                                  Icons.phone_android,
-                                  color: Colors.black,
-                                  size: 55,
+                                child: Image.asset(
+                                  "assets/Icon/profileIcon/pro_3.png",
+                                  height: Get.width / 8,
                                 ),
                               ),
                             ),
