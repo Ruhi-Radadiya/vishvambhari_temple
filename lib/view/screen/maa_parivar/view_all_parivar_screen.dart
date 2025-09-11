@@ -101,7 +101,7 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                               color: Colors.white.withOpacity(0.7),
                             ),
                             prefixIcon: const Icon(
-                              Icons.search,
+                              Icons.search_rounded,
                               color: Colors.white,
                             ),
                             filled: true,
@@ -120,7 +120,6 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                       ),
                     ),
                     const SizedBox(width: 8),
-
                     GestureDetector(
                       onTap: () => Get.toNamed(Routes.notificationScreen),
                       child: Container(
@@ -133,9 +132,10 @@ class _ViewParivarScreenState extends State<ViewParivarScreen> {
                   ],
                 ),
               ),
+
               // Main content gradient area
               Expanded(
-                child: Container(
+                child: Container(   padding:  EdgeInsets.symmetric(vertical: Get.width / 30),
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -640,13 +640,13 @@ class UserCard extends StatelessWidget {
   }
 
   Widget _actionBoxButton(
-    String icon,
-    Color bg,
-    Color iconColor,
-    Color borderColor,
-    double w,
-    double h,
-  ) {
+      String icon,
+      Color bg,
+      Color iconColor,
+      Color borderColor,
+      double w,
+      double h,
+      ) {
     return Container(
       width: w * 0.12,
       height: h * 0.045,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +20,7 @@ class _HeaderState extends State<Header> {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
         children: [
@@ -29,12 +29,21 @@ class _HeaderState extends State<Header> {
               Scaffold.of(context).openDrawer();
             },
             child: Container(
-              height: h * 0.14,
-              width: w * 0.14,
+              height: h * 0.13,
+              width: w * 0.13,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
-                image: DecorationImage(
+              ),
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 1,
+                  bottom: 4,
+                  left: 4,
+                  right: 4,
+                ),
+                child: Image(
                   image: AssetImage("assets/images/home_images/logo.png"),
                 ),
               ),
@@ -46,15 +55,13 @@ class _HeaderState extends State<Header> {
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search here...",
-                  hintStyle: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.7),
-                  ),
+                  hintStyle: TextStyle(color: Colors.white24, fontSize: 13),
                   prefixIcon: const Icon(
                     Icons.search_rounded,
-                    color: Colors.white54,
+                    color: Colors.white24,
                   ),
                   filled: true,
-                  fillColor: Colors.white.withValues(alpha: 0.2),
+                  fillColor: Color(0xff0A2538),
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 0,
                     horizontal: 15,

@@ -201,7 +201,7 @@ class _HomeState extends State<Home> {
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
                                     colors: [
-                                      Colors.black.withValues(alpha: 0.6),
+                                      Colors.black,
                                       Colors.transparent,
                                     ],
                                   ),
@@ -211,6 +211,7 @@ class _HomeState extends State<Home> {
                           ),
                         );
                       },
+
                       options: CarouselOptions(
                         height: h * 0.22,
                         autoPlay: true,
@@ -226,6 +227,7 @@ class _HomeState extends State<Home> {
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: tabs.length,
+
                         itemBuilder: (context, index) {
                           final mappedIndex = index + 1;
                           final isSelected = selectedTab == mappedIndex;
@@ -371,7 +373,7 @@ class _HomeState extends State<Home> {
               ),
               const SizedBox(height: 15),
               GridView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -706,50 +708,61 @@ class _HomeState extends State<Home> {
                           selectedAudioTab = 0;
                         });
                       },
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: selectedAudioTab == 0
-                              ? Colors.white
-                              : Colors.black26,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.asset(
-                                "assets/images/home_images/aarti.png",
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.cover,
+                      child: Card(
+                        elevation: 2,
+                        color: selectedAudioTab == 0
+                            ? Colors.white
+                            : Color(0xff0A2538).withOpacity(0.1),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: selectedAudioTab == 0
+                                ? Colors.white
+                                : Color(0xff0A2538).withOpacity(0.1),
+                            border: Border.all(
+                              color: selectedAudioTab == 0
+                                  ? Colors.white
+                                  : Color(0xff0A2538),
+                            ),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.asset(
+                                  "assets/images/home_images/aarti.png",
+                                  height: 40,
+                                  width: 40,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            const SizedBox(width: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Aarti",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w900,
-                                    color: selectedAudioTab == 0
-                                        ? Colors.black
-                                        : Colors.white,
-                                    fontSize: 14,
+                              const SizedBox(width: 10),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Aarti",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      color: selectedAudioTab == 0
+                                          ? Colors.black
+                                          : Colors.white,
+                                      fontSize: 14,
+                                    ),
                                   ),
-                                ),
-                                const Text(
-                                  "06 Tracks",
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600,
+                                  const Text(
+                                    "06 Tracks",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -762,50 +775,62 @@ class _HomeState extends State<Home> {
                           selectedAudioTab = 1;
                         });
                       },
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: selectedAudioTab == 1
-                              ? Colors.white
-                              : Colors.black26,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.asset(
-                                "assets/images/home_images/satsang.png",
-                                height: 40,
-                                width: 40,
-                                fit: BoxFit.cover,
+                      child: Card(
+                        elevation: 2,
+                        color: selectedAudioTab == 1
+                            ? Colors.white
+                            : Color(0xff0A2538).withOpacity(0.1),
+
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: selectedAudioTab == 1
+                                ? Colors.white
+                                : Color(0xff0A2538).withOpacity(0.1),
+                            border: Border.all(
+                              color: selectedAudioTab == 1
+                                  ? Colors.white
+                                  : Color(0xff0A2538),
+                            ),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.asset(
+                                  "assets/images/home_images/satsang.png",
+                                  height: 40,
+                                  width: 40,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            const SizedBox(width: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Satsang",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w900,
-                                    color: selectedAudioTab == 1
-                                        ? Colors.black
-                                        : Colors.white,
-                                    fontSize: 14,
+                              const SizedBox(width: 10),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Satsang",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      color: selectedAudioTab == 1
+                                          ? Colors.black
+                                          : Colors.white,
+                                      fontSize: 14,
+                                    ),
                                   ),
-                                ),
-                                const Text(
-                                  "00 Tracks",
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600,
+                                  const Text(
+                                    "00 Tracks",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -993,6 +1018,7 @@ class _HomeState extends State<Home> {
             mainAxisSpacing: 12,
             childAspectRatio: 0.75,
           ),
+          padding: EdgeInsets.all(0),
           itemCount: booksImage.length,
           itemBuilder: (context, index) {
             final book = booksImage[index];

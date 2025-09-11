@@ -432,16 +432,21 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                               const Spacer(),
                                               Container(
                                                 padding: EdgeInsets.all(
-                                                  w * 0.015,
+                                                  Get.width / 40,
                                                 ),
+                                                height: Get.width / 12,
+                                                width: Get.width / 12,
                                                 decoration: BoxDecoration(
-                                                  color: Colors.white
-                                                      .withOpacity(0.2),
-                                                  shape: BoxShape.circle,
+                                                  color: Color(0xff0A2538),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  border: Border.all(
+                                                    color: Colors.white38,
+                                                  ),
                                                 ),
                                                 child: Image.asset(
                                                   "assets/Icon/Drawer/drawer_4.png",
-                                                  height: Get.width / 38,
+                                                  width: Get.width / 44,
                                                 ),
                                               ),
                                             ],
@@ -482,7 +487,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                       "assets/images/about_images/Youtube.png",
                                     ])
                                       Container(
-                                        height: h * 0.08,
+                                        padding: EdgeInsets.all(Get.width / 45),
+                                        height: h * 0.07,
                                         width: h * 0.08,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,

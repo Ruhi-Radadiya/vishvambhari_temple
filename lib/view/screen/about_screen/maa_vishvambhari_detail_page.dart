@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MaaVishvambhariDetailPage extends StatelessWidget {
   const MaaVishvambhariDetailPage({super.key});
@@ -21,41 +22,50 @@ class MaaVishvambhariDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16,
-                top: 45,
-                bottom: 10,
+              padding: EdgeInsets.only(
+                left: w * 0.04,
+                right: w * 0.04,
+                top: h * 0.06,
+                bottom: h * 0.015,
               ),
-              child: Row(
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  Container(
-                    height: h * 0.05,
-                    width: w * 0.12,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff0a2538),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    alignment: Alignment.center,
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        CupertinoIcons.back,
+                  Center(
+                    child: Text(
+                      "MAA VISHVAMBHARI",
+                      style: TextStyle(
                         color: Colors.white,
-                        weight: 0.2,
+                        fontWeight: FontWeight.w900,
+                        fontSize: w * 0.047,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-
-                  SizedBox(width: w * 0.12),
-                  Text(
-                    "MAA VISHVAMBHARI",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 18,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      height: w * 0.11,
+                      width: w * 0.11,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff0a2538),
+                        borderRadius: BorderRadius.circular(w * 0.03),
+                        border: Border.all(
+                          color: const Color(0xff536674),
+                          width: 0.5,
+                        ),
+                      ),
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: w * 0.08,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -74,63 +84,66 @@ class MaaVishvambhariDetailPage extends StatelessWidget {
                   topRight: Radius.circular(45),
                 ),
               ),
-              child: Scrollbar(
-                thumbVisibility: true,
-                thickness: 6,
-                radius: const Radius.circular(10),
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 23.0),
-                        child: Text(
-                          "Main Aims and Objectives of MVTY Dham : ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
+              child: Padding(
+                padding: EdgeInsets.only(right: Get.width / 100),
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  thickness: 6,
+                  radius: const Radius.circular(10),
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 23.0),
+                          child: Text(
+                            "Main Aims and Objectives of MVTY Dham : ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: h * 0.02),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: points.map((point) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 8.0,
-                                horizontal: 11,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "• ",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      point,
-                                      style: const TextStyle(
-                                        fontSize: 13,
+                        SizedBox(height: h * 0.02),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 40.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: points.map((point) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                  horizontal: 11,
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "• ",
+                                      style: TextStyle(
+                                        fontSize: 20,
                                         color: Colors.white,
-                                        height: 1.5,
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }).toList(),
+                                    Expanded(
+                                      child: Text(
+                                        point,
+                                        style: const TextStyle(
+                                          fontSize: 13,
+                                          color: Colors.white,
+                                          height: 1.5,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

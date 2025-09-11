@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -13,86 +14,183 @@ class _SettingState extends State<Setting> {
   String selectedLanguage = "English";
   String appMode = "Dark";
 
-  void _showClearHistoryDialog() {
+  void showClearHistoryDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xff071e30),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Image.asset(
-          "assets/Icon/settingIcon/sett_6.png",
-          height: Get.width / 3,
-        ),
-        content: const Text(
-          "Are you sure you want to Clear Search History?",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white),
-        ),
-        actionsAlignment: MainAxisAlignment.spaceEvenly,
-        actions: [
-          Column(
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff134369),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Get.width / 12,
-                    vertical: Get.width / 30,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Search history cleared!")),
-                  );
-                },
-                child: Text(
-                  "Yes , Clear",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              SizedBox(height: Get.width / 40),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Get.width / 12,
-                    vertical: Get.width / 30,
-                  ),
-                  foregroundColor: Color(0xff142e40),
-                  side: const BorderSide(color: Colors.white),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "No , Please",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
+      barrierColor: Colors.black.withOpacity(0.3),
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+        child: AlertDialog(
+          backgroundColor: const Color(0xff071e30),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
           ),
-        ],
+          title: Image.asset(
+            "assets/Icon/settingIcon/sett_6.png",
+            height: Get.width / 3,
+          ),
+          content: const Text(
+            "Are you sure you want to Clear Search History?",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white),
+          ),
+          actionsAlignment: MainAxisAlignment.spaceEvenly,
+          actions: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 160,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff134369),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Search history cleared!"),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Yes, Clear",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 160,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(
+                        color: Color(0xff536674),
+                        width: 0.5,
+                      ),
+                      shape: const StadiumBorder(),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      backgroundColor: const Color(0xff142E40),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(
+                      "No, Please",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  void _showLanguageBottomSheet() {
+  void showLanguageBottomSheet() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xff071e30),
+      barrierColor: Colors.black.withOpacity(0.3),
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (context) {
-        return StatefulBuilder(
-          builder: (context, setStateSheet) {
-            return Padding(
+        return BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+          child: Container(
+            decoration: const BoxDecoration(color: Color(0xff0C2E49)),
+            child: StatefulBuilder(
+              builder: (context, setStateSheet) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    top: 16,
+                    left: 16,
+                    right: 16,
+                    bottom: 50,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            "LANGUAGE",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.close, color: Colors.white),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      buildLanguageToggle("English", setStateSheet),
+                      const Divider(color: Color(0xff536674)),
+                      buildLanguageToggle("Gujarati", setStateSheet),
+                      const Divider(color: Color(0xff536674)),
+                      buildLanguageToggle("Hindi", setStateSheet),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget buildLanguageToggle(String language, StateSetter setStateSheet) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+      title: Text(
+        language == "Gujarati"
+            ? "ગુજરાતી"
+            : language == "Hindi"
+            ? "हिन्दी"
+            : "English",
+        style: const TextStyle(color: Colors.white),
+      ),
+      trailing: Transform.scale(
+        scale: 0.7, // Shrinks the switch to 70% of default size
+        child: Switch(
+          value: selectedLanguage == language,
+          onChanged: (value) {
+            if (value) {
+              setStateSheet(() => selectedLanguage = language);
+              setState(() {}); // update main state
+            }
+          },
+          activeThumbColor: const Color(0xff0A2538),
+          activeTrackColor: Colors.white,
+          inactiveThumbColor: const Color(0xff113D60),
+          inactiveTrackColor: const Color(0xff0A2538),
+        ),
+      ),
+    );
+  }
+
+  void showAppModeBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      barrierColor: Colors.black.withOpacity(0.3),
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) => BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+        child: Container(
+          decoration: const BoxDecoration(color: Color(0xff0C2E49)),
+          child: StatefulBuilder(
+            builder: (context, setStateSheet) => Padding(
               padding: const EdgeInsets.only(
                 top: 16,
                 left: 16,
@@ -102,180 +200,86 @@ class _SettingState extends State<Setting> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
-                    "LANGUAGE",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "APP MODE",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.close, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
-                  ListTile(
-                    title: const Text(
-                      "English",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "English",
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setStateSheet(() => selectedLanguage = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "ગુજરાતી",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Gujarati",
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setStateSheet(() => selectedLanguage = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "हिन्दी",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Hindi",
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setStateSheet(() => selectedLanguage = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
+                  buildAppModeToggle("Light", setStateSheet),
+                  const Divider(color: Color(0xff536674)),
+                  buildAppModeToggle("Dark", setStateSheet),
+                  const Divider(color: Color(0xff536674)),
+                  buildAppModeToggle("Default", setStateSheet),
                 ],
               ),
-            );
-          },
-        );
-      },
+            ),
+          ),
+        ),
+      ),
     );
   }
 
-  void _showAppModeBottomSheet() {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: const Color(0xff071e30),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (context) {
-        return StatefulBuilder(
-          builder: (context, setStateSheet) {
-            return Padding(
-              padding: const EdgeInsets.only(
-                top: 16,
-                left: 16,
-                right: 16,
-                bottom: 50,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    "APP MODE",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  ListTile(
-                    title: const Text(
-                      "Light",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Light",
-                      groupValue: appMode,
-                      onChanged: (value) {
-                        setStateSheet(() => appMode = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Dark",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Dark",
-                      groupValue: appMode,
-                      onChanged: (value) {
-                        setStateSheet(() => appMode = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      "Default",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    trailing: Radio(
-                      value: "Default",
-                      groupValue: appMode,
-                      onChanged: (value) {
-                        setStateSheet(() => appMode = value!);
-                        setState(() {});
-                      },
-                      fillColor: WidgetStatePropertyAll(Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            );
+  Widget buildAppModeToggle(String mode, StateSetter setStateSheet) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+      title: Text(mode, style: const TextStyle(color: Colors.white)),
+      trailing: Transform.scale(
+        scale: 0.7, // Shrinks the switch to 70% of default size
+        child: Switch(
+          value: appMode == mode,
+          onChanged: (value) {
+            if (value) {
+              setStateSheet(() => appMode = mode);
+              setState(() {}); // update main state
+            }
           },
-        );
-      },
+          activeThumbColor: const Color(0xff0A2538),
+          activeTrackColor: Colors.white,
+          inactiveThumbColor: const Color(0xff113D60),
+          inactiveTrackColor: const Color(0xff0A2538),
+        ),
+      ),
     );
   }
+
+  // ----------- Build -----------
 
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(
-                left: 16.0,
-                right: 16,
-                top: 45,
-                bottom: 10,
-              ),
-              child: Center(
-                child: Text(
-                  "SETTINGS",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                  ),
-                ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: h * 0.05, bottom: h * 0.01),
+            child: const Text(
+              "SETTINGS",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
               ),
             ),
-            Container(
-              height: h * 0.9,
+          ),
+          Expanded(
+            child: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xff071e30), Color(0xff000617)],
@@ -288,7 +292,10 @@ class _SettingState extends State<Setting> {
                 ),
               ),
               child: ListView(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: w * 0.04,
+                  vertical: h * 0.02,
+                ),
                 children: [
                   _buildSettingsTile(
                     image: "assets/Icon/settingIcon/sett_1.png",
@@ -298,7 +305,7 @@ class _SettingState extends State<Setting> {
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: _showLanguageBottomSheet,
+                    onTap: showLanguageBottomSheet,
                   ),
                   _buildSettingsTile(
                     image: "assets/Icon/profileIcon/pro_3.png",
@@ -308,7 +315,7 @@ class _SettingState extends State<Setting> {
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: _showClearHistoryDialog,
+                    onTap: () => showClearHistoryDialog(context),
                   ),
                   _buildSettingsTile(
                     image: "assets/Icon/settingIcon/sett_2.png",
@@ -334,7 +341,7 @@ class _SettingState extends State<Setting> {
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: _showAppModeBottomSheet,
+                    onTap: showAppModeBottomSheet,
                   ),
                   _buildSettingsTile(
                     image: "assets/Icon/settingIcon/sett_4.png",
@@ -344,17 +351,7 @@ class _SettingState extends State<Setting> {
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DummyPage(
-                            title: "Privacy Policy",
-                            content: "Here is your Privacy Policy details...",
-                          ),
-                        ),
-                      );
-                    },
+                    onTap: () {},
                   ),
                   _buildSettingsTile(
                     image: "assets/Icon/settingIcon/sett_5.png",
@@ -364,24 +361,13 @@ class _SettingState extends State<Setting> {
                       color: Colors.white,
                       size: 16,
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DummyPage(
-                            title: "Terms & Conditions",
-                            content:
-                                "Here are your Terms & Conditions details...",
-                          ),
-                        ),
-                      );
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -395,16 +381,20 @@ class _SettingState extends State<Setting> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 22),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        height: 70,
+        // Fixed height for all tiles
+        margin: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: const Color(0xFF0E2A47),
+          color: const Color(0xFF09233A),
           borderRadius: BorderRadius.circular(40),
+          border: Border.all(color: const Color(0xff536674), width: 0.5),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 18,
+              radius: 20, // Keep same size
               backgroundColor: Colors.white,
               child: Image.asset(image, height: Get.width / 22),
             ),
@@ -412,11 +402,7 @@ class _SettingState extends State<Setting> {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: const TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
             if (trailing != null) trailing,

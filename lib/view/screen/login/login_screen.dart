@@ -11,241 +11,279 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 20),
+    )..repeat();
+  }
+
   bool _obscurePassword = true;
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // Removed unused 'size' variable
+    // final size = MediaQuery.of(context).size;
 
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
-        backgroundColor: const Color(0xFF061C36),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(CupertinoIcons.back, color: Colors.white),
+    return Scaffold(
+      backgroundColor: Color(0xff0A2538),
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xff000617), // bottom dark
+              Color(0xff0A2538), // middle fade
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
+          // Adjusted horizontal padding
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: Get.width / 8),
+              Align(
+                alignment: Alignment.topLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(Get.width / 35),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.white24),
+                    ),
+                    child: Icon(CupertinoIcons.back, color: Colors.white),
                   ),
                 ),
-                SizedBox(height: h * 0.005),
-                Center(
-                  child: Image.asset(
+              ),
+
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Background rotated image
+                  RotationTransition(
+                    turns: _controller,
+                    child: Container(
+                      height: Get.width / 1.8,
+                      child: Image.asset(
+                        "assets/images/login.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Image.asset(
                     "assets/images/home_images/logo.png",
-                    height: 120,
+                    height: Get.width / 3.5,
+                  ),
+                ],
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: h * 0.025),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
+              ),
+              const SizedBox(height: 5),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Login to continue using the app",
+                  style: TextStyle(color: Colors.white70, fontSize: 15),
+                ),
+              ),
+              SizedBox(height: h * 0.03),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Email/Contact no.", // Changed text to match image
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              SizedBox(height: h * 0.01),
+              TextField(
+                style: const TextStyle(color: Colors.white),
+                cursorColor: Colors.white,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  hintText: "Enter your email/Contact no.",
+                  // Changed hint text to match image
+                  hintStyle: const TextStyle(
+                    color: Colors.white54,
+                    fontSize: 14,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.1),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 20,
+                    vertical:
+                        Get.width /
+                        22, // Increased vertical padding for taller field
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Color(0xff0A2538)),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Colors.white38),
+                  ),
+                ),
+              ),
+              SizedBox(height: h * 0.02),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Password",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              SizedBox(height: h * 0.01),
+              TextField(
+                obscureText: _obscurePassword,
+                cursorColor: Colors.white,
+                style: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Enter your Password",
+                  hintStyle: const TextStyle(
+                    color: Colors.white54,
+                    fontSize: 14,
+                  ),
+                  // Adjusted font size
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.1),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 20,
+                    vertical:
+                        Get.width /
+                        22, // Increased vertical padding for taller field
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Color(0xff0A2538)),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide(color: Colors.white38),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                    icon: Icon(
+                      _obscurePassword
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Colors.white54,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: Get.width / 220),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.forgotScreen);
+                  },
+                  child: const Text(
+                    "Forgot Password ?",
+                    style: TextStyle(color: Colors.white70),
+                  ),
+                ),
+              ),
+              SizedBox(height: h * 0.01),
+              SizedBox(
+                width: w,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff134369),
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    // Increased vertical padding for button
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  onPressed: () {
+                    Get.toNamed(Routes.splashPage);
+                  },
+                  child: const Text(
                     "Login",
                     style: TextStyle(
+                      fontSize: 16,
                       color: Colors.white,
-                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Login to continue using the app",
-                    style: TextStyle(color: Colors.white70, fontSize: 14),
-                  ),
-                ),
-                SizedBox(height: h * 0.03),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Email",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                SizedBox(height: h * 0.01),
-                TextField(
-                  style: const TextStyle(color: Colors.white),
-                  cursorColor: Colors.white,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    hintText: "Enter your email",
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    filled: true,
-                    fillColor: Colors.white.withValues(alpha: 0.1),
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 10,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-                SizedBox(height: h * 0.02),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Password",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                SizedBox(height: h * 0.01),
-                TextField(
-                  obscureText: _obscurePassword,
-                  cursorColor: Colors.white,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    hintText: "Enter your Password",
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    filled: true,
-                    fillColor: Colors.white.withValues(alpha: 0.1),
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 10,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: Colors.white54,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: h * 0.01),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      Get.toNamed(Routes.forgotScreen);
-                    },
-                    child: const Text(
-                      "Forgot Password ?",
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                  ),
-                ),
-                SizedBox(height: h * 0.01),
-                SizedBox(
-                  width: w,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF0C4473),
-                      padding: const EdgeInsets.symmetric(vertical: 13),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    onPressed: () {
-                      Get.toNamed(Routes.splashPage);
-                    },
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(fontSize: 16, color: Colors.white),
-                    ),
-                  ),
-                ),
-                SizedBox(height: h * 0.02),
-                Row(
-                  children: [
-                    const Expanded(
-                      child: Divider(color: Colors.white24, thickness: 1),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "Or Login with",
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ),
-                    const Expanded(
-                      child: Divider(color: Colors.white24, thickness: 1),
-                    ),
-                  ],
-                ),
-                SizedBox(height: h * 0.02),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    socialButton("assets/images/login/Vector.png"),
-                    const SizedBox(width: 20),
-                    socialButton("assets/images/login/google_1.png"),
-                    const SizedBox(width: 20),
-                    socialButton("assets/images/login/Vector_2.png"),
-                  ],
-                ),
-                SizedBox(height: h * 0.03),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Don't have an account ? ",
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed(Routes.registrationScreen);
-                      },
-                      child: const Text(
-                        "Register",
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
-    );
-  }
 
-  Widget socialButton(String assetPath) {
-    return Container(
-      width: 80,
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(30),
+      bottomNavigationBar: Container(
+        color: Color(0xff000617),
+        child: Padding(
+          padding: EdgeInsets.only(bottom: Get.width / 18),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Don't have an account ? ",
+                style: TextStyle(color: Colors.white70),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.registrationScreen);
+                },
+                child: const Text(
+                  "Register",
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-      child: Image.asset(assetPath, height: 24, width: 24),
     );
   }
 }

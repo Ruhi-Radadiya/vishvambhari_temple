@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -162,85 +164,93 @@ class _DownloadState extends State<Download> {
                               onPressed: () {
                                 showDialog(
                                   context: context,
-                                  builder: (context) => AlertDialog(
-                                    backgroundColor: Color(0xff0a2538),
-
-                                    content: Text(
-                                      "are you sure you want to delete this List ?",
-                                      textAlign: TextAlign.center,
-
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                  builder: (context) => BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 6,
+                                      sigmaY: 6,
                                     ),
-                                    title: Image.asset(
-                                      "assets/Icon/download/Delete Icon.png",
-                                      height: Get.width / 3,
-                                    ),
-                                    actionsAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    actions: [
-                                      Column(
-                                        children: [
-                                          ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Color(
-                                                0xff134369,
-                                              ),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                              ),
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: Get.width / 12,
-                                                vertical: Get.width / 30,
-                                              ),
-                                            ),
-                                            onPressed: () {
-                                              myDownloads.removeAt(index);
-                                              setState(() {});
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text(
-                                              "Yes , Delete",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(height: Get.width / 40),
-                                          OutlinedButton(
-                                            style: OutlinedButton.styleFrom(
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: Get.width / 12,
-                                                vertical: Get.width / 30,
-                                              ),
-                                              foregroundColor: Color(
-                                                0xff142e40,
-                                              ),
-                                              side: const BorderSide(
-                                                color: Colors.white,
-                                              ),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                              ),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text(
-                                              "Keep , Please",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+
+                                    child: AlertDialog(
+                                      backgroundColor: Color(0xff0a2538),
+
+                                      content: Text(
+                                        "are you sure you want to\ndelete this List ?",
+                                        textAlign: TextAlign.center,
+
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
-                                    ],
+                                      title: Image.asset(
+                                        "assets/Icon/download/Delete Icon.png",
+                                        height: Get.width / 3,
+                                      ),
+                                      actionsAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+
+                                      actions: [
+                                        Column(
+                                          children: [
+                                            ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: Color(
+                                                  0xff134369,
+                                                ),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                ),
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: Get.width / 12,
+                                                  vertical: Get.width / 30,
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                myDownloads.removeAt(index);
+                                                setState(() {});
+                                                Navigator.pop(context);
+                                              },
+                                              child: Text(
+                                                "Yes, Delete",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: Get.width / 40),
+                                            OutlinedButton(
+                                              style: OutlinedButton.styleFrom(
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: Get.width / 12,
+                                                  vertical: Get.width / 30,
+                                                ),
+                                                foregroundColor: Color(
+                                                  0xff142e40,
+                                                ),
+                                                side: const BorderSide(
+                                                  color: Colors.white,
+                                                ),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Text(
+                                                "Keep, Please",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 );
                               },

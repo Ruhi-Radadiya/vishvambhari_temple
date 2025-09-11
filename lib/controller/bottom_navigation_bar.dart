@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NavigationController extends GetxController {
-  RxInt bottomNavigationIndex = 0.obs;
-  PageController pageController = PageController(initialPage: 0);
+  RxInt bottomNavigationIndex = 2.obs;
+  PageController pageController = PageController(initialPage: 2);
 
   void getIndex({required int index}) {
     bottomNavigationIndex.value = index;
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    pageController = PageController(initialPage: 2); // 👈 Start at Home
   }
 
   void changePageView({required int index}) {

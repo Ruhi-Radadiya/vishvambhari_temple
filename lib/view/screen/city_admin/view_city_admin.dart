@@ -91,6 +91,7 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                 ),
               ),
               Container(
+                padding: EdgeInsets.symmetric(vertical: Get.width / 30),
                 height: h * 0.8,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(

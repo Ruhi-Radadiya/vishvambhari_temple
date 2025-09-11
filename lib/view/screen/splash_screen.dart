@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../routes/routes.dart';
 
@@ -58,10 +59,11 @@ class _SplashScreenState extends State<SplashScreen>
             },
 
             child: SizedBox(
-              width: squareSize,
-              height: squareSize,
+              width: Get.width * 2,
+              height: Get.height * 2,
               child: FittedBox(
                 fit: BoxFit.cover,
+                alignment: AlignmentGeometry.center,
                 child: Image.asset(
                   "assets/images/splash_screen_image/rays.png",
                 ),
@@ -70,6 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+
             children: [
               Image.asset(
                 "assets/images/home_images/splash_image.png",

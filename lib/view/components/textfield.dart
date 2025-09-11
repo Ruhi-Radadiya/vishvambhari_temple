@@ -96,6 +96,7 @@ class _SelectFieldState extends State<SelectField> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: Get.width / 7,
       decoration: BoxDecoration(
         color: const Color(0xFF0A2538),
         borderRadius: BorderRadius.circular(30),

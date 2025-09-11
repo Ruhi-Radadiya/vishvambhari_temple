@@ -14,47 +14,55 @@ class DonateDetailScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(
-              left: 16.0,
-              right: 16,
-              top: 45,
-              bottom: 10,
+            padding: EdgeInsets.only(
+              left: w * 0.04,
+              right: w * 0.04,
+              top: h * 0.06,
+              bottom: h * 0.015,
             ),
-            child: Row(
+            child: Stack(
+              alignment: Alignment.center,
               children: [
-                Container(
-                  height: h * 0.05,
-                  width: w * 0.12,
-                  decoration: const BoxDecoration(
-                    color: Color(0xff0a2538),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                  alignment: Alignment.center,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      CupertinoIcons.back,
+                Center(
+                  child: Text(
+                    "DONATION",
+                    style: TextStyle(
                       color: Colors.white,
-                      size: 20,
+                      fontWeight: FontWeight.w900,
+                      fontSize: w * 0.047,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(width: w * 0.18),
-                const Text(
-                  "DONATION",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 18,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    height: w * 0.11,
+                    width: w * 0.11,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff0a2538),
+                      borderRadius: BorderRadius.circular(w * 0.03),
+                      border: Border.all(
+                        color: const Color(0xff536674),
+                        width: 0.5,
+                      ),
+                    ),
+                    child: IconButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        CupertinoIcons.back,
+                        color: Colors.white,
+                        size: w * 0.08,
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-
-          // 🔽 Main Content
           Expanded(
             child: Container(
               decoration: const BoxDecoration(

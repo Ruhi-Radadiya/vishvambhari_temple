@@ -47,10 +47,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          border: Border.all(
-                            width: 2,
-                            color: const Color(0xff0a263d),
-                          ),
+                          border: Border.all(width: 1, color: Colors.white38),
                         ),
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,107 +94,138 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: const Color(0xff0a263d),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Participant 1 : Chirag Patel - 7313435945 - Surat - Male",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Divider(color: Colors.white24),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Yagn Type :",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                                Text(
-                                  "Normal Yagn",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 4),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Selected Kund :",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                                Text(
-                                  "Normal Kund _98",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 4),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Price / Person :",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                                Text(
-                                  "₹ 7,000",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 4),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Participants :",
-                                  style: TextStyle(color: Colors.white70),
-                                ),
-                                Text(
-                                  "01",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                            Divider(color: Colors.white24),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Total",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "₹ 7,000",
-                                  style: TextStyle(
-                                    color: Colors.orange,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-
                       Stack(
                         children: [
                           Container(
-                            height: h * 0.22,
+                            height: h * 0.252,
+                            decoration: BoxDecoration(
+                              color: Color(0xff134369),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(height: h * 0.01),
+                                  const Text(
+                                    "Participant 1 :\nChirag Patel - 7313435945 - Surat - Male",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 68,
+                            left: 0,
+                            right: 0,
+                            child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: const Color(0xff0a263d),
+                                borderRadius: BorderRadius.circular(30),
+                                border: Border.all(color: Colors.white38),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Yagn Type :",
+                                        style: TextStyle(color: Colors.white70),
+                                      ),
+                                      Text(
+                                        "Normal Yagn",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 4),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Selected Kund :",
+                                        style: TextStyle(color: Colors.white70),
+                                      ),
+                                      Text(
+                                        "Normal Kund _98",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 4),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Price / Person :",
+                                        style: TextStyle(color: Colors.white70),
+                                      ),
+                                      Text(
+                                        "₹ 7,000",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 4),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Participants :",
+                                        style: TextStyle(color: Colors.white70),
+                                      ),
+                                      Text(
+                                        "01",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  Divider(color: Colors.white24),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Total",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        "₹ 7,000",
+                                        style: TextStyle(
+                                          color: Colors.orange,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 16),
+                      Stack(
+                        children: [
+                          Container(
+                            height: h * 0.20,
                             decoration: BoxDecoration(
                               color: Color(0xff134369),
                               borderRadius: BorderRadius.circular(30),
@@ -219,66 +247,63 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             ),
                           ),
                           Positioned(
-                            top: 50,
+                            top: 52,
                             left: 0,
                             right: 0,
-                            child: Padding(
-                              padding: EdgeInsets.all(Get.width / 70),
-                              child: Container(
-                                padding: const EdgeInsets.all(16),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xff0a263d),
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
+                            child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: const Color(0xff0a263d),
+                                border: Border.all(color: Colors.white38),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
 
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Radio<String>(
-                                          value: "online",
-                                          groupValue: _paymentMethod,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              _paymentMethod = val!;
-                                            });
-                                          },
-                                          activeColor: Colors.blue,
-                                        ),
-                                        const Text(
-                                          "Pay Online (Razorpay)",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Radio<String>(
-                                          value: "cash",
-                                          groupValue: _paymentMethod,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              _paymentMethod = val!;
-                                            });
-                                          },
-                                          activeColor: Colors.blue,
-                                        ),
-                                        const Text(
-                                          "Pay Cash",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Radio<String>(
+                                        value: "online",
+                                        groupValue: _paymentMethod,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            _paymentMethod = val!;
+                                          });
+                                        },
+                                        activeColor: Colors.blue,
+                                      ),
+                                      const Text(
+                                        "Pay Online (Razorpay)",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Radio<String>(
+                                        value: "cash",
+                                        groupValue: _paymentMethod,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            _paymentMethod = val!;
+                                          });
+                                        },
+                                        activeColor: Colors.blue,
+                                      ),
+                                      const Text(
+                                        "Pay Cash",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 16),
-
                       InkWell(
                         onTap: () {
                           // Button tap action
@@ -306,7 +331,6 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                         ),
                       ),
                       const SizedBox(height: 12),
-
                       InkWell(
                         onTap: () {
                           // Button tap action
@@ -337,15 +361,15 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                         ),
                       ),
                       const SizedBox(height: 16),
-
                       Stack(
                         children: [
                           Container(
-                            height: h * 0.25,
+                            height: h * 0.243,
                             decoration: BoxDecoration(
                               color: Color(0xff134369),
                               borderRadius: BorderRadius.circular(30),
                             ),
+
                             child: Center(
                               child: Column(
                                 children: [
@@ -366,18 +390,24 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             top: 50,
                             left: 0,
                             right: 0,
-                            child: Padding(
-                              padding: EdgeInsets.all(Get.width / 40),
-                              child: Container(
-                                padding: const EdgeInsets.all(16),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xff0a263d),
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
+                            child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: const Color(0xff0a263d),
+                                borderRadius: BorderRadius.circular(30),
+                                border: Border.all(color: Colors.white38),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xff134369),
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(color: Colors.white38),
+                                    ),
+                                    padding: EdgeInsets.all(Get.width / 50),
+                                    child: const Text(
                                       "https://dhamadmin.cesihpl.com/process_files/yagn_submit.php ref=YAGN-20250904-279141 &token=a3b0cbb67c758544150d8b39a5cc5a8670d16ea07ba35df027360053280e8b99",
                                       style: TextStyle(
                                         color: Colors.white70,
@@ -386,35 +416,38 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       maxLines: 4,
                                       overflow: TextOverflow.ellipsis,
                                     ),
-                                    const SizedBox(height: 12),
-                                    SizedBox(
-                                      height: 40,
-                                      width: double.infinity,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              Colors.blueGrey.shade800,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              30,
-                                            ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  SizedBox(
+                                    height: 40,
+                                    width: Get.width / 2.3,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color(
+                                          0xffFF8127,
+                                        ).withOpacity(0.2),
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                            color: Color(0xffFF8127),
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            12,
                                           ),
                                         ),
-                                        onPressed: () {},
-                                        child: const Text(
-                                          "Open Share Link",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
+                                      ),
+                                      onPressed: () {},
+                                      child: const Text(
+                                        "Open Share Link",
+                                        style: TextStyle(color: Colors.white),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ],
                       ),
-
                       const SizedBox(height: 30),
                     ],
                   ),

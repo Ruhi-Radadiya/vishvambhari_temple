@@ -197,12 +197,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         left: 100,
                         right: 16,
                       ),
-                      title: Expanded(
-                        child: const Text(
-                          overflow: TextOverflow.ellipsis,
-                          "City Admin Payment Sum...",
-                          style: TextStyle(color: Colors.white70),
-                        ),
+                      title: const Text(
+                        overflow: TextOverflow.ellipsis,
+                        "City Admin Payment Sum...",
+                        style: TextStyle(color: Colors.white70),
                       ),
                       onTap: () {
                         Get.toNamed(Routes.cityAdminPayment);
