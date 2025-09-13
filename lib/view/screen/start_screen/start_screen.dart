@@ -27,10 +27,7 @@ class _StartScreenState extends State<StartScreen> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Color(0xff01091a),
-                  Colors.transparent, // bottom clear
-                ],
+                colors: [Color(0xff01091a), Colors.transparent],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
               ),
