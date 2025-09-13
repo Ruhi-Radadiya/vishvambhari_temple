@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -21,7 +22,7 @@ class _SettingState extends State<Setting> {
       builder: (context) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
         child: AlertDialog(
-          backgroundColor: const Color(0xff071e30),
+          backgroundColor: const Color(0xff0A2538),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -263,108 +264,119 @@ class _SettingState extends State<Setting> {
     final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xff020C15),
       body: Column(
         children: [
+          SizedBox(height: Get.width / 8),
           Padding(
-            padding: EdgeInsets.only(top: h * 0.05, bottom: h * 0.01),
-            child: const Text(
-              "SETTINGS",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
-              ),
+            padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Settings".toUpperCase(),
+
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: w * 0.047,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
-          Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xff071e30), Color(0xff000617)],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(45),
-                  topRight: Radius.circular(45),
-                ),
+          SizedBox(height: Get.width / 22),
+
+          Container(
+            height: Get.height / 1.25,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff081F32), Color(0xff000516)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0.1, 0.9],
               ),
-              child: ListView(
-                padding: EdgeInsets.symmetric(
-                  horizontal: w * 0.04,
-                  vertical: h * 0.02,
-                ),
-                children: [
-                  _buildSettingsTile(
-                    image: "assets/Icon/settingIcon/sett_1.png",
-                    title: "Language",
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                    onTap: showLanguageBottomSheet,
-                  ),
-                  _buildSettingsTile(
-                    image: "assets/Icon/profileIcon/pro_3.png",
-                    title: "Clear Search History",
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                    onTap: () => showClearHistoryDialog(context),
-                  ),
-                  _buildSettingsTile(
-                    image: "assets/Icon/settingIcon/sett_2.png",
-                    title: "Notifications",
-                    trailing: Switch(
-                      value: notificationsEnabled,
-                      onChanged: (value) {
-                        setState(() {
-                          notificationsEnabled = value;
-                        });
-                      },
-                      activeThumbColor: const Color(0xff0a2538),
-                      activeTrackColor: Colors.white,
-                      inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: const Color(0xff0a2538),
-                    ),
-                  ),
-                  _buildSettingsTile(
-                    image: "assets/Icon/settingIcon/sett_3.png",
-                    title: "App Mode",
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                    onTap: showAppModeBottomSheet,
-                  ),
-                  _buildSettingsTile(
-                    image: "assets/Icon/settingIcon/sett_4.png",
-                    title: "Privacy Policy",
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                    onTap: () {},
-                  ),
-                  _buildSettingsTile(
-                    image: "assets/Icon/settingIcon/sett_5.png",
-                    title: "Terms & Conditions",
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                    onTap: () {},
-                  ),
-                ],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(45),
+                topRight: Radius.circular(45),
               ),
+            ),
+            padding: EdgeInsets.only(top: Get.width / 30),
+            child: ListView(
+              padding: EdgeInsets.symmetric(
+                horizontal: w * 0.04,
+                vertical: h * 0.02,
+              ),
+              children: [
+                _buildSettingsTile(
+                  image: "assets/Icon/settingIcon/sett_1.png",
+                  title: "Language",
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                  onTap: showLanguageBottomSheet,
+                ),
+                _buildSettingsTile(
+                  image: "assets/Icon/profileIcon/pro_3.png",
+                  title: "Clear Search History",
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                  onTap: () => showClearHistoryDialog(context),
+                ),
+                _buildSettingsTile(
+                  image: "assets/Icon/settingIcon/sett_2.png",
+                  title: "Notifications",
+                  trailing: Switch(
+                    value: notificationsEnabled,
+                    onChanged: (value) {
+                      setState(() {
+                        notificationsEnabled = value;
+                      });
+                    },
+                    activeThumbColor: const Color(0xff0a2538),
+                    activeTrackColor: Colors.white,
+                    inactiveThumbColor: Colors.white,
+                    inactiveTrackColor: const Color(0xff0a2538),
+                  ),
+                ),
+                _buildSettingsTile(
+                  image: "assets/Icon/settingIcon/sett_3.png",
+                  title: "App Mode",
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                  onTap: showAppModeBottomSheet,
+                ),
+                _buildSettingsTile(
+                  image: "assets/Icon/settingIcon/sett_4.png",
+                  title: "Privacy Policy",
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                  onTap: () {},
+                ),
+                _buildSettingsTile(
+                  image: "assets/Icon/settingIcon/sett_5.png",
+                  title: "Terms & Conditions",
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                  onTap: () {},
+                ),
+              ],
             ),
           ),
         ],

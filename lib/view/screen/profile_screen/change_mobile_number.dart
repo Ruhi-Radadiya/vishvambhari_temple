@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../routes/routes.dart';
+import '../../components/textfield.dart';
 
 class ChangeMobileNumber extends StatefulWidget {
   const ChangeMobileNumber({super.key});
@@ -19,134 +21,130 @@ class _ChangeMobileNumberState extends State<ChangeMobileNumber> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
-      body: SingleChildScrollView(
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff081F32), Color(0xff000516)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.1, 0.9],
+          ),
+
+        ),
         child: Column(
           children: [
+            SizedBox(height: Get.width / 8),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16,
-                top: 45,
-                bottom: 10,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
               child: Row(
                 children: [
-                  Container(
-                    height: h * 0.05,
-                    width: w * 0.12,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff0a2538),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    alignment: Alignment.center,
-                    child: IconButton(
-                      onPressed: () {
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: GestureDetector(
+                      onTap: () {
                         Navigator.pop(context);
                       },
-                      icon: Icon(
-                        CupertinoIcons.back,
-                        color: Colors.white,
-                        weight: 0.2,
+                      child: Container(
+                        padding: EdgeInsets.all(Get.width / 45),
+                        decoration: BoxDecoration(
+                          color: Color(0xff0A2538),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Color(0xff536674)),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: Get.width / 18,
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(width: w * 0.07),
+                  SizedBox(width: Get.width / 18),
                   Text(
-                    "CHANGE MOBILE NUMBER",
+                    "Change Mobile number",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w900,
-                      fontSize: 18,
+                      fontSize: w * 0.047,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: EdgeInsets.all(Get.width / 30),
               child: Column(
                 children: [
-                  Container(
-                    height: h * 0.45,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff092239),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Center(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 50,
-                                child: Image.asset(
-                                  "assets/Icon/profileIcon/pro_3.png",
-                                  height: Get.width / 8,
+                  SizedBox(height: Get.width / 12),
+                  IntrinsicHeight(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xff092239),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        border: Border.all(color: Color(0xff536674)),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(Get.width / 30),
+                        child: Column(
+                          children: [
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: Get.width / 6,
+                                  child: Image.asset(
+                                    "assets/Icon/profileIcon/pro_3.png",
+                                    height: Get.width / 6.5,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: h * 0.02),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              "Mobile No *",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: h * 0.01),
-                          TextField(
-                            style: const TextStyle(color: Colors.white),
-                            cursorColor: Colors.white,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hintText: "Mobile Number",
-                              hintStyle: const TextStyle(color: Colors.white54),
-                              filled: true,
-                              fillColor: Colors.white.withValues(alpha: 0.1),
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 18,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: h * 0.03),
-                          SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF0C4473),
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 18,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              onPressed: () {
-                                Get.toNamed(Routes.numberVerification);
-                              },
-                              child: const Text(
-                                "Verify",
-                                style: TextStyle(
-                                  fontSize: 16,
+                            SizedBox(height: Get.width / 14),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                "Mobile Number",
+                                style: GoogleFonts.poppins(
                                   color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                            SizedBox(height: Get.width / 40),
+                            MobileNumberField(),
+                            SizedBox(height: Get.width / 14),
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xff134369),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 18,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(Routes.numberVerification);
+                                },
+                                child: const Text(
+                                  "Verify",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: Get.width / 30),
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MVTYDhamDetailPage extends StatelessWidget {
   const MVTYDhamDetailPage({super.key});
@@ -17,138 +18,123 @@ class MVTYDhamDetailPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                left: w * 0.04,
-                right: w * 0.04,
-                top: h * 0.06,
-                bottom: h * 0.015,
-              ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Center(
-                    child: Text(
-                      "MVTY DHAM",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                        fontSize: w * 0.047,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
+      body: Column(
+        children: [
+          SizedBox(height: Get.width / 8),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
+            child: Row(
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: Container(
-                      height: w * 0.11,
-                      width: w * 0.11,
+                      padding: EdgeInsets.all(Get.width / 45),
                       decoration: BoxDecoration(
-                        color: const Color(0xff0a2538),
-                        borderRadius: BorderRadius.circular(w * 0.03),
-                        border: Border.all(
-                          color: const Color(0xff536674),
-                          width: 0.5,
-                        ),
+                        color: Color(0xff0A2538),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Color(0xff536674)),
                       ),
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          CupertinoIcons.back,
+                      child: Icon(
+                        CupertinoIcons.back,
+                        color: Colors.white,
+                        size: Get.width / 18,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: Get.width / 18),
+                Text(
+                  "ShRee Mahapatra".toUpperCase(),
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: w * 0.047,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: Get.width / 22),
+          Container(
+            padding: EdgeInsets.all(Get.width / 30),
+            height: Get.height / 1.144,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                stops: [0.2, 0.9],
+                colors: [Color(0xff081E31), Color(0xff010617)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(45),
+                topRight: Radius.circular(45),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(right: Get.width / 100),
+              child: Scrollbar(
+                thumbVisibility: true,
+                thickness: 6,
+                radius: const Radius.circular(10),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+
+                  child: Column(
+                    children: [
+                      Text(
+                        "Maa Vishvambhari TirthYatra Dham",
+                        style: TextStyle(
                           color: Colors.white,
-                          size: w * 0.08,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              height: h * 0.9,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xff071e30), Color(0xff000617)],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(45),
-                  topRight: Radius.circular(45),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.only(right: Get.width / 100),
-                child: Scrollbar(
-                  thumbVisibility: true,
-                  thickness: 6,
-                  radius: const Radius.circular(10),
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 23.0),
-                          child: Text(
-                            "Maa Vishvambhari TirthYatra Dham",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800,
+                      SizedBox(height: h * 0.02),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: points.map((point) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 8.0,
+                              horizontal: 11,
                             ),
-                          ),
-                        ),
-                        SizedBox(height: h * 0.02),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 40.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: points.map((point) {
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 8.0,
-                                  horizontal: 11,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "• ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "• ",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                      ),
+                                Expanded(
+                                  child: Text(
+                                    point,
+                                    style: const TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.white,
+                                      height: 1.5,
                                     ),
-                                    Expanded(
-                                      child: Text(
-                                        point,
-                                        style: const TextStyle(
-                                          fontSize: 13,
-                                          color: Colors.white,
-                                          height: 1.5,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ],
-                    ),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class KundSelection extends StatefulWidget {
   const KundSelection({super.key});
@@ -21,338 +22,369 @@ class _KundSelectionState extends State<KundSelection> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: const Color(0xff020C15),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  left: w * 0.04,
-                  right: w * 0.04,
-                  top: h * 0.06,
-                  bottom: h * 0.01,
-                ),
-                child: Center(
-                  child: Text(
+        body: Column(
+          children: [
+            SizedBox(height: Get.width / 8),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
+              child: Row(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(Get.width / 45),
+                        decoration: BoxDecoration(
+                          color: Color(0xff0A2538),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Color(0xff536674)),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: Get.width / 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: Get.width / 18),
+                  Text(
                     "Kund Selection",
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: w * 0.045,
+                      fontWeight: FontWeight.w900,
+                      fontSize: w * 0.047,
                     ),
+                    textAlign: TextAlign.center,
                   ),
+                ],
+              ),
+            ),
+            SizedBox(height: Get.width / 22),
+            Container(
+              height: Get.height / 1.142,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xff081F32), Color(0xff000516)],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.1, 0.9],
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(45),
+                  topRight: Radius.circular(45),
                 ),
               ),
-              Container(
-                height: h * 2.7,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xff071e30), Color(0xff000617)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(w * 0.12),
-                    topRight: Radius.circular(w * 0.12),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(Get.width / 30),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          width: w,
-                          padding: EdgeInsets.all(w * 0.04),
-                          decoration: BoxDecoration(
-                            color: const Color(0xff051c37),
-                            borderRadius: BorderRadius.circular(w * 0.06),
-                            border: Border.all(color: Colors.white24),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "How to Select a Kund",
-                                style: TextStyle(
-                                  color: Colors.orange,
-                                  fontSize: w * 0.045,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              SizedBox(height: h * 0.015),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: "Step 1: ",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: w * 0.035,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          "Click on available (green) kund positions below",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.035,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: h * 0.008),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: "Step 2: ",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: w * 0.035,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text:
-                                          "Your selection will be confirmed and you can proceed to payment",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.035,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: h * 0.02),
-                              Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: w * 0.06,
-                                        // diameter = 2 * radius
-                                        height: w * 0.06,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: Colors.white, // border color
-                                            width: 1, // border thickness
-                                          ),
-                                        ),
-                                        child: CircleAvatar(
-                                          radius: w * 0.03,
-                                          backgroundColor: Colors.green,
-                                        ),
-                                      ),
-
-                                      SizedBox(width: w * 0.015),
-                                      Text(
-                                        "Available",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: w * 0.045,
-                                          fontWeight: FontWeight.w900,
-                                        ),
-                                      ),
-                                      SizedBox(width: w * 0.08),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: w * 0.06,
-                                        // diameter = 2 * radius
-                                        height: w * 0.06,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: Colors.white, // border color
-                                            width: 1, // border thickness
-                                          ),
-                                        ),
-                                        child: CircleAvatar(
-                                          radius: w * 0.03,
-                                          backgroundColor: Colors.red,
-                                        ),
-                                      ),
-
-                                      SizedBox(width: w * 0.015),
-                                      Text(
-                                        "Booked",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: w * 0.045,
-                                          fontWeight: FontWeight.w900,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: h * 0.025),
-                              Row(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.lightbulb_fill,
-                                    color: Colors.orange,
-                                    size: w * 0.05,
-                                  ),
-                                  SizedBox(width: w * 0.015),
-                                  Text(
-                                    "Selection Rules",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: w * 0.038,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: h * 0.015),
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: w * 0.03,
-                                      vertical: h * 0.005,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.withAlpha(60),
-                                      borderRadius: BorderRadius.circular(
-                                        w * 0.05,
-                                      ),
-                                      border: Border.all(color: Colors.orange),
-                                    ),
-                                    child: Text(
-                                      "Single",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.032,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: w * 0.025),
-                                  Expanded(
-                                    child: Text(
-                                      "- Select any 1 position",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.032,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: h * 0.008),
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: w * 0.03,
-                                      vertical: h * 0.005,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.withAlpha(60),
-                                      borderRadius: BorderRadius.circular(
-                                        w * 0.05,
-                                      ),
-                                      border: Border.all(color: Colors.orange),
-                                    ),
-                                    child: Text(
-                                      "Couple",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.032,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: w * 0.025),
-                                  Expanded(
-                                    child: Text(
-                                      "- Automatically selects 2 consecutive positions in same",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.032,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: h * 0.008),
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: w * 0.03,
-                                      vertical: h * 0.005,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.withAlpha(60),
-                                      borderRadius: BorderRadius.circular(
-                                        w * 0.05,
-                                      ),
-                                      border: Border.all(color: Colors.orange),
-                                    ),
-                                    child: Text(
-                                      "Family",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.032,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: w * 0.025),
-                                  Expanded(
-                                    child: Text(
-                                      "- Can select any available positions across groups",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: w * 0.032,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+              padding: EdgeInsets.only(top: Get.width / 30),
+              child: Padding(
+                padding: EdgeInsets.all(Get.width / 30),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: w,
+                        padding: EdgeInsets.all(Get.width / 30),
+                        decoration: BoxDecoration(
+                          color: const Color(0xff09243A),
+                          borderRadius: BorderRadius.circular(w * 0.06),
+                          border: Border.all(color: Color(0xff536674)),
                         ),
-                        SizedBox(height: h * 0.02),
-                        Column(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              height: h * 0.15,
-                              decoration: BoxDecoration(
-                                color: Colors.orange,
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Center(
-                                child: Column(
-                                  children: [
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Select Your Kund",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                            Text(
+                              "How to Select a Kund",
+                              style: TextStyle(
+                                color: Color(0xffFF8127),
+                                fontSize: w * 0.045,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
-                            Transform.translate(
-                              offset: Offset(0, -80),
+                            SizedBox(height: h * 0.015),
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "Step 1:\n",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: w * 0.035,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        "Click on available (green) kund positions below",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.035,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: Get.width / 45),
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "Step 2:\n",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: w * 0.035,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        "Your selection will be confirmed and you can proceed to payment",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.035,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: h * 0.02),
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: Get.width / 12,
+                                      height: Get.width / 12,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors.white, // border color
+                                          width: 1, // border thickness
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius: w * 0.03,
+                                        backgroundColor: Colors.green,
+                                      ),
+                                    ),
+
+                                    SizedBox(width: Get.width / 24),
+                                    Text(
+                                      "Available",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.045,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                    SizedBox(width: w * 0.08),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: Get.width / 12,
+                                      height: Get.width / 12,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors.white, // border color
+                                          width: 1, // border thickness
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius: w * 0.03,
+                                        backgroundColor: Colors.red,
+                                      ),
+                                    ),
+
+                                    SizedBox(width: Get.width / 24),
+                                    Text(
+                                      "Booked",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.045,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: h * 0.025),
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.lightbulb_fill,
+                                  color: Color(0xffFF8127),
+                                  size: w * 0.05,
+                                ),
+                                SizedBox(width: w * 0.015),
+                                Text(
+                                  "Selection Rules",
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: w * 0.038,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: h * 0.015),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: w * 0.03,
+                                    vertical: h * 0.005,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffFF8127).withAlpha(60),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.05,
+                                    ),
+                                    border: Border.all(
+                                      color: Color(0xffFF8127),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Single",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.032,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: w * 0.025),
+                                Expanded(
+                                  child: Text(
+                                    "- Select any 1 position",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.032,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: h * 0.008),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: w * 0.03,
+                                    vertical: h * 0.005,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffFF8127).withAlpha(60),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.05,
+                                    ),
+                                    border: Border.all(
+                                      color: Color(0xffFF8127),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Couple",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.032,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: w * 0.025),
+                                Expanded(
+                                  child: Text(
+                                    "- Automatically selects 2 consecutive positions in same",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.032,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: h * 0.008),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: w * 0.03,
+                                    vertical: h * 0.005,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffFF8127).withAlpha(60),
+                                    borderRadius: BorderRadius.circular(
+                                      w * 0.05,
+                                    ),
+                                    border: Border.all(
+                                      color: Color(0xffFF8127),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Family",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.032,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: w * 0.025),
+                                Expanded(
+                                  child: Text(
+                                    "- Can select any available positions across groups",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.032,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: h * 0.02),
+                      Column(
+                        children: [
+                          Container(
+                            height: h * 0.15,
+                            decoration: BoxDecoration(
+                              color: Color(0xffFF8127),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Column(
+                                children: [
+                                  SizedBox(height: h * 0.01),
+                                  Text(
+                                    "Select Your Kund",
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(0, -80),
+                            child: IntrinsicHeight(
                               child: Container(
-                                height: h * 1.9,
                                 decoration: BoxDecoration(
-                                  color: Color(0xff01122a),
+                                  color: Color(0xff01122A),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(18.0),
+                                  padding: EdgeInsets.all(Get.width / 30),
                                   child: Column(
                                     children: [
                                       KundGroup(
@@ -393,64 +425,60 @@ class _KundSelectionState extends State<KundSelection> {
                                           );
                                         }),
                                       ),
-
-                                      SizedBox(height: h * 0.03),
-                                      Text(
-                                        "Kund Position Selected !",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: w * 0.035,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                      SizedBox(height: h * 0.01),
-                                      Text(
-                                        "Please select Yagn Type to see the total Amount",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: w * 0.035,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                      SizedBox(height: h * 0.02),
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color(
-                                            0xff134369,
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: w * 0.15,
-                                            vertical: h * 0.025,
-                                          ),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              w * 0.07,
-                                            ),
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Submit Registration",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: w * 0.038,
-                                          ),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
-                          ],
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: h * 0.03),
+                      Text(
+                        "Kund Position Selected !",
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: w * 0.035,
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: Get.width / 30),
+                      Text(
+                        "Please select Yagn Type to see the total Amount",
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: w * 0.035,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      SizedBox(height: Get.width / 20),
+                      SizedBox(
+                        width: w * 0.9,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff134369),
+                            padding: EdgeInsets.symmetric(vertical: h * 0.02),
+                            shape: const StadiumBorder(),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            "Submit Registration",
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: w * 0.045,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: h * 0.05),
+                    ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -535,7 +563,7 @@ class KundGroup extends StatelessWidget {
               ? "Kund 1–6"
               : "Group $groupIndex\n(Kund $startNumber–$endNumber)",
           textAlign: TextAlign.center,
-          style: const TextStyle(color: Colors.white, fontSize: 13),
+          style: TextStyle(color: Colors.white, fontSize: 13),
         ),
       ],
     );
@@ -543,13 +571,14 @@ class KundGroup extends StatelessWidget {
 
   Widget seatCircle(int number) {
     return CircleAvatar(
-      radius: 12,
+      radius: 12.5,
       backgroundColor: Colors.green,
       child: Text(
         "$number",
-        style: const TextStyle(
+        style: GoogleFonts.poppins(
           color: Colors.white,
-          fontSize: 9,
+          fontSize: 11,
+
           fontWeight: FontWeight.bold,
         ),
       ),

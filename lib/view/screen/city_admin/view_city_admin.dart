@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../routes/routes.dart';
+import '../../components/header.dart';
 
 class ViewCityAdmin extends StatefulWidget {
   const ViewCityAdmin({super.key});
@@ -26,76 +28,14 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // 🔹 Top row with profile, search, bell
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 16.0,
-                  right: 16.0,
-                  top: 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: h * 0.14,
-                      width: w * 0.14,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/images/profile_images/profile.png",
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Search here...",
-                            hintStyle: TextStyle(
-                              color: Colors.white.withValues(alpha: 0.7),
-                            ),
-                            prefixIcon: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            ),
-                            filled: true,
-                            fillColor: Colors.white.withValues(alpha: 0.2),
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: 15,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-
-                    GestureDetector(
-                      onTap: () => Get.toNamed(Routes.notificationScreen),
-                      child: Container(
-                        child: Image.asset(
-                          "assets/Icon/bell.png",
-                          height: Get.width / 20,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              Header(),
               Container(
                 padding: EdgeInsets.symmetric(vertical: Get.width / 30),
-                height: h * 0.8,
+                height: Get.height / 1.15,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xff071e30), Color(0xff020c1d)],
+                    stops: [0.1, 0.9],
+                    colors: [Color(0xff081E31), Color(0xff010617)],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -105,37 +45,49 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
                   ),
                 ),
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.only(
+                    bottom: Get.width / 30,
+                    left: Get.width / 30,
+                    right: Get.width / 30,
+                  ),
+
                   child: Column(
                     children: [
                       ElevatedButton(
-                        style: const ButtonStyle(
+                        style: ButtonStyle(
+                          padding: WidgetStatePropertyAll(
+                            EdgeInsets.symmetric(
+                              horizontal: Get.width / 16,
+                              vertical: Get.width / 22,
+                            ),
+                          ),
                           backgroundColor: WidgetStatePropertyAll(
-                            Colors.orange,
+                            Color(0xffFF8127),
                           ),
                         ),
                         onPressed: () {},
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 18),
-                          child: Text(
-                            "Add City Admin",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
+                        child: Text(
+                          "Add City Admin",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
+
                       SizedBox(height: h * 0.02),
                       const Center(
                         child: Text(
                           "Showing 2 of 2 parivar(s)",
                           style: TextStyle(
-                            color: Colors.orange,
+                            color: Color(0xffFF8127),
                             fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       SizedBox(height: h * 0.03),
-
                       // 🔹 Parivar Cards
                       _buildParivarCard(
                         name: "Dipesh Vasoya",
@@ -183,97 +135,93 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
     required double w,
     required double h,
   }) {
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: const Color(0xff00132A),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Name + Icons
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                name,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
+    return Card(
+      elevation: 3,
+
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Container(
+        padding: EdgeInsets.all(Get.width / 24),
+        decoration: BoxDecoration(
+          color: const Color(0xff00132A),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Name + Icons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  name,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-              Row(
-                children: [
-                  _smallIconButton(
-                    "assets/images/men.png",
-                    const Color(0xFF2B69C8),
-                    w,
-                    h,
-                  ),
-                  SizedBox(width: w * 0.02),
-                  _smallIconButton(
-                    "assets/images/women.png",
-                    const Color(0xFF2B69C8),
-                    w,
-                    h,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 2),
-          Text(
-            "Code : $code",
-            style: const TextStyle(color: Colors.white70, fontSize: 12),
-          ),
-          const SizedBox(height: 10),
+                Row(
+                  children: [
+                    _smallIconButton(
+                      "assets/images/men.png",
+                      const Color(0xFF2B69C8),
+                      w,
+                      h,
+                    ),
+                    SizedBox(width: w * 0.02),
+                    _smallIconButton(
+                      "assets/images/women.png",
+                      const Color(0xFF2B69C8),
+                      w,
+                      h,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 2),
+            Text(
+              "Code : $code",
+              style: const TextStyle(color: Colors.white70, fontSize: 12),
+            ),
+            const SizedBox(height: 10),
 
-          // Phone + State + People
-          Wrap(
-            spacing: 8,
-            runSpacing: 6,
-            children: [
-              _infoTag(phone, const Color(0xff134369)),
-              _infoTag(state, Colors.green),
-            ],
-          ),
+            // Phone + State + People
+            Wrap(
+              spacing: Get.width / 30,
+              runSpacing: Get.width / 30,
+              children: [
+                _infoTag(phone, const Color(0xff3F86C4)),
+                _infoTag(state, Color(0xff57B157)),
+              ],
+            ),
 
-          const SizedBox(height: 12),
+            SizedBox(height: Get.width / 30),
 
-          // Action Buttons
-          Wrap(
-            spacing: w * 0.03,
-            children: [
-              _actionBoxButton(
-                "assets/Icon/Card/card_1.png",
-                Colors.transparent,
-                Colors.white,
-                Colors.white,
-                w,
-                h,
-              ),
-              _actionBoxButton(
-                "assets/Icon/Card/card_2.png",
-                Colors.transparent,
-                Colors.blueAccent,
-                Colors.blueAccent,
-                w,
-                h,
-              ),
-
-              _actionBoxButton(
-                "assets/Icon/Card/card_3.png",
-                Colors.transparent,
-                Colors.redAccent,
-                Colors.redAccent,
-                w,
-                h,
-              ),
-            ],
-          ),
-        ],
+            // Action Buttons
+            Wrap(
+              spacing: w * 0.03,
+              children: [
+                _actionBoxButton(
+                  "assets/Icon/Card/card_2.png",
+                  Color(0xff01122A),
+                  Color(0xff4188C6),
+                  Color(0xff4188C6),
+                  w,
+                  h,
+                ),
+                _actionBoxButton(
+                  "assets/Icon/Card/card_3.png",
+                  Color(0xff01122A),
+                  Color(0xffD7504C),
+                  Color(0xffD7504C),
+                  w,
+                  h,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -281,10 +229,13 @@ class _ViewCityAdminState extends State<ViewCityAdmin> {
   // 🔹 Info tag widget
   Widget _infoTag(String text, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: EdgeInsets.symmetric(
+        horizontal: Get.width / 15,
+        vertical: Get.width / 45,
+      ),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
         text,

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../routes/routes.dart';
+import '../../components/textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +16,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   void initState() {
@@ -34,9 +38,6 @@ class _LoginScreenState extends State<LoginScreen>
 
   @override
   Widget build(BuildContext context) {
-    // Removed unused 'size' variable
-    // final size = MediaQuery.of(context).size;
-
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -46,10 +47,8 @@ class _LoginScreenState extends State<LoginScreen>
         width: Get.width,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xff000617), // bottom dark
-              Color(0xff0A2538), // middle fade
-            ],
+            colors: [Color(0xff000617), Color(0xff0A2538)],
+            stops: [0.3, 0.9],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           ),
@@ -61,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: Get.width / 8),
+
               Align(
                 alignment: Alignment.topLeft,
                 child: GestureDetector(
@@ -68,41 +68,44 @@ class _LoginScreenState extends State<LoginScreen>
                     Navigator.pop(context);
                   },
                   child: Container(
-                    padding: EdgeInsets.all(Get.width / 35),
+                    padding: EdgeInsets.all(Get.width / 45),
                     decoration: BoxDecoration(
+                      color: Color(0xff0A2538),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.white24),
+                      border: Border.all(color: Color(0xff536674)),
                     ),
-                    child: Icon(CupertinoIcons.back, color: Colors.white),
+                    child: Icon(
+                      CupertinoIcons.back,
+                      color: Colors.white,
+                      size: Get.width / 18,
+                    ),
                   ),
                 ),
               ),
 
+              SizedBox(height: 0),
+
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Background rotated image
                   RotationTransition(
                     turns: _controller,
-                    child: Container(
-                      height: Get.width / 1.8,
-                      child: Image.asset(
-                        "assets/images/login.png",
-                        fit: BoxFit.cover,
-                      ),
+                    child: Image.asset(
+                      "assets/images/login.png",
+                      fit: BoxFit.cover,
                     ),
                   ),
                   Image.asset(
                     "assets/images/home_images/logo.png",
-                    height: Get.width / 3.5,
+                    height: Get.width / 2.5,
                   ),
                 ],
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Login",
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -121,43 +124,20 @@ class _LoginScreenState extends State<LoginScreen>
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Email/Contact no.", // Changed text to match image
+                  "Email/Contact no.",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               SizedBox(height: h * 0.01),
-              TextField(
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
+              CommonTextField(
+                controller: emailController,
+                hint: "Enter your email/Contact no.",
+                textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: "Enter your email/Contact no.",
-                  // Changed hint text to match image
-                  hintStyle: const TextStyle(
-                    color: Colors.white54,
-                    fontSize: 14,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white.withOpacity(0.1),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: Get.width / 20,
-                    vertical:
-                        Get.width /
-                        22, // Increased vertical padding for taller field
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Color(0xff0A2538)),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white38),
-                  ),
-                ),
               ),
               SizedBox(height: h * 0.02),
               const Align(
@@ -166,40 +146,21 @@ class _LoginScreenState extends State<LoginScreen>
                   "Password",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               SizedBox(height: h * 0.01),
-              TextField(
+              CommonTextField(
+                controller: passwordController,
+                hint: "Enter your Password",
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.none,
                 obscureText: _obscurePassword,
-                cursorColor: Colors.white,
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: "Enter your Password",
-                  hintStyle: const TextStyle(
-                    color: Colors.white54,
-                    fontSize: 14,
-                  ),
-                  // Adjusted font size
-                  filled: true,
-                  fillColor: Colors.white.withOpacity(0.1),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: Get.width / 20,
-                    vertical:
-                        Get.width /
-                        22, // Increased vertical padding for taller field
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Color(0xff0A2538)),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white38),
-                  ),
-                  suffixIcon: IconButton(
+                suffixIcon: Padding(
+                  padding: EdgeInsets.only(right: Get.width / 60),
+                  child: IconButton(
                     onPressed: () {
                       setState(() {
                         _obscurePassword = !_obscurePassword;
@@ -223,11 +184,15 @@ class _LoginScreenState extends State<LoginScreen>
                   },
                   child: const Text(
                     "Forgot Password ?",
-                    style: TextStyle(color: Colors.white70),
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w200,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: h * 0.01),
+              SizedBox(height: Get.width / 22),
               SizedBox(
                 width: w,
                 child: ElevatedButton(
@@ -244,8 +209,10 @@ class _LoginScreenState extends State<LoginScreen>
                   },
                   child: const Text(
                     "Login",
+
                     style: TextStyle(
                       fontSize: 16,
+                      letterSpacing: 1,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -266,7 +233,10 @@ class _LoginScreenState extends State<LoginScreen>
             children: [
               const Text(
                 "Don't have an account ? ",
-                style: TextStyle(color: Colors.white70),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w100,
+                ),
               ),
               GestureDetector(
                 onTap: () {

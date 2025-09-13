@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../routes/routes.dart';
@@ -19,26 +20,56 @@ class _OTPScreenState extends State<OTPScreen> {
     final w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF061C36),
-      body: SafeArea(
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff000617), Color(0xff0A2538)],
+            stops: [0.3, 0.9],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(CupertinoIcons.back, color: Colors.white),
+              SizedBox(height: Get.width / 8),
+              Align(
+                alignment: Alignment.topLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(Get.width / 45),
+                    decoration: BoxDecoration(
+                      color: Color(0xff0A2538),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Color(0xff536674)),
+                    ),
+                    child: Icon(
+                      CupertinoIcons.back,
+                      color: Colors.white,
+                      size: Get.width / 18,
+                    ),
+                  ),
+                ),
               ),
-              SizedBox(height: h * 0.02),
-              const Text(
-                "Email Verification",
-                style: TextStyle(
+
+              SizedBox(height: Get.width / 10),
+
+              Text(
+                "Forgot Password",
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: h * 0.01),
+              SizedBox(height: Get.width / 35),
               const Text(
                 "We've sent 6 code to abc@gmail.com",
                 style: TextStyle(color: Colors.white70, fontSize: 14),
@@ -52,19 +83,21 @@ class _OTPScreenState extends State<OTPScreen> {
                 pinTheme: PinTheme(
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(10),
-                  fieldHeight: 50,
-                  fieldWidth: 45,
-                  activeFillColor: Colors.white.withOpacity(0.1),
-                  inactiveFillColor: Colors.white.withOpacity(0.1),
-                  selectedFillColor: Colors.white.withOpacity(0.2),
-                  activeColor: Colors.transparent,
-                  inactiveColor: Colors.transparent,
-                  selectedColor: Colors.blue,
+                  fieldHeight: Get.width / 7.5,
+                  fieldWidth: Get.width / 7.5,
+                  activeFillColor: Color(0xff071a31),
+                  inactiveFillColor: Color(0xff071a31),
+                  selectedFillColor: Color(0xff071a31),
+                  activeColor: Color(0xff536674),
+                  inactiveColor: Color(0xff536674),
+                  selectedColor: Color(0xff536674),
+                  inactiveBorderWidth: 0.5,
+                  activeBorderWidth: 1,
                 ),
                 textStyle: const TextStyle(color: Colors.white, fontSize: 18),
                 enableActiveFill: true,
               ),
-              SizedBox(height: h * 0.02),
+              SizedBox(height: Get.width / 40),
               Row(
                 children: [
                   const Text(
@@ -84,12 +117,14 @@ class _OTPScreenState extends State<OTPScreen> {
                 ],
               ),
               const Spacer(),
+
               SizedBox(
-                width: double.infinity,
+                width: w,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0C4473),
-                    padding: const EdgeInsets.symmetric(vertical: 13),
+                    backgroundColor: const Color(0xff134369),
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    // Increased vertical padding for button
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -99,10 +134,17 @@ class _OTPScreenState extends State<OTPScreen> {
                   },
                   child: const Text(
                     "Continue",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+
+                    style: TextStyle(
+                      fontSize: 16,
+                      letterSpacing: 1,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
+
               SizedBox(height: h * 0.015),
               Center(
                 child: Column(
@@ -123,6 +165,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   ],
                 ),
               ),
+              SizedBox(height: Get.width / 13),
             ],
           ),
         ),

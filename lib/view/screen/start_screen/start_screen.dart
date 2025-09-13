@@ -56,6 +56,7 @@ class _StartScreenState extends State<StartScreen> {
                         Color(0xff134369),
                       ),
                     ),
+
                     onPressed: () {
                       Get.toNamed(Routes.loginScreen);
                     },

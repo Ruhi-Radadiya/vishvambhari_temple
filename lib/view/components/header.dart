@@ -18,73 +18,85 @@ class _HeaderState extends State<Header> {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      padding: EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+        top: Get.width / 20,
+        bottom: 0,
+      ),
+      child: Container(
+        height: Get.width / 4.2,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-        children: [
-          GestureDetector(
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-            child: Container(
-              height: h * 0.13,
-              width: w * 0.13,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              child: Container(
+                height: h * 0.13,
+                width: w * 0.13,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 1,
+                    bottom: 4,
+                    left: 4,
+                    right: 4,
+                  ),
+                  child: Image(
+                    image: AssetImage("assets/images/home_images/logo.png"),
+                  ),
+                ),
               ),
-              alignment: Alignment.center,
+            ),
+            Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 1,
-                  bottom: 4,
-                  left: 4,
-                  right: 4,
-                ),
-                child: Image(
-                  image: AssetImage("assets/images/home_images/logo.png"),
+                padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Search here...",
+                    hintStyle: TextStyle(
+                      color: Color(0xff536674),
+                      fontSize: 13,
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.search_rounded,
+                      size: 18,
+                      color: Colors.white24,
+                    ),
+                    filled: true,
+                    fillColor: Color(0xff0A2538),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: Get.width / 26,
+                      horizontal: 15,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Search here...",
-                  hintStyle: TextStyle(color: Colors.white24, fontSize: 13),
-                  prefixIcon: const Icon(
-                    Icons.search_rounded,
-                    color: Colors.white24,
-                  ),
-                  filled: true,
-                  fillColor: Color(0xff0A2538),
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 0,
-                    horizontal: 15,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                style: const TextStyle(color: Colors.white),
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.notificationScreen);
+              },
+              child: Image(
+                image: AssetImage("assets/Icon/hader_1.png"),
+                width: Get.width / 22,
               ),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(Routes.notificationScreen);
-            },
-            child: Image(
-              image: AssetImage("assets/Icon/hader_1.png"),
-              width: Get.width / 22,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

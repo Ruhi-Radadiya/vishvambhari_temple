@@ -1,12 +1,11 @@
 import 'dart:developer';
 import 'dart:ui';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vishvambhari_temple/view/components/textfield.dart';
 import 'package:vishvambhari_temple/view/screen/yagn_screen/kund_selection.dart';
-
-import '../../../routes/routes.dart';
 
 class ViewYagn extends StatefulWidget {
   const ViewYagn({super.key});
@@ -31,45 +30,68 @@ class _ViewYagnState extends State<ViewYagn> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xff020C15),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 16.0,
-                  right: 16,
-                  top: 45,
-                  bottom: 10,
-                ),
-                child: Center(
-                  child: Text(
+        body: Column(
+          children: [
+            SizedBox(height: Get.width / 8),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
+              child: Row(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(Get.width / 45),
+                        decoration: BoxDecoration(
+                          color: Color(0xff0A2538),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Color(0xff536674)),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: Get.width / 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: Get.width / 18),
+                  Text(
                     "YAGN Registration",
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                      fontSize: w * 0.047,
                     ),
+                    textAlign: TextAlign.center,
                   ),
+                ],
+              ),
+            ),
+            SizedBox(height: Get.width / 22),
+            Container(
+              height: Get.height / 1.152,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xff081F32), Color(0xff000516)],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.1, 0.9],
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(45),
+                  topRight: Radius.circular(45),
                 ),
               ),
-              Container(
-                height: h * 2.3,
-                // You might need to adjust this height as it's very large
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xff071e30), Color(0xff000617)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(45),
-                    topRight: Radius.circular(45),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(Get.width / 30),
+              padding: EdgeInsets.only(top: Get.width / 30),
+              child: Padding(
+                padding: EdgeInsets.all(Get.width / 30),
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -81,12 +103,12 @@ class _ViewYagnState extends State<ViewYagn> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: h * 0.02),
+                      SizedBox(height: Get.width / 20),
                       CommonTextField(
                         hint: "Enter mobile no. to auto-fill details",
                         keyboardType: TextInputType.name,
                       ),
-                      SizedBox(height: h * 0.02),
+                      SizedBox(height: Get.width / 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -94,7 +116,7 @@ class _ViewYagnState extends State<ViewYagn> {
                             children: [
                               CircleAvatar(
                                 radius: 19,
-                                backgroundColor: Colors.orange,
+                                backgroundColor: Color(0xffFF8127),
                                 child: Text(
                                   "1",
                                   style: TextStyle(
@@ -109,22 +131,32 @@ class _ViewYagnState extends State<ViewYagn> {
                                 "Date &\nTime",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
                           ),
                           Row(
                             children: [
-                              CircleAvatar(
-                                radius: 19,
-                                backgroundColor: Color(0xff09253b),
-                                child: Text(
-                                  "2",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 19,
+                              Container(
+                                padding: EdgeInsets.all(2), // border ni width
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Color(0xff536674), // border color
+                                    width: 2, // border width
+                                  ),
+                                ),
+                                child: CircleAvatar(
+                                  radius: 19,
+                                  backgroundColor: Color(0xff0A253C),
+                                  child: Text(
+                                    "2",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 19,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -133,22 +165,32 @@ class _ViewYagnState extends State<ViewYagn> {
                                 "Details",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
                           ),
                           Row(
                             children: [
-                              CircleAvatar(
-                                radius: 19,
-                                backgroundColor: Color(0xff09253b),
-                                child: Text(
-                                  "3",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 19,
+                              Container(
+                                padding: EdgeInsets.all(2), // border ni width
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Color(0xff536674), // border color
+                                    width: 2, // border width
+                                  ),
+                                ),
+                                child: CircleAvatar(
+                                  radius: 19,
+                                  backgroundColor: Color(0xff0A253C),
+                                  child: Text(
+                                    "3",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 19,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -157,7 +199,7 @@ class _ViewYagnState extends State<ViewYagn> {
                                 "Kund\nSelection",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
@@ -165,13 +207,12 @@ class _ViewYagnState extends State<ViewYagn> {
                         ],
                       ),
                       SizedBox(height: h * 0.02),
-
                       Column(
                         children: [
                           Container(
                             height: h * 0.15,
                             decoration: BoxDecoration(
-                              color: Colors.orange,
+                              color: Color(0xffFF8127),
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Center(
@@ -180,9 +221,9 @@ class _ViewYagnState extends State<ViewYagn> {
                                   SizedBox(height: h * 0.01),
                                   Text(
                                     "Select Your Yagn Details",
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                       color: Colors.black,
-                                      fontSize: 18,
+                                      fontSize: 19,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -192,545 +233,573 @@ class _ViewYagnState extends State<ViewYagn> {
                           ),
                           Transform.translate(
                             offset: Offset(0, -80),
-                            child: Container(
-                              height: h * 1.9,
-                              decoration: BoxDecoration(
-                                color: Color(0xff01122a),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Select Yagn Type",
-
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              selectedYagnType = 0;
-                                            });
-                                          },
-                                          child: Container(
-                                            height: h * 0.06,
-                                            width: w * 0.37,
-                                            decoration: BoxDecoration(
-                                              color: selectedYagnType == 0
-                                                  ? Colors.orange
-                                                  : Colors.orange.withAlpha(55),
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all(
-                                                color: Colors.orange,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "Maha Yagn",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14,
-                                                fontWeight:
-                                                    selectedYagnType == 0
-                                                    ? FontWeight.bold
-                                                    : FontWeight.normal,
-                                              ),
-                                            ),
-                                          ),
+                            child: IntrinsicHeight(
+                              child: Container(
+                                // height: h * 1.9,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff01122a),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(Get.width / 24),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Select Yagn Type",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
                                         ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              selectedYagnType = 1;
-                                            });
-                                          },
-                                          child: Container(
-                                            height: h * 0.06,
-                                            width: w * 0.37,
-                                            decoration: BoxDecoration(
-                                              color: selectedYagnType == 1
-                                                  ? Colors.orange
-                                                  : Colors.orange.withAlpha(55),
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all(
-                                                color: Colors.orange,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "Normal Yagn",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14,
-
-                                                fontWeight:
-                                                    selectedYagnType == 1
-                                                    ? FontWeight.bold
-                                                    : FontWeight.normal,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: h * 0.02),
-                                    Text(
-                                      "Select Participation",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
                                       ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              selectedParticipation = "Single";
-                                            });
-                                          },
-                                          child: Container(
-                                            height: h * 0.06,
-                                            width: w * 0.24,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  selectedParticipation ==
-                                                      "Single"
-                                                  ? Colors.orange
-                                                  : Colors.orange.withAlpha(55),
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all(
-                                                color: Colors.orange,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "Single",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14,
-                                                fontWeight:
-                                                    selectedParticipation ==
-                                                        "Single"
-                                                    ? FontWeight.bold
-                                                    : FontWeight.normal,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              selectedParticipation = "Couple";
-                                            });
-                                          },
-                                          child: Container(
-                                            height: h * 0.06,
-                                            width: w * 0.24,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  selectedParticipation ==
-                                                      "Couple"
-                                                  ? Colors.orange
-                                                  : Colors.orange.withAlpha(55),
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all(
-                                                color: Colors.orange,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "Couple",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14,
-                                                fontWeight:
-                                                    selectedParticipation ==
-                                                        "Couple"
-                                                    ? FontWeight.bold
-                                                    : FontWeight.normal,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              selectedParticipation = "Family";
-                                            });
-                                          },
-                                          child: Container(
-                                            height: h * 0.06,
-                                            width: w * 0.24,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  selectedParticipation ==
-                                                      "Family"
-                                                  ? Colors.orange
-                                                  : Colors.orange.withAlpha(55),
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all(
-                                                color: Colors.orange,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "Family",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14,
-                                                fontWeight:
-                                                    selectedParticipation ==
-                                                        "Family"
-                                                    ? FontWeight.bold
-                                                    : FontWeight.normal,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: h * 0.02),
-                                    Text(
-                                      "Fill Details",
-                                      style: TextStyle(
-                                        color: Colors.orange,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Choose Your Preferred Date",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    CommonTextField(
-                                      hint: "dd-mm-yyyy",
-                                      keyboardType: TextInputType.datetime,
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                    SizedBox(height: h * 0.02),
-                                    Text(
-                                      "Location",
-                                      style: TextStyle(
-                                        color: Colors.orange,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "City ( for all participants )",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    CommonTextField(
-                                      hint: "Enter City Name",
-                                      keyboardType: TextInputType.name,
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                    SizedBox(height: h * 0.02),
-                                    Text(
-                                      " Participant 1",
-                                      style: TextStyle(
-                                        color: Colors.orange,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "First Name",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    CommonTextField(
-                                      hint: "Enter your name",
-                                      keyboardType: TextInputType.name,
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Mobile Number ",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    CommonTextField(
-                                      hint: "Enter your mobile number ",
-                                      keyboardType: TextInputType.number,
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Gender",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    SelectField(
-                                      title: "Select Gender",
-                                      options: ["Male", "Female", "Other"],
-                                      onSelected: (value) {
-                                        print("Selected gender: $value");
-                                      },
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Upload Your Photo",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    UploadPhotoField(),
-                                    SizedBox(height: h * 0.02),
-                                    Text(
-                                      "Add Family Member",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Flexible(
-                                          flex: 4,
-                                          child: Container(
-                                            height: h * 0.06,
-                                            decoration: BoxDecoration(
-                                              color: Colors.orange,
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all(
-                                                color: Colors.orange,
-                                              ),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: FittedBox(
-                                              fit: BoxFit.scaleDown,
-                                              child: const Text(
-                                                "Add member",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 12,
+                                      SizedBox(height: Get.width / 30),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Expanded(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedYagnType = 0;
+                                                });
+                                              },
+                                              child: Container(
+                                                height: h * 0.06,
+                                                width: w * 0.37,
+                                                decoration: BoxDecoration(
+                                                  color: selectedYagnType == 0
+                                                      ? Color(0xffFF8127)
+                                                      : Color(
+                                                          0xffFF8127,
+                                                        ).withAlpha(55),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  border: Border.all(
+                                                    color: Color(0xffFF8127),
+                                                  ),
                                                 ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(width: w * 0.04),
-                                        Flexible(
-                                          flex: 6,
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              showAddMemberDialog(
-                                                context,
-                                                controller,
-                                              );
-                                            },
-                                            child: Container(
-                                              height: h * 0.06,
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xff051c37),
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                                border: Border.all(
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              alignment: Alignment.center,
-                                              child: FittedBox(
-                                                fit: BoxFit.scaleDown,
-                                                child: const Text(
-                                                  "Add member by mobile",
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  "Maha Yagn",
                                                   style: TextStyle(
                                                     color: Colors.white,
-                                                    fontSize: 12,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        selectedYagnType == 0
+                                                        ? FontWeight.bold
+                                                        : FontWeight.normal,
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: h * 0.02),
-                                    Text(
-                                      "Participant 1",
-                                      style: TextStyle(
-                                        color: Colors.orange,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "First Name",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    CommonTextField(
-                                      hint: "Enter your name",
-                                      keyboardType: TextInputType.number,
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Mobile Number ",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    CommonTextField(
-                                      hint: "Enter your mobile number ",
-                                      keyboardType: TextInputType.number,
-                                      textInputAction: TextInputAction.next,
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Gender",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    SelectField(
-                                      title: "Select Gender",
-                                      options: ["Male", "Female", "Other"],
-                                      onSelected: (value) {
-                                        print("Selected gender: $value");
-                                      },
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    Text(
-                                      "Upload Your Photo",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    SizedBox(height: h * 0.01),
-                                    UploadPhotoField(),
-                                    SizedBox(height: h * 0.03),
-                                    Align(
-                                      alignment: AlignmentGeometry.bottomRight,
-                                      child: Container(
-                                        height: h * 0.06,
-                                        width: w * 0.28,
-                                        decoration: BoxDecoration(
-                                          color: Colors.red.withAlpha(55),
-                                          borderRadius: BorderRadius.circular(
-                                            30,
+                                          SizedBox(width: Get.width / 24),
+                                          Expanded(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedYagnType = 1;
+                                                });
+                                              },
+                                              child: Container(
+                                                height: h * 0.06,
+                                                width: w * 0.37,
+                                                decoration: BoxDecoration(
+                                                  color: selectedYagnType == 1
+                                                      ? Color(0xffFF8127)
+                                                      : Color(0xff342829),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  border: Border.all(
+                                                    color: Color(0xffFF8127),
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  "Normal Yagn",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        selectedYagnType == 1
+                                                        ? FontWeight.bold
+                                                        : FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                          border: Border.all(color: Colors.red),
-                                        ),
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "Remove",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 13,
-                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Select Participation",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: h * 0.05),
+                                      SizedBox(height: Get.width / 30),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Expanded(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedParticipation =
+                                                      "Single";
+                                                });
+                                              },
+                                              child: Container(
+                                                height: h * 0.06,
+                                                width: w * 0.24,
+                                                decoration: BoxDecoration(
+                                                  color:
+                                                      selectedParticipation ==
+                                                          "Single"
+                                                      ? Color(0xffFF8127)
+                                                      : Color(
+                                                          0xffFF8127,
+                                                        ).withAlpha(55),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  border: Border.all(
+                                                    color: Color(0xffFF8127),
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  "Single",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        selectedParticipation ==
+                                                            "Single"
+                                                        ? FontWeight.bold
+                                                        : FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: Get.width / 30),
+                                          Expanded(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedParticipation =
+                                                      "Couple";
+                                                });
+                                              },
+                                              child: Container(
+                                                height: h * 0.06,
+                                                width: w * 0.24,
+                                                decoration: BoxDecoration(
+                                                  color:
+                                                      selectedParticipation ==
+                                                          "Couple"
+                                                      ? Color(0xffFF8127)
+                                                      : Color(
+                                                          0xffFF8127,
+                                                        ).withAlpha(55),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  border: Border.all(
+                                                    color: Color(0xffFF8127),
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  "Couple",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        selectedParticipation ==
+                                                            "Couple"
+                                                        ? FontWeight.bold
+                                                        : FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: Get.width / 30),
+                                          Expanded(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedParticipation =
+                                                      "Family";
+                                                });
+                                              },
+                                              child: Container(
+                                                height: h * 0.06,
+                                                width: w * 0.24,
+                                                decoration: BoxDecoration(
+                                                  color:
+                                                      selectedParticipation ==
+                                                          "Family"
+                                                      ? Color(0xffFF8127)
+                                                      : Color(
+                                                          0xffFF8127,
+                                                        ).withAlpha(55),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  border: Border.all(
+                                                    color: Color(0xffFF8127),
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  "Family",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontWeight:
+                                                        selectedParticipation ==
+                                                            "Family"
+                                                        ? FontWeight.bold
+                                                        : FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Fill Details",
+                                        style: TextStyle(
+                                          color: Color(0xffFF8127),
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: Get.width / 30),
+                                      Text(
+                                        "Choose Your Preferred Date",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      CommonTextField(
+                                        hint: "dd-mm-yyyy",
+                                        keyboardType: TextInputType.datetime,
+                                        textInputAction: TextInputAction.next,
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Location",
+                                        style: TextStyle(
+                                          color: Color(0xffFF8127),
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      Text(
+                                        "City ( for all participants )",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      CommonTextField(
+                                        hint: "Enter City Name",
+                                        keyboardType: TextInputType.name,
+                                        textInputAction: TextInputAction.next,
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        " Participant 1",
+                                        style: TextStyle(
+                                          color: Color(0xffFF8127),
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
 
-                                    SizedBox(
-                                      width: w * 0.9,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color(
-                                            0xff134369,
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: h * 0.02,
-                                          ),
-                                          shape: const StadiumBorder(),
+                                      SizedBox(height: Get.width / 30),
+                                      Text(
+                                        "First Name",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
                                         ),
-                                        onPressed: () {
-                                          log("-+*+ Next clicked");
-                                          Get.to(() => const KundSelection());
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      CommonTextField(
+                                        hint: "Enter your name",
+                                        keyboardType: TextInputType.name,
+                                        textInputAction: TextInputAction.next,
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Mobile Number ",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      CommonTextField(
+                                        hint: "Enter your mobile number ",
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.next,
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Gender",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      SelectField(
+                                        title: "Select Gender",
+                                        options: ["Male", "Female", "Other"],
+                                        onSelected: (value) {
+                                          print("Selected gender: $value");
                                         },
-                                        child: Text(
-                                          "Proceed to kund Selection",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: w * 0.045,
-                                            fontWeight: FontWeight.w600,
+                                      ),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Upload Your Photo",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      UploadPhotoField(),
+                                      SizedBox(height: Get.width / 22),
+                                      Text(
+                                        "Add Family Member",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Flexible(
+                                            flex: 4,
+                                            child: Container(
+                                              height: h * 0.06,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xffFF8127),
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                border: Border.all(
+                                                  color: Color(0xffFF8127),
+                                                ),
+                                              ),
+                                              alignment: Alignment.center,
+                                              child: FittedBox(
+                                                fit: BoxFit.scaleDown,
+                                                child: Text(
+                                                  "Add member",
+                                                  style: GoogleFonts.poppins(
+                                                    color: Colors.white,
+                                                    fontSize: 13,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: Get.width / 30),
+                                          Flexible(
+                                            flex: 6,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                showAddMemberDialog(
+                                                  context,
+                                                  controller,
+                                                );
+                                              },
+                                              child: Container(
+                                                height: h * 0.06,
+                                                decoration: BoxDecoration(
+                                                  color: const Color(
+                                                    0xff051c37,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  border: Border.all(
+                                                    width: 0.5,
+                                                    color: Color(0xff536674),
+                                                  ),
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: FittedBox(
+                                                  fit: BoxFit.scaleDown,
+                                                  child: const Text(
+                                                    "Add member by mobile",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: h * 0.02),
+                                      Text(
+                                        "Participant 1",
+                                        style: TextStyle(
+                                          color: Color(0xffFF8127),
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: Get.width / 30),
+                                      Text(
+                                        "First Name",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      CommonTextField(
+                                        hint: "Enter your name",
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.next,
+                                      ),
+                                      SizedBox(height: Get.width / 30),
+                                      Text(
+                                        "Mobile Number ",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      CommonTextField(
+                                        hint: "Enter your mobile number ",
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.next,
+                                      ),
+                                      SizedBox(height: Get.width / 30),
+                                      Text(
+                                        "Gender",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      SelectField(
+                                        title: "Select Gender",
+                                        options: ["Male", "Female", "Other"],
+                                        onSelected: (value) {
+                                          print("Selected gender: $value");
+                                        },
+                                      ),
+                                      SizedBox(height: Get.width / 30),
+                                      Text(
+                                        "Upload Your Photo",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      UploadPhotoField(),
+                                      SizedBox(height: Get.width / 20),
+                                      Align(
+                                        alignment:
+                                            AlignmentGeometry.bottomRight,
+                                        child: Container(
+                                          height: h * 0.06,
+                                          width: w * 0.28,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xff2C0E22),
+                                            borderRadius: BorderRadius.circular(
+                                              30,
+                                            ),
+                                            border: Border.all(
+                                              color: Color(0xffDA0001),
+                                            ),
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "Remove",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: Get.width / 6.5,
+                        width: w * 0.9,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff134369),
+                            shape: const StadiumBorder(),
+                          ),
+                          onPressed: () {
+                            log("-+*+ Next clicked");
+                            Get.to(() => const KundSelection());
+                          },
+                          child: Text(
+                            "Proceed to kund Selection",
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: w * 0.045,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: Get.width / 30),
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -745,10 +814,12 @@ class _ViewYagnState extends State<ViewYagn> {
       builder: (context) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
+          contentPadding: EdgeInsets.all(Get.width / 15),
           backgroundColor: const Color(0xff01122A),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
+
           title: const Text(
             "Add Member by Mobile No.",
             style: TextStyle(
@@ -757,32 +828,12 @@ class _ViewYagnState extends State<ViewYagn> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          content: TextField(
+          content: CommonTextField(
+            hint: "Enter mobile number",
+            textInputAction: TextInputAction.done,
             keyboardType: TextInputType.number,
-            cursorColor: Colors.white,
-            controller: controller,
-            decoration: InputDecoration(
-              hintText: "Enter mobile number",
-              hintStyle: const TextStyle(
-                color: Color(0xff506073),
-                fontSize: 14,
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(
-                  color: Color(0xff536674),
-                  width: 1,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Color(0xff536674)),
-              ),
-              filled: true,
-              fillColor: const Color(0xff051C37),
-            ),
-            style: const TextStyle(color: Colors.white),
           ),
+
           actions: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -830,7 +881,7 @@ class _ViewYagnState extends State<ViewYagn> {
                     Get.back();
                   },
                   child: const Text(
-                    "Submit",
+                    "Add",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

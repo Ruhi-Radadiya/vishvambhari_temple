@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../routes/routes.dart';
+import '../../components/textfield.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
@@ -15,49 +17,102 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController conPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF061C36),
-      body: SafeArea(
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff000617), Color(0xff0A2538)],
+            stops: [0.3, 0.9],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(CupertinoIcons.back, color: Colors.white),
+              SizedBox(height: Get.width / 8),
+              Align(
+                alignment: Alignment.topLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(Get.width / 45),
+                    decoration: BoxDecoration(
+                      color: Color(0xff0A2538),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Color(0xff536674)),
+                    ),
+                    child: Icon(
+                      CupertinoIcons.back,
+                      color: Colors.white,
+                      size: Get.width / 18,
+                    ),
+                  ),
+                ),
               ),
-              SizedBox(height: h * 0.02),
-              const Text(
+
+              SizedBox(height: Get.width / 10),
+
+              Text(
                 "Reset New Password",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: h * 0.01),
+              SizedBox(height: Get.width / 13),
+
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Enter New Password",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               SizedBox(height: h * 0.01),
-              _buildTextField("Enter new password", true, _obscurePassword, () {
-                setState(() {
-                  _obscurePassword = !_obscurePassword;
-                });
-              }),
+
+              CommonTextField(
+                controller: passwordController,
+                hint: "Enter new password",
+                textInputAction: TextInputAction.next,
+                obscureText: _obscurePassword,
+                suffixIcon: Padding(
+                  padding: EdgeInsets.only(right: Get.width / 60),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                    icon: Icon(
+                      _obscurePassword
+                          ? Icons.visibility_off_rounded
+                          : Icons.visibility_rounded,
+                      color: Colors.white54,
+                    ),
+                  ),
+                ),
+              ),
+
               SizedBox(height: h * 0.02),
               Align(
                 alignment: Alignment.centerLeft,
@@ -65,40 +120,60 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   "Confirm Password",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               SizedBox(height: h * 0.01),
-              _buildTextField(
-                "Retype your new password",
-                true,
-                _obscureConfirmPassword,
-                () {
-                  setState(() {
-                    _obscureConfirmPassword = !_obscureConfirmPassword;
-                  });
-                },
+
+              CommonTextField(
+                controller: passwordController,
+                hint: "Enter new password",
+                textInputAction: TextInputAction.next,
+                obscureText: _obscureConfirmPassword,
+                suffixIcon: Padding(
+                  padding: EdgeInsets.only(right: Get.width / 60),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _obscureConfirmPassword = !_obscureConfirmPassword;
+                      });
+                    },
+                    icon: Icon(
+                      _obscureConfirmPassword
+                          ? Icons.visibility_off_rounded
+                          : Icons.visibility_rounded,
+                      color: Colors.white54,
+                    ),
+                  ),
+                ),
               ),
 
               const Spacer(),
               SizedBox(
-                width: double.infinity,
+                width: w,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0C4473),
-                    padding: const EdgeInsets.symmetric(vertical: 13),
+                    backgroundColor: const Color(0xff134369),
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    // Increased vertical padding for button
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   onPressed: () {
-                    Get.toNamed(Routes.splashPage);
+                    Get.toNamed(Routes.loginScreen);
                   },
                   child: const Text(
                     "Continue",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+
+                    style: TextStyle(
+                      fontSize: 16,
+                      letterSpacing: 1,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -119,6 +194,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         fontSize: 12,
                       ),
                     ),
+
+                    SizedBox(height: Get.width / 13),
                   ],
                 ),
               ),

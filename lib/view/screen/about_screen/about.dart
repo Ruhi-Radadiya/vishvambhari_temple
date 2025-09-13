@@ -1,7 +1,10 @@
 import 'dart:ui';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../routes/routes.dart';
 import '../../components/drawer.dart';
@@ -49,6 +52,16 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  final List<String> images = [
+    "assets/images/home_images/maa_1.jpg",
+    "assets/images/home_images/maa_2.png",
+    "assets/images/home_images/maa_1.jpg",
+    "assets/images/home_images/maa_2.png",
+    "assets/images/home_images/maa_1.jpg",
+    "assets/images/home_images/maa_2.png",
+  ];
+  int activeIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -85,85 +98,120 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: w * 0.03),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Get.width / 24,
+                        ),
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              SizedBox(height: h * 0.015),
-                              // Featured Image
+                              SizedBox(height: Get.width / 30),
                               GestureDetector(
                                 onTap: () {
                                   Get.toNamed(Routes.maaVishvambhariDetailPage);
                                 },
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      height: h * 0.17,
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                            "assets/images/home_images/maa2.jpg",
+                                child: CarouselSlider.builder(
+                                  itemCount: images.length,
+                                  itemBuilder: (context, index, realIndex) {
+                                    return Stack(
+                                      children: [
+                                        // 📌 Background Image
+                                        Container(
+                                          height: h * 0.22,
+                                          width: Get.width,
+                                          margin: EdgeInsets.only(
+                                            right: Get.width / 80,
+                                            left: Get.width / 80,
+                                            top: Get.width / 80,
+                                            bottom: 0,
                                           ),
-                                          fit: BoxFit.cover,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                            image: DecorationImage(
+                                              image: AssetImage(images[index]),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: h * 0.17,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        gradient: LinearGradient(
-                                          begin: Alignment.centerLeft,
-                                          end: Alignment.centerRight,
-                                          colors: [
-                                            Colors.black.withOpacity(0.5),
-                                            Colors.transparent,
-                                          ],
+
+                                        // 📌 Gradient Overlay
+                                        Container(
+                                          margin: EdgeInsets.symmetric(
+                                            horizontal: Get.width / 80,
+                                          ),
+                                          height: h * 0.23,
+                                          width: Get.width,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                            gradient: const LinearGradient(
+                                              begin: Alignment.bottomCenter,
+                                              end: Alignment.topCenter,
+                                              colors: [
+                                                Colors.black,
+                                                Colors.transparent,
+                                              ],
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                      padding: const EdgeInsets.only(
-                                        top: 20.0,
-                                        left: 25,
-                                      ),
-                                      alignment: Alignment.topLeft,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "MAA\nVISHVAMBHARI",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: w * 0.045,
-                                              fontWeight: FontWeight.w900,
-                                            ),
+
+                                        Positioned(
+                                          bottom: Get.width / 6.5,
+                                          left: 20,
+                                          right: 0,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "MAA\nVISHVAMBHARI",
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.white,
+                                                  fontSize: w * 0.045,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                "Glimpse Of Mother Vishvambhari",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: w * 0.03,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                              SizedBox(height: Get.width / 30),
+                                              AnimatedSmoothIndicator(
+                                                activeIndex: activeIndex,
+                                                count: images.length,
+                                                effect: ExpandingDotsEffect(
+                                                  dotHeight: 8,
+                                                  dotWidth: 8,
+                                                  activeDotColor: Color(
+                                                    0xffFF8127,
+                                                  ),
+                                                  dotColor: Colors.white54,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          Text(
-                                            "Glimpse Of Mother Vishvambhari",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: w * 0.03,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                          Text(
-                                            "•••",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: w * 0.08,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                  options: CarouselOptions(
+                                    height:
+                                        MediaQuery.of(context).size.width / 1.8,
+                                    autoPlay: true,
+                                    viewportFraction: 1,
+                                    enlargeCenterPage: false,
+                                    onPageChanged: (index, reason) {
+                                      setState(() => activeIndex = index);
+                                    },
+                                  ),
                                 ),
                               ),
-                              SizedBox(height: h * 0.02),
-                              // Grid Section
                               GridView.builder(
                                 padding: EdgeInsets.zero,
                                 physics: const NeverScrollableScrollPhysics(),
@@ -171,8 +219,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
-                                      crossAxisSpacing: w * 0.03,
-                                      mainAxisSpacing: h * 0.015,
+                                      crossAxisSpacing: Get.width / 24,
+                                      mainAxisSpacing: Get.width / 26,
                                       childAspectRatio: 1.1,
                                     ),
                                 itemCount: gridImages.length,
@@ -189,7 +237,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
+                                        borderRadius: BorderRadius.circular(26),
                                         image: DecorationImage(
                                           image: AssetImage(gridImages[index]),
                                           fit: BoxFit.cover,
@@ -239,14 +287,14 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "SPIRITUAL INSIGHTS",
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontWeight: FontWeight.bold,
                                     fontSize: w * 0.035,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
-                              SizedBox(height: h * 0.02),
+                              SizedBox(height: Get.width / 24),
                               Row(
                                 children: [
                                   Expanded(
@@ -255,11 +303,11 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                         Get.toNamed(Routes.objectiveDetailPage);
                                       },
                                       child: Container(
-                                        height: h * 0.07,
+                                        height: Get.width / 6,
                                         decoration: BoxDecoration(
                                           color: const Color(0xff0a2538),
                                           borderRadius: BorderRadius.circular(
-                                            w * 0.04,
+                                            20,
                                           ),
                                         ),
                                         alignment: Alignment.center,
@@ -274,18 +322,18 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: w * 0.04),
+                                  SizedBox(width: Get.width / 24),
                                   Expanded(
                                     child: GestureDetector(
                                       onTap: () {
                                         Get.toNamed(Routes.vedicVirtues);
                                       },
                                       child: Container(
-                                        height: h * 0.07,
+                                        height: Get.width / 6,
                                         decoration: BoxDecoration(
                                           color: const Color(0xff0a2538),
                                           borderRadius: BorderRadius.circular(
-                                            w * 0.04,
+                                            20,
                                           ),
                                         ),
                                         alignment: Alignment.center,
@@ -302,16 +350,16 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: h * 0.02),
+                              SizedBox(height: Get.width / 24),
                               GestureDetector(
                                 onTap: () {
                                   Get.toNamed(Routes.darshanTimeAndRules);
                                 },
                                 child: Container(
-                                  height: h * 0.07,
+                                  height: Get.width / 6,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xff0a2538),
-                                    borderRadius: BorderRadius.circular(16),
+                                    color: const Color(0xff0A2538),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                   alignment: Alignment.center,
                                   child: Text(
@@ -325,25 +373,24 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 ),
                               ),
                               SizedBox(height: h * 0.02),
-                              // Contact Information
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "CONTACT INFORMATION",
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontWeight: FontWeight.bold,
                                     fontSize: w * 0.035,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
-                              SizedBox(height: h * 0.02),
+                              SizedBox(height: Get.width / 32),
                               Container(
-                                margin: EdgeInsets.all(w * 0.02),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF102B40),
+                                  color: const Color(0xff0A2538),
                                   borderRadius: BorderRadius.circular(16),
                                 ),
+
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -463,7 +510,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "CONNECT ON SOCIAL MEDIA",
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontWeight: FontWeight.bold,
                                     fontSize: w * 0.035,
                                     color: Colors.white,
@@ -471,35 +518,30 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                                 ),
                               ),
                               SizedBox(height: h * 0.02),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: w * 0.02,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    for (var img in [
-                                      "assets/images/about_images/Whatsapp.png",
-                                      "assets/images/about_images/facebook.png",
-                                      "assets/images/about_images/Instagram.png",
-                                      "assets/images/about_images/Twitter_1.png",
-                                      "assets/images/about_images/Youtube.png",
-                                    ])
-                                      Container(
-                                        padding: EdgeInsets.all(Get.width / 45),
-                                        height: h * 0.07,
-                                        width: h * 0.08,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          image: DecorationImage(
-                                            image: AssetImage(img),
-                                            fit: BoxFit.cover,
-                                          ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  for (var img in [
+                                    "assets/images/about_images/Whatsapp.png",
+                                    "assets/images/about_images/facebook.png",
+                                    "assets/images/about_images/Instagram.png",
+                                    "assets/images/about_images/Twitter_1.png",
+                                    "assets/images/about_images/Youtube.png",
+                                  ])
+                                    Container(
+                                      padding: EdgeInsets.all(Get.width / 45),
+                                      height: h * 0.07,
+                                      width: h * 0.08,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage(img),
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                  ],
-                                ),
+                                    ),
+                                ],
                               ),
                               SizedBox(height: h * 0.04),
                             ],

@@ -41,6 +41,7 @@ dependencies:
   pin_code_fields: any
   google_fonts: any
   flutter_screenutil: any
+  smooth_page_indicator: ^1.2.1
 
 dev_dependencies:
   flutter_test:

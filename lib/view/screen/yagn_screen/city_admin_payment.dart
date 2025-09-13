@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CityAdminPayment extends StatefulWidget {
   const CityAdminPayment({super.key});
@@ -17,7 +18,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
     final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xff020C15),
       body: SingleChildScrollView(
         child: Column(
@@ -31,25 +32,27 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
+
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(45),
                   topRight: Radius.circular(45),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(Get.width / 30),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // Thank You Container
                       Container(
-                        padding: const EdgeInsets.all(16),
+                        padding: EdgeInsets.all(Get.width / 13),
                         decoration: BoxDecoration(
+                          color: const Color(0xff061A30),
                           borderRadius: BorderRadius.circular(30),
-                          border: Border.all(width: 1, color: Colors.white38),
+                          border: Border.all(color: Color(0xff536674)),
                         ),
-                        child: const Column(
+
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -79,13 +82,13 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                     fontSize: 14,
                                   ),
                                 ),
-                                SizedBox(width: 8),
+
                                 Text(
-                                  "YAGN-20250903-408033",
-                                  style: TextStyle(
+                                  "  YAGN-20250903-408033",
+                                  style: GoogleFonts.poppins(
                                     color: Colors.orange,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],
@@ -93,16 +96,15 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: Get.width / 20),
                       Stack(
                         children: [
                           Container(
-                            height: h * 0.252,
+                            height: Get.width / 1.622,
                             decoration: BoxDecoration(
                               color: Color(0xff134369),
                               borderRadius: BorderRadius.circular(30),
                             ),
-
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -125,12 +127,12 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             left: 0,
                             right: 0,
                             child: Container(
-                              padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
-                                color: const Color(0xff0a263d),
+                                color: const Color(0xff061A30),
                                 borderRadius: BorderRadius.circular(30),
-                                border: Border.all(color: Colors.white38),
+                                border: Border.all(color: Color(0xff536674)),
                               ),
+                              padding: EdgeInsets.all(Get.width / 20),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -144,11 +146,14 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       ),
                                       Text(
                                         "Normal Yagn",
-                                        style: TextStyle(color: Colors.white),
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 4),
+                                  SizedBox(height: Get.width / 80),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -159,11 +164,14 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       ),
                                       Text(
                                         "Normal Kund _98",
-                                        style: TextStyle(color: Colors.white),
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 4),
+                                  SizedBox(height: Get.width / 80),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -174,11 +182,14 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       ),
                                       Text(
                                         "₹ 7,000",
-                                        style: TextStyle(color: Colors.white),
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 4),
+                                  SizedBox(height: Get.width / 80),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -189,11 +200,16 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       ),
                                       Text(
                                         "01",
-                                        style: TextStyle(color: Colors.white),
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ],
                                   ),
+                                  SizedBox(height: Get.width / 80),
                                   Divider(color: Colors.white24),
+                                  SizedBox(height: Get.width / 80),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -207,7 +223,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       ),
                                       Text(
                                         "₹ 7,000",
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                           color: Colors.orange,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -220,8 +236,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                           ),
                         ],
                       ),
-
-                      const SizedBox(height: 16),
+                      SizedBox(height: Get.width / 20),
                       Stack(
                         children: [
                           Container(
@@ -253,8 +268,8 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
-                                color: const Color(0xff0a263d),
-                                border: Border.all(color: Colors.white38),
+                                color: const Color(0xff061A30),
+                                border: Border.all(color: Color(0xff536674)),
                                 borderRadius: BorderRadius.circular(30),
                               ),
 
@@ -303,7 +318,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: Get.width / 20),
                       InkWell(
                         onTap: () {
                           // Button tap action
@@ -313,6 +328,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             vertical: Get.width / 30,
                             horizontal: 60,
                           ),
+                          height: Get.height / 15,
                           decoration: BoxDecoration(
                             color: Colors.green,
                             borderRadius: BorderRadius.circular(40),
@@ -320,17 +336,17 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             border: Border.all(color: Colors.green, width: 1.5),
                           ),
                           alignment: Alignment.center,
-                          child: const Text(
+                          child: Text(
                             "Pay Now",
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 17,
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      SizedBox(height: Get.width / 20),
                       InkWell(
                         onTap: () {
                           // Button tap action
@@ -340,6 +356,7 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             vertical: Get.width / 30,
                             horizontal: 60,
                           ),
+
                           decoration: BoxDecoration(
                             color: const Color(0xFFFFC107).withOpacity(0.3),
                             borderRadius: BorderRadius.circular(40),
@@ -349,10 +366,11 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                               width: 1.5,
                             ),
                           ),
+                          height: Get.height / 15,
                           alignment: Alignment.center,
-                          child: const Text(
+                          child: Text(
                             "Pay Later",
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: const Color(0xFFFFC107),
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
@@ -364,14 +382,14 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                       Stack(
                         children: [
                           Container(
-                            height: h * 0.243,
+                            height: Get.width / 1.744,
                             decoration: BoxDecoration(
                               color: Color(0xff134369),
                               borderRadius: BorderRadius.circular(30),
                             ),
-
                             child: Center(
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: h * 0.01),
                                   const Text(
@@ -393,18 +411,20 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
-                                color: const Color(0xff0a263d),
+                                color: const Color(0xff041227),
                                 borderRadius: BorderRadius.circular(30),
-                                border: Border.all(color: Colors.white38),
+                                border: Border.all(color: Color(0xff2C3D4B)),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
                                     decoration: BoxDecoration(
-                                      color: Color(0xff134369),
+                                      color: Color(0xff0A2743),
                                       borderRadius: BorderRadius.circular(15),
-                                      border: Border.all(color: Colors.white38),
+                                      border: Border.all(
+                                        color: Color(0xff2C3D4B),
+                                      ),
                                     ),
                                     padding: EdgeInsets.all(Get.width / 50),
                                     child: const Text(
@@ -417,15 +437,14 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
-                                  const SizedBox(height: 12),
+                                  SizedBox(height: Get.width / 30),
                                   SizedBox(
-                                    height: 40,
+                                    height: Get.width / 8,
                                     width: Get.width / 2.3,
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(
-                                          0xffFF8127,
-                                        ).withOpacity(0.2),
+                                        backgroundColor: Color(0xff372827),
+
                                         shape: RoundedRectangleBorder(
                                           side: BorderSide(
                                             color: Color(0xffFF8127),
@@ -438,7 +457,10 @@ class _CityAdminPaymentState extends State<CityAdminPayment> {
                                       onPressed: () {},
                                       child: const Text(
                                         "Open Share Link",
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class NumberVerification extends StatefulWidget {
@@ -17,41 +18,74 @@ class _NumberVerificationState extends State<NumberVerification> {
     final w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF061C36),
-      body: SafeArea(
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff081F32), Color(0xff000516)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.1, 0.9],
+          ),
+
+        ),
+
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: Get.width / 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: Get.width / 8),
               Row(
                 children: [
-                  IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(CupertinoIcons.back, color: Colors.white),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(Get.width / 45),
+                        decoration: BoxDecoration(
+                          color: Color(0xff0A2538),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Color(0xff536674)),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: Get.width / 18,
+                        ),
+                      ),
+                    ),
                   ),
-                  SizedBox(width: w * 0.05),
-                  const Text(
-                    "VERIFICATION NUMBER",
+                  SizedBox(width: Get.width / 18),
+                  Text(
+                    "Change Mobile number",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
+                      fontSize: w * 0.047,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
-              SizedBox(height: h * 0.05),
-              const Text(
+
+              SizedBox(height: Get.width / 10),
+
+              Text(
                 "Verify Number with OTP",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: h * 0.005),
+              SizedBox(height: Get.width / 35),
               const Text(
-                "We‘ve sent 6 code to +91 1234******",
+                "We‘ve sent 6 code to +91 1234****** ",
                 style: TextStyle(color: Colors.white70, fontSize: 14),
               ),
               SizedBox(height: h * 0.03),
@@ -63,44 +97,57 @@ class _NumberVerificationState extends State<NumberVerification> {
                 pinTheme: PinTheme(
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(10),
-                  fieldHeight: 50,
-                  fieldWidth: 45,
-                  activeFillColor: Colors.white.withOpacity(0.1),
-                  inactiveFillColor: Colors.white.withOpacity(0.1),
-                  selectedFillColor: Colors.white.withOpacity(0.2),
-                  activeColor: Colors.transparent,
-                  inactiveColor: Colors.transparent,
-                  selectedColor: Colors.blue,
+                  fieldHeight: Get.width / 7.5,
+                  fieldWidth: Get.width / 7.5,
+                  activeFillColor: Color(0xff071a31),
+                  inactiveFillColor: Color(0xff071a31),
+                  selectedFillColor: Color(0xff071a31),
+                  activeColor: Color(0xff536674),
+                  inactiveColor: Color(0xff536674),
+                  selectedColor: Color(0xff536674),
+                  inactiveBorderWidth: 0.5,
+                  activeBorderWidth: 1,
                 ),
                 textStyle: const TextStyle(color: Colors.white, fontSize: 18),
                 enableActiveFill: true,
               ),
-              SizedBox(height: h * 0.02),
-              Text(
-                "Verifying Your OTP...",
-                style: TextStyle(color: Colors.white70),
+              SizedBox(height: Get.width / 40),
+              Row(
+                children: [
+                  const Text(
+                    "Verifying Your OTP...",
+                    style: TextStyle(color: Colors.white70),
+                  ),
+
+                ],
               ),
               const Spacer(),
+
               SizedBox(
-                width: double.infinity,
+                width: w,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0C4473),
-                    padding: const EdgeInsets.symmetric(vertical: 13),
+                    backgroundColor: const Color(0xff134369),
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    // Increased vertical padding for button
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: () {
-                    Get.back();
-                    Get.back();
-                  },
+                  onPressed: () {},
                   child: const Text(
                     "Continue",
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+
+                    style: TextStyle(
+                      fontSize: 16,
+                      letterSpacing: 1,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
+
               SizedBox(height: h * 0.015),
               Center(
                 child: Column(
@@ -121,6 +168,7 @@ class _NumberVerificationState extends State<NumberVerification> {
                   ],
                 ),
               ),
+              SizedBox(height: Get.width / 13),
             ],
           ),
         ),
