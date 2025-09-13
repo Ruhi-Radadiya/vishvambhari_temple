@@ -132,13 +132,12 @@ class _KundSelectionState extends State<KundSelection> {
                                     children: [
                                       Container(
                                         width: w * 0.06,
-                                        // diameter = 2 * radius
                                         height: w * 0.06,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
-                                            color: Colors.white, // border color
-                                            width: 1, // border thickness
+                                            color: Colors.white,
+                                            width: 1,
                                           ),
                                         ),
                                         child: CircleAvatar(
@@ -146,7 +145,6 @@ class _KundSelectionState extends State<KundSelection> {
                                           backgroundColor: Colors.green,
                                         ),
                                       ),
-
                                       SizedBox(width: w * 0.015),
                                       Text(
                                         "Available",
@@ -163,13 +161,12 @@ class _KundSelectionState extends State<KundSelection> {
                                     children: [
                                       Container(
                                         width: w * 0.06,
-                                        // diameter = 2 * radius
                                         height: w * 0.06,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
-                                            color: Colors.white, // border color
-                                            width: 1, // border thickness
+                                            color: Colors.white,
+                                            width: 1,
                                           ),
                                         ),
                                         child: CircleAvatar(
@@ -177,7 +174,6 @@ class _KundSelectionState extends State<KundSelection> {
                                           backgroundColor: Colors.red,
                                         ),
                                       ),
-
                                       SizedBox(width: w * 0.015),
                                       Text(
                                         "Booked",
@@ -365,10 +361,8 @@ class _KundSelectionState extends State<KundSelection> {
                                         children: List.generate(6, (rowIndex) {
                                           int leftGroup = rowIndex * 2 + 1;
                                           int rightGroup = leftGroup + 1;
-
                                           int leftStart = 7 + (rowIndex * 16);
                                           int rightStart = leftStart + 8;
-
                                           return Padding(
                                             padding: EdgeInsets.only(
                                               bottom: h * 0.03,
