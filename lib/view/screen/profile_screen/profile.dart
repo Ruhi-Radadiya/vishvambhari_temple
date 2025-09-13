@@ -181,7 +181,6 @@ class _ProfileState extends State<Profile> {
       decoration: BoxDecoration(
         color: const Color(0xFF0E2A47),
         borderRadius: BorderRadius.circular(40),
-
         border: Border.all(color: Colors.white24),
       ),
       child: InkWell(
