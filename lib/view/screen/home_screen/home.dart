@@ -200,10 +200,7 @@ class _HomeState extends State<Home> {
                                   gradient: LinearGradient(
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
-                                    colors: [
-                                      Colors.black,
-                                      Colors.transparent,
-                                    ],
+                                    colors: [Colors.black, Colors.transparent],
                                   ),
                                 ),
                               ),
@@ -211,7 +208,6 @@ class _HomeState extends State<Home> {
                           ),
                         );
                       },
-
                       options: CarouselOptions(
                         height: h * 0.22,
                         autoPlay: true,
@@ -227,7 +223,6 @@ class _HomeState extends State<Home> {
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: tabs.length,
-
                         itemBuilder: (context, index) {
                           final mappedIndex = index + 1;
                           final isSelected = selectedTab == mappedIndex;
