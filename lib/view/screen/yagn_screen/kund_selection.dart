@@ -393,7 +393,6 @@ class _KundSelectionState extends State<KundSelection> {
                                           );
                                         }),
                                       ),
-
                                       SizedBox(height: h * 0.03),
                                       Text(
                                         "Kund Position Selected !",
