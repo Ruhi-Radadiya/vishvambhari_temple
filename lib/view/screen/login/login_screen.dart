@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen>
                   RotationTransition(
                     turns: _controller,
                     child: Container(
-                      height: Get.width / 1.8,
+                      height: Get.width / 1.9,
                       child: Image.asset(
                         "assets/images/login.png",
                         fit: BoxFit.cover,
@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen>
                   ),
                   Image.asset(
                     "assets/images/home_images/logo.png",
-                    height: Get.width / 3.5,
+                    height: Get.width / 3.8,
                   ),
                 ],
               ),
@@ -252,31 +252,31 @@ class _LoginScreenState extends State<LoginScreen>
                   ),
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
-
-      bottomNavigationBar: Container(
-        color: Color(0xff000617),
-        child: Padding(
-          padding: EdgeInsets.only(bottom: Get.width / 18),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Don't have an account ? ",
-                style: TextStyle(color: Colors.white70),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed(Routes.registrationScreen);
-                },
-                child: const Text(
-                  "Register",
-                  style: TextStyle(
-                    color: Colors.orange,
-                    fontWeight: FontWeight.bold,
+              SizedBox(height: h * 0.06),
+              Container(
+                color: Color(0xff000617),
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: Get.width / 18),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Don't have an account ? ",
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.registrationScreen);
+                        },
+                        child: const Text(
+                          "Register",
+                          style: TextStyle(
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

@@ -27,8 +27,6 @@ class _StartScreenState extends State<StartScreen> {
               ),
             ),
           ),
-
-          // Black Gradient Overlay
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -41,8 +39,6 @@ class _StartScreenState extends State<StartScreen> {
               ),
             ),
           ),
-
-          // Content
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -102,12 +98,9 @@ class _StartScreenState extends State<StartScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Get.width / 20),
-
-                  // Continue as Guest Text
+                  SizedBox(height: Get.width / 15),
                   GestureDetector(
                     onTap: () {
-                      // Guest navigation
                       Get.toNamed(Routes.homePage);
                     },
                     child: RichText(
@@ -129,7 +122,7 @@ class _StartScreenState extends State<StartScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Get.width / 20),
+                  SizedBox(height: Get.width / 11),
                 ],
               ),
             ),
