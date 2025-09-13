@@ -66,7 +66,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

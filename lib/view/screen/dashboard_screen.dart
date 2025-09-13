@@ -30,7 +30,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       bottomNavigationBar: Obx(() {
         return SizedBox(
-          height: Get.width / 5,
+          height: Get.width / 3.3,
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: const Color(0xff0c2e49),

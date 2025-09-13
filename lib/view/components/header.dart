@@ -86,6 +86,7 @@ class _HeaderState extends State<Header> {
                 ),
               ),
             ),
+<<<<<<< HEAD
             GestureDetector(
               onTap: () {
                 Get.toNamed(Routes.notificationScreen);
@@ -93,6 +94,33 @@ class _HeaderState extends State<Header> {
               child: Image(
                 image: AssetImage("assets/Icon/hader_1.png"),
                 width: Get.width / 22,
+=======
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextField(
+                cursorColor: Colors.white,
+                decoration: InputDecoration(
+                  hintText: "Search here...",
+                  hintStyle: TextStyle(color: Colors.white24, fontSize: 13),
+                  prefixIcon: const Icon(
+                    Icons.search_rounded,
+                    color: Colors.white24,
+                  ),
+                  filled: true,
+                  fillColor: Color(0xff0A2538),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 15,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                style: const TextStyle(color: Colors.white),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
               ),
             ),
           ],

@@ -90,14 +90,27 @@ class _LoginScreenState extends State<LoginScreen>
                 children: [
                   RotationTransition(
                     turns: _controller,
+<<<<<<< HEAD
                     child: Image.asset(
                       "assets/images/login.png",
                       fit: BoxFit.cover,
+=======
+                    child: Container(
+                      height: Get.width / 1.9,
+                      child: Image.asset(
+                        "assets/images/login.png",
+                        fit: BoxFit.cover,
+                      ),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                     ),
                   ),
                   Image.asset(
                     "assets/images/home_images/logo.png",
+<<<<<<< HEAD
                     height: Get.width / 2.5,
+=======
+                    height: Get.width / 3.8,
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                   ),
                 ],
               ),
@@ -219,6 +232,7 @@ class _LoginScreenState extends State<LoginScreen>
                   ),
                 ),
               ),
+<<<<<<< HEAD
             ],
           ),
         ),
@@ -247,6 +261,33 @@ class _LoginScreenState extends State<LoginScreen>
                   style: TextStyle(
                     color: Colors.orange,
                     fontWeight: FontWeight.bold,
+=======
+              SizedBox(height: h * 0.06),
+              Container(
+                color: Color(0xff000617),
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: Get.width / 18),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Don't have an account ? ",
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.registrationScreen);
+                        },
+                        child: const Text(
+                          "Register",
+                          style: TextStyle(
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                   ),
                 ),
               ),

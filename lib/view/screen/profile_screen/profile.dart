@@ -18,7 +18,6 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
@@ -117,6 +116,7 @@ class _ProfileState extends State<Profile> {
                         ),
                       ],
                     ),
+<<<<<<< HEAD
                   ),
                   buildProfileTile(
                     image: "assets/Icon/profileIcon/pro_2.png",
@@ -130,6 +130,59 @@ class _ProfileState extends State<Profile> {
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 16,
+=======
+                    const SizedBox(height: 20),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 20,
+                      ),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF0E2A47),
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.white24),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Dipesh Vasoya",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  "dipeshvasoya01@gmail.com",
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            padding: const EdgeInsets.all(6),
+                            child: Image.asset(
+                              "assets/Icon/profileIcon/pro_1.png",
+                              height: Get.width / 32,
+                            ),
+                          ),
+                        ],
+                      ),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                     ),
                     onTap: () {
                       Get.toNamed(Routes.changeMobileNumber);
@@ -143,6 +196,7 @@ class _ProfileState extends State<Profile> {
                       color: Colors.white,
                       size: 16,
                     ),
+<<<<<<< HEAD
                     onTap: () {
                       showLogoutDialog(context);
                     },
@@ -159,6 +213,20 @@ class _ProfileState extends State<Profile> {
                         color: Colors.red,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
+=======
+                    const SizedBox(height: 30),
+                    GestureDetector(
+                      onTap: () {
+                        showDeleteAccountDialog(context);
+                      },
+                      child: const Text(
+                        "Delete Account",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                       ),
                     ),
                   ),
@@ -187,8 +255,12 @@ class _ProfileState extends State<Profile> {
       decoration: BoxDecoration(
         color: const Color(0xff05172C),
         borderRadius: BorderRadius.circular(40),
+<<<<<<< HEAD
 
         border: Border.all(color: Color(0xff536674)),
+=======
+        border: Border.all(color: Colors.white24),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
       ),
       child: InkWell(
         onTap: onTap,
@@ -224,9 +296,19 @@ class _ProfileState extends State<Profile> {
       builder: (context) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
+<<<<<<< HEAD
           backgroundColor: const Color(0xff0A2538),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+=======
+          backgroundColor: const Color(0xff071e30),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: Image.asset(
+            "assets/Icon/profileIcon/Logout Icon.png",
+            height: Get.width / 4,
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
           ),
           title: Padding(
             padding: EdgeInsets.all(Get.width / 20),
@@ -300,6 +382,7 @@ class _ProfileState extends State<Profile> {
       builder: (context) => BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
+<<<<<<< HEAD
           backgroundColor: const Color(0xff0A2538),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -313,13 +396,25 @@ class _ProfileState extends State<Profile> {
           ),
           content: Text(
             "are you sure want to\n Delete Account ?",
+=======
+          backgroundColor: const Color(0xff071e30),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: Image.asset(
+            "assets/Icon/download/Delete Icon.png",
+            height: Get.width / 3,
+          ),
+          actionsAlignment: MainAxisAlignment.spaceEvenly,
+          content: const Text(
+            "are you sure want to Delete Account ?",
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
-          actionsAlignment: MainAxisAlignment.spaceEvenly,
           actions: [
             Column(
               children: [
@@ -327,7 +422,11 @@ class _ProfileState extends State<Profile> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xff134369),
                     shape: RoundedRectangleBorder(
+<<<<<<< HEAD
                       borderRadius: BorderRadius.circular(30),
+=======
+                      borderRadius: BorderRadius.circular(20),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                     ),
                     padding: EdgeInsets.symmetric(
                       horizontal: Get.width / 12,
@@ -347,8 +446,13 @@ class _ProfileState extends State<Profile> {
                       horizontal: Get.width / 12,
                       vertical: Get.width / 30,
                     ),
+<<<<<<< HEAD
                     foregroundColor: Color(0xff142E40),
                     side: BorderSide(color: Color(0xff536674), width: 0.5),
+=======
+                    foregroundColor: Color(0xff142e40),
+                    side: const BorderSide(color: Colors.white),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),

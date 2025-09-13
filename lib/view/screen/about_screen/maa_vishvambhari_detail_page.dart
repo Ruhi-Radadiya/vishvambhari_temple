@@ -39,10 +39,24 @@ class MaaVishvambhariDetailPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: Color(0xff536674)),
                       ),
+<<<<<<< HEAD
                       child: Icon(
                         CupertinoIcons.back,
                         color: Colors.white,
                         size: Get.width / 18,
+=======
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {
+                          FocusScope.of(context).unfocus();
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: w * 0.08,
+                        ),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                       ),
                     ),
                   ),

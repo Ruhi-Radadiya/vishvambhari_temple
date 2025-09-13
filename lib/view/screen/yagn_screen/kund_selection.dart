@@ -78,6 +78,7 @@ class _KundSelectionState extends State<KundSelection> {
                   topRight: Radius.circular(45),
                 ),
               ),
+<<<<<<< HEAD
               padding: EdgeInsets.only(top: Get.width / 30),
               child: Padding(
                 padding: EdgeInsets.all(Get.width / 30),
@@ -92,6 +93,279 @@ class _KundSelectionState extends State<KundSelection> {
                           color: const Color(0xff09243A),
                           borderRadius: BorderRadius.circular(w * 0.06),
                           border: Border.all(color: Color(0xff536674)),
+=======
+              Container(
+                height: h * 2.7,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xff071e30), Color(0xff000617)],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(w * 0.12),
+                    topRight: Radius.circular(w * 0.12),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(Get.width / 30),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          width: w,
+                          padding: EdgeInsets.all(w * 0.04),
+                          decoration: BoxDecoration(
+                            color: const Color(0xff051c37),
+                            borderRadius: BorderRadius.circular(w * 0.06),
+                            border: Border.all(color: Colors.white24),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "How to Select a Kund",
+                                style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: w * 0.045,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              SizedBox(height: h * 0.015),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "Step 1: ",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: w * 0.035,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          "Click on available (green) kund positions below",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.035,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: h * 0.008),
+                              Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "Step 2: ",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: w * 0.035,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          "Your selection will be confirmed and you can proceed to payment",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.035,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: h * 0.02),
+                              Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: w * 0.06,
+                                        height: w * 0.06,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.white,
+                                            width: 1,
+                                          ),
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: w * 0.03,
+                                          backgroundColor: Colors.green,
+                                        ),
+                                      ),
+                                      SizedBox(width: w * 0.015),
+                                      Text(
+                                        "Available",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: w * 0.045,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                      SizedBox(width: w * 0.08),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: w * 0.06,
+                                        height: w * 0.06,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.white,
+                                            width: 1,
+                                          ),
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: w * 0.03,
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      ),
+                                      SizedBox(width: w * 0.015),
+                                      Text(
+                                        "Booked",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: w * 0.045,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: h * 0.025),
+                              Row(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.lightbulb_fill,
+                                    color: Colors.orange,
+                                    size: w * 0.05,
+                                  ),
+                                  SizedBox(width: w * 0.015),
+                                  Text(
+                                    "Selection Rules",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: w * 0.038,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: h * 0.015),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: w * 0.03,
+                                      vertical: h * 0.005,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange.withAlpha(60),
+                                      borderRadius: BorderRadius.circular(
+                                        w * 0.05,
+                                      ),
+                                      border: Border.all(color: Colors.orange),
+                                    ),
+                                    child: Text(
+                                      "Single",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: w * 0.025),
+                                  Expanded(
+                                    child: Text(
+                                      "- Select any 1 position",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: h * 0.008),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: w * 0.03,
+                                      vertical: h * 0.005,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange.withAlpha(60),
+                                      borderRadius: BorderRadius.circular(
+                                        w * 0.05,
+                                      ),
+                                      border: Border.all(color: Colors.orange),
+                                    ),
+                                    child: Text(
+                                      "Couple",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: w * 0.025),
+                                  Expanded(
+                                    child: Text(
+                                      "- Automatically selects 2 consecutive positions in same",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: h * 0.008),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: w * 0.03,
+                                      vertical: h * 0.005,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange.withAlpha(60),
+                                      borderRadius: BorderRadius.circular(
+                                        w * 0.05,
+                                      ),
+                                      border: Border.all(color: Colors.orange),
+                                    ),
+                                    child: Text(
+                                      "Family",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: w * 0.025),
+                                  Expanded(
+                                    child: Text(
+                                      "- Can select any available positions across groups",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: w * 0.032,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -397,10 +671,8 @@ class _KundSelectionState extends State<KundSelection> {
                                         children: List.generate(6, (rowIndex) {
                                           int leftGroup = rowIndex * 2 + 1;
                                           int rightGroup = leftGroup + 1;
-
                                           int leftStart = 7 + (rowIndex * 16);
                                           int rightStart = leftStart + 8;
-
                                           return Padding(
                                             padding: EdgeInsets.only(
                                               bottom: h * 0.03,
@@ -425,6 +697,52 @@ class _KundSelectionState extends State<KundSelection> {
                                           );
                                         }),
                                       ),
+<<<<<<< HEAD
+=======
+                                      SizedBox(height: h * 0.03),
+                                      Text(
+                                        "Kund Position Selected !",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: w * 0.035,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.01),
+                                      Text(
+                                        "Please select Yagn Type to see the total Amount",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: w * 0.035,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      SizedBox(height: h * 0.02),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color(
+                                            0xff134369,
+                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: w * 0.15,
+                                            vertical: h * 0.025,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              w * 0.07,
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Submit Registration",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: w * 0.038,
+                                          ),
+                                        ),
+                                      ),
+>>>>>>> 2e8dc3532c920d9d35c2ac4d908102a0916267e2
                                     ],
                                   ),
                                 ),
