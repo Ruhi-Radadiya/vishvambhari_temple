@@ -58,6 +58,7 @@ class MaaVishvambhariDetailPage extends StatelessWidget {
                       child: IconButton(
                         padding: EdgeInsets.zero,
                         onPressed: () {
+                          FocusScope.of(context).unfocus();
                           Navigator.pop(context);
                         },
                         icon: Icon(

@@ -53,6 +53,7 @@ class _HeaderState extends State<Header> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: TextField(
+                cursorColor: Colors.white,
                 decoration: InputDecoration(
                   hintText: "Search here...",
                   hintStyle: TextStyle(color: Colors.white24, fontSize: 13),
