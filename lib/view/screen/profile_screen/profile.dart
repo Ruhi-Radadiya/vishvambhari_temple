@@ -17,7 +17,6 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: const Color(0xff020C15),
@@ -145,7 +144,6 @@ class _ProfileState extends State<Profile> {
                         showLogoutDialog(context);
                       },
                     ),
-
                     const SizedBox(height: 30),
                     GestureDetector(
                       onTap: () {
