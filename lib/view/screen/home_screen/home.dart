@@ -424,7 +424,6 @@ class _HomeState extends State<Home> {
             ],
           ),
         );
-
       case 1:
         return GridView.builder(
           padding: const EdgeInsets.only(top: 15),
