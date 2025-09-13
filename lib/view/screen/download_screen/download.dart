@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -169,14 +168,11 @@ class _DownloadState extends State<Download> {
                                       sigmaX: 6,
                                       sigmaY: 6,
                                     ),
-
                                     child: AlertDialog(
                                       backgroundColor: Color(0xff0a2538),
-
                                       content: Text(
                                         "are you sure you want to\ndelete this List ?",
                                         textAlign: TextAlign.center,
-
                                         style: TextStyle(
                                           fontSize: 16,
                                           color: Colors.white,
@@ -189,7 +185,6 @@ class _DownloadState extends State<Download> {
                                       ),
                                       actionsAlignment:
                                           MainAxisAlignment.spaceEvenly,
-
                                       actions: [
                                         Column(
                                           children: [

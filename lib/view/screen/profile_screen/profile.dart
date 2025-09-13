@@ -74,9 +74,7 @@ class _ProfileState extends State<Profile> {
                       decoration: BoxDecoration(
                         color: const Color(0xFF0E2A47),
                         borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          color: Colors.white24,
-                        ),
+                        border: Border.all(color: Colors.white24),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,7 +108,7 @@ class _ProfileState extends State<Profile> {
                               shape: BoxShape.circle,
                             ),
                             padding: const EdgeInsets.all(6),
-                            child:Image.asset(
+                            child: Image.asset(
                               "assets/Icon/profileIcon/pro_1.png",
                               height: Get.width / 32,
                             ),
@@ -186,9 +184,7 @@ class _ProfileState extends State<Profile> {
         color: const Color(0xFF0E2A47),
         borderRadius: BorderRadius.circular(40),
 
-        border: Border.all(
-          color: Colors.white24,
-        ),
+        border: Border.all(color: Colors.white24),
       ),
       child: InkWell(
         onTap: onTap,
@@ -224,7 +220,9 @@ class _ProfileState extends State<Profile> {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
           backgroundColor: const Color(0xff071e30),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           title: Image.asset(
             "assets/Icon/profileIcon/Logout Icon.png",
             height: Get.width / 4,
@@ -291,51 +289,61 @@ class _ProfileState extends State<Profile> {
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: AlertDialog(
           backgroundColor: const Color(0xff071e30),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          title: const Icon(Icons.phone_android, size: 50, color: Colors.white),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: Image.asset(
+            "assets/Icon/download/Delete Icon.png",
+            height: Get.width / 3,
+          ),
+          actionsAlignment: MainAxisAlignment.spaceEvenly,
           content: const Text(
             "are you sure want to Delete Account ?",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white),
           ),
-          actionsAlignment: MainAxisAlignment.spaceEvenly,
           actions: [
-            SizedBox(
-              width: 160, // smaller width
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff134369),
-                  shape: const StadiumBorder(), // pill shape
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                ),
-                onPressed: () {
-                  // delete logic
-                },
-                child: const Text(
-                  "Yes, Delete",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            SizedBox(
-              width: 160,
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(
-                    color: Color(0xff536674),
-                    width: 0.5,
+            Column(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xff134369),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Get.width / 12,
+                      vertical: Get.width / 30,
+                    ),
                   ),
-                  shape: const StadiumBorder(), // pill shape
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  backgroundColor: Color(0xff142E40),
+                  onPressed: () {},
+                  child: Text(
+                    "Yes , Delete",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                onPressed: () => Navigator.pop(context),
-                child: const Text(
-                  "No, Please",
-                  style: TextStyle(color: Colors.white),
+                SizedBox(height: Get.width / 40),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Get.width / 12,
+                      vertical: Get.width / 30,
+                    ),
+                    foregroundColor: Color(0xff142e40),
+                    side: const BorderSide(color: Colors.white),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "No , Please",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
